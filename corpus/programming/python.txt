@@ -1,0 +1,29 @@
+Python is a general-purpose programming language known for its readable syntax.
+
+Python programs are composed of statements and expressions.
+
+A variable can be used to store a value.
+
+A function is a reusable section of code that performs a specific operation.
+
+Functions can receive arguments and return values.
+
+A list stores an ordered collection of values.
+
+A dictionary stores key-value pairs.
+
+A loop allows a program to repeat an operation.
+
+A conditional statement allows a program to execute different code depending on a condition.
+
+Python is widely used for automation, web development, data analysis, artificial intelligence, and testing.
+
+Libraries extend the functionality available to Python programs.
+
+PyTorch is a machine learning framework that provides tensors and neural network components.
+
+A tensor is a multidimensional numerical data structure.
+
+Neural networks can be implemented using modules provided by PyTorch.
+
+Python is also commonly used for test automation because it has many libraries for interacting with browsers, APIs, databases, and other systems.

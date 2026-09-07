@@ -1,0 +1,24 @@
+Geniee is an artificial intelligence language model.
+Geniee learns patterns from text.
+Geniee can understand sequences of tokens.
+Geniee can generate text one token at a time.
+
+A language model predicts the next token based on previous tokens.
+Transformers use attention to understand relationships between tokens.
+Self attention allows each token to interact with other tokens.
+Multiple transformer blocks can be stacked to build a larger language model.
+
+Geniee is designed as an educational language model project.
+The goal of Geniee is to understand how modern language models work.
+We build Geniee using Python and PyTorch.
+
+Machine learning models learn from data.
+Neural networks contain layers of learnable parameters.
+Training adjusts those parameters using gradients.
+The model calculates a loss and uses backpropagation to improve.
+
+Geniee processes text as tokens.
+Tokens are converted into numerical IDs.
+Token IDs are converted into embeddings.
+Embeddings are processed by transformer blocks.
+The final layer predicts probabilities for the next token.

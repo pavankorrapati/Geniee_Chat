@@ -1,0 +1,25 @@
+Software testing is the process of checking whether a software system behaves according to its requirements.
+
+A test case describes a specific scenario that should be verified.
+
+Functional testing checks whether software functions correctly.
+
+Regression testing checks whether previously working functionality remains correct after changes.
+
+Automation testing uses software to execute test cases automatically.
+
+A browser automation test can navigate to a web page, enter data, click controls, and verify the resulting page.
+
+Assertions are used to compare the actual result with the expected result.
+
+A good automated test should be readable, maintainable, and reliable.
+
+Test data should be controlled so that test results are reproducible.
+
+API testing verifies communication between software components.
+
+An API request commonly contains a method, URL, headers, and sometimes a request body.
+
+An API response commonly contains a status code, headers, and response data.
+
+Automated testing can reduce repetitive manual work and provide rapid feedback during software development.

@@ -1,0 +1,69 @@
+A test case is a documented scenario used to verify a particular behavior of a software system.
+
+A good test case describes the purpose of the test, required preconditions, input data, actions, and expected results.
+
+Test cases should be specific enough that another tester can understand what behavior is being verified.
+
+A typical test case may contain a test case identifier, title, priority, preconditions, test steps, expected results, actual results, and execution status.
+
+The title should clearly describe the behavior under test. A title such as "Verify successful login with valid credentials" is more useful than a title such as "Login test".
+
+Preconditions describe the state that must exist before the test begins. For example, a user may need to have an active account before a login test can be executed.
+
+Test steps describe the actions performed by the tester or automation framework.
+
+Expected results describe what should happen after the actions are completed.
+
+Actual results describe what actually happened during execution.
+
+A test passes when the observed behavior matches the expected behavior.
+
+A test fails when the observed behavior differs from the expected behavior.
+
+Positive test cases verify valid inputs and expected successful behavior.
+
+Negative test cases verify how the application behaves when invalid, unexpected, missing, or unauthorized input is provided.
+
+Boundary value analysis focuses on values at the edges of an accepted range. If a field accepts values from 1 to 100, useful boundary tests include 0, 1, 2, 99, 100, and 101.
+
+Equivalence partitioning divides possible inputs into groups that are expected to behave similarly. Testing representative values from each group can reduce unnecessary test cases.
+
+A required field should be tested with a valid value, an empty value, whitespace, invalid formatting, and values near any defined length limits.
+
+A login feature should be tested with valid credentials, invalid passwords, unknown users, empty fields, invalid email formats, locked accounts, and session expiration.
+
+A form should be tested for required fields, optional fields, valid formats, invalid formats, maximum lengths, minimum lengths, special characters, and duplicate data.
+
+Test priority indicates how important a test is. Critical tests normally cover important business workflows or high-risk functionality.
+
+Test severity describes the impact of a defect. Severity and priority are related but represent different concepts.
+
+Smoke tests usually contain a small number of high-value tests that determine whether the application is stable enough for deeper testing.
+
+Sanity testing focuses on a limited area after a change to determine whether the modified functionality behaves as expected.
+
+Regression testing checks existing functionality after changes have been introduced.
+
+Integration testing verifies interactions between multiple components.
+
+End-to-end testing verifies complete business workflows across the system.
+
+A test suite groups related test cases. Test suites can be organized by feature, application module, user role, risk, or release.
+
+Test cases should avoid unnecessary dependence on other test cases. Independent tests are easier to execute, retry, and automate.
+
+Test data should be representative of realistic scenarios while avoiding unnecessary exposure of sensitive information.
+
+When a test fails, the failure should contain enough information to reproduce the problem.
+
+Automation candidates should be selected based on repeatability, frequency, stability, business value, and maintenance cost.
+
+Manual exploratory testing can complement automated test cases by allowing testers to investigate unexpected behavior.
+
+A requirement should ideally be traceable to one or more test cases. Traceability helps determine whether important requirements have been verified.
+
+A test case should be reviewed when the corresponding application behavior changes.
+
+Well-designed test cases focus on behavior and expected outcomes rather than implementation details unless the implementation itself is being tested.
+
+A strong test strategy combines positive scenarios, negative scenarios, boundary cases, error handling, security considerations, integration scenarios, and end-to-end workflows.

@@ -1,0 +1,126 @@
+User: Write a simple Python function that adds two numbers.
+
+Assistant: 
+def add_numbers(a, b):
+    return a + b
+
+The function accepts two numbers and returns their sum.
+
+User: How do I create a Python list?
+
+Assistant:
+numbers = [1, 2, 3, 4, 5]
+
+A Python list stores multiple values in a single collection. Lists are ordered and can contain different types of objects.
+
+User: How do I loop through a list in Python?
+
+Assistant:
+numbers = [1, 2, 3, 4, 5]
+
+for number in numbers:
+    print(number)
+
+The for loop processes each item in the list one at a time.
+
+User: How do I define a Python class?
+
+Assistant:
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        return f"Hello, {self.name}"
+
+The class contains an initializer and a method. The self parameter refers to the current object.
+
+User: How do I handle an exception in Python?
+
+Assistant:
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+The try block contains code that may raise an exception. The except block handles the expected exception.
+
+User: What is an API?
+
+Assistant: An API, or Application Programming Interface, defines how software components communicate with each other. A web API commonly receives HTTP requests and returns responses, often using JSON.
+
+User: What are HTTP GET and POST requests?
+
+Assistant: GET is commonly used to retrieve information from a server. POST is commonly used to send data to a server to create or process a resource. The exact behavior depends on the API design.
+
+User: Write a Python API request using requests.
+
+Assistant:
+import requests
+
+response = requests.get("https://example.com/api/users")
+
+print(response.status_code)
+print(response.json())
+
+The requests library can send HTTP requests from Python and process the returned response.
+
+User: What is JSON?
+
+Assistant: JSON is a text-based data format commonly used to exchange structured information between systems. It represents objects, arrays, strings, numbers, booleans, and null values.
+
+User: What is Selenium?
+
+Assistant: Selenium is a browser automation framework that allows automated tests and programs to interact with web browsers. It supports browser navigation, element interaction, assertions through test frameworks, and cross-browser automation.
+
+User: What is Playwright?
+
+Assistant: Playwright is a browser automation framework that supports Chromium, Firefox, and WebKit. It provides browser contexts, pages, locators, automatic waiting, network interception, screenshots, tracing, and test automation features.
+
+User: How do I launch a browser using Playwright Python?
+
+Assistant:
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page()
+    page.goto("https://example.com")
+    print(page.title())
+    browser.close()
+
+This example launches Chromium, creates a page, navigates to a URL, prints the page title, and closes the browser.
+
+User: How do I locate an element using a role in Playwright?
+
+Assistant:
+page.get_by_role("button", name="Sign In").click()
+
+Role-based locators use the accessible role and name of an element. They are often more resilient than selectors that depend heavily on CSS implementation details.
+
+User: How do I enter text into an input using Playwright?
+
+Assistant:
+page.get_by_placeholder("Enter Email").fill("user@example.com")
+
+The fill method clears the existing value and enters the supplied text.
+
+User: How do I create a pytest test?
+
+Assistant:
+def test_addition():
+    assert 2 + 2 == 4
+
+Pytest discovers functions whose names begin with test_ and uses assert statements to verify expected behavior.
+
+User: What is a pytest fixture?
+
+Assistant: A pytest fixture provides reusable setup and test data. Fixtures can create resources before tests and perform cleanup afterward.
+
+User: Why should I avoid hard-coded sleeps in browser automation?
+
+Assistant: Hard-coded sleeps wait for a fixed amount of time regardless of whether the page is ready. They can make tests slow or flaky. Explicit waits, locator-based waiting, and framework auto-waiting are generally more reliable.
+
+User: What is the Page Object Model?
+
+Assistant: The Page Object Model is a test automation design pattern in which page-specific locators and actions are organized into reusable classes. This reduces duplication and makes tests easier to maintain when the UI changes.

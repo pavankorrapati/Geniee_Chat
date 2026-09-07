@@ -1,0 +1,39 @@
+Machine learning is a branch of artificial intelligence in which a computer system learns patterns from data and uses those patterns to make predictions, classifications, or decisions.
+
+A machine learning system usually contains data, a learning algorithm, model parameters, and an objective function. During training, the model processes examples and adjusts its parameters so that its predictions become closer to the expected results.
+
+Supervised learning uses labeled examples. Each training example contains an input and a corresponding target. Classification is a supervised learning problem in which the target represents a category. For example, an email classifier may predict whether a message is spam or not spam.
+
+Regression is another supervised learning problem. Instead of predicting a category, a regression model predicts a numerical value. Predicting house prices, temperature, or sales revenue are examples of regression problems.
+
+Unsupervised learning works with data that does not have explicit target labels. Clustering is a common unsupervised learning technique. A clustering algorithm groups examples according to similarities in their features.
+
+Semi-supervised learning combines labeled and unlabeled data. This approach can be useful when obtaining labeled examples is expensive but a large amount of unlabeled data is available.
+
+Reinforcement learning is based on interaction between an agent and an environment. The agent takes actions, receives rewards or penalties, and learns a strategy that attempts to maximize long-term reward.
+
+Training and evaluation are separate parts of machine learning. A model should normally be evaluated on data that was not used for learning. This helps determine whether the model has learned useful patterns instead of simply memorizing its training examples.
+
+Overfitting occurs when a model performs very well on training data but poorly on new data. A model that memorizes individual examples may have low training error while having high validation or test error.
+
+Underfitting occurs when a model is too simple or has not learned enough from the training data. Both underfitting and overfitting are important considerations when designing a machine learning system.
+
+A training dataset is commonly divided into training, validation, and test sets. The training set is used to optimize model parameters. The validation set can be used to compare configurations and monitor generalization. The test set is normally reserved for final evaluation.
+
+Features are representations of information used by traditional machine learning algorithms. Feature engineering involves selecting or transforming useful information before training a model.
+
+A model parameter is a value learned during training. A hyperparameter is a configuration selected outside the normal parameter-learning process. Examples of hyperparameters include learning rate, batch size, number of layers, and regularization strength.
+
+The learning rate controls how strongly model parameters are changed during optimization. A learning rate that is too large can make training unstable, while a learning rate that is too small can make training extremely slow.
+
+Gradient descent is a common optimization method. It calculates how the objective function changes with respect to model parameters and updates those parameters in a direction that reduces the loss.
+
+The loss function measures how different a model's predictions are from the desired targets. Different machine learning tasks can use different loss functions.
+
+Accuracy measures the percentage of predictions that are correct. Precision measures how many predicted positive examples are actually positive. Recall measures how many actual positive examples were successfully identified.
+
+Machine learning quality depends on more than model architecture. Data quality, data diversity, preprocessing, optimization, evaluation, and deployment conditions all affect the final system.
+
+A useful machine learning model should generalize beyond the examples seen during training. Generalization is therefore one of the central goals of machine learning.
+
+For language models, training data consists of sequences of tokens. The model learns statistical relationships between tokens and attempts to predict the next token in a sequence.

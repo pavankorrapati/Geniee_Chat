@@ -1,0 +1,25 @@
+Artificial intelligence is a field of computer science concerned with creating systems that can perform tasks that normally require aspects of human intelligence.
+
+AI systems can process information, recognize patterns, generate language, classify objects, recommend content, and control automated systems.
+
+Machine learning is a branch of artificial intelligence in which a model learns patterns from data.
+
+A machine learning model receives information and produces predictions. During training, the model parameters are adjusted so that its predictions become more accurate.
+
+Deep learning uses neural networks containing multiple computational layers.
+
+Neural networks contain parameters that are adjusted during training. These parameters allow the network to represent complex patterns.
+
+Training a neural network requires data, a loss function, an optimization algorithm, and computational resources.
+
+A language model is a neural network trained to model sequences of language.
+
+A language model can estimate the probability of the next token given the tokens that came before it.
+
+Large language models are trained on large collections of text and contain many learned parameters.
+
+A language model does not automatically become a reliable assistant simply because it can generate fluent text. Useful conversational behavior requires appropriate training data and evaluation.
+
+Data quality is extremely important when training machine learning models. Repetitive, incorrect, or poorly structured data can reduce model quality.
+
+Evaluation helps determine whether a model behaves as expected on examples that were not used during training.

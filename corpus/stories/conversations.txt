@@ -1,0 +1,31 @@
+Maya: What are you working on today?
+
+Arun: I am building a small language model.
+
+Maya: What does the model learn?
+
+Arun: It learns patterns in sequences of tokens and tries to predict the next token.
+
+Maya: Does that mean it understands everything?
+
+Arun: No. Predicting the next token is different from having reliable understanding.
+
+Maya: Then how can it become a chatbot?
+
+Arun: A base language model can later be trained with instruction and conversation data.
+
+Maya: What are you testing first?
+
+Arun: I am checking the tokenizer, dataset, model, training loop, and text generation separately.
+
+Maya: That sounds useful.
+
+Arun: Yes. Debugging each component separately makes it easier to understand where a problem comes from.
+
+Maya: What happens if the generated text is irrelevant?
+
+Arun: I would inspect the training data, tokenization, training loss, checkpoint, and generation settings before changing everything.
+
+Maya: That is a good approach.
+
+Arun: Building a language model is easier when each stage is measured and tested instead of being treated as one large system.

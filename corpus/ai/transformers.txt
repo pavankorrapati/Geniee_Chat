@@ -1,0 +1,31 @@
+The Transformer is a neural network architecture commonly used for processing sequences.
+
+Transformers use attention mechanisms to determine relationships between tokens.
+
+Self attention allows each token to interact with other tokens in the sequence.
+
+For example, when processing a sentence, attention can help a model determine which earlier words are relevant to the current token.
+
+A Transformer block commonly contains a self attention layer and a feed forward network.
+
+Residual connections help information flow through deep Transformer networks.
+
+Layer normalization helps stabilize the values flowing through the network.
+
+A feed forward network transforms the representation of each token after the attention operation.
+
+Multiple Transformer blocks can be stacked to create a deeper model.
+
+Token embeddings convert token IDs into numerical vectors that can be processed by a neural network.
+
+Positional information allows the model to distinguish between different positions in a sequence.
+
+During language-model training, the model receives a sequence of tokens and attempts to predict the next token.
+
+The predicted probabilities are compared with the expected token using a loss function.
+
+Backpropagation calculates gradients that indicate how model parameters should change.
+
+An optimizer uses these gradients to update the model parameters.
+
+Training is repeated over many batches until the model learns useful patterns from the data.

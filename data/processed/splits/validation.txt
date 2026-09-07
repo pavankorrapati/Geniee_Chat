@@ -1,0 +1,113 @@
+Playwright supports network interception and request monitoring.
+
+The model uses a maximum context length of 128 tokens in the current experimental configuration.
+
+batch_size x sequence_length x vocabulary_size
+
+Common Selenium operations include get, click, send_keys, clear, and find_element.
+
+Good test data should be deterministic, isolated, realistic when required, and easy to maintain.
+
+For next-token prediction, the target sequence is shifted relative to the input.
+
+Python can read and write files.
+
+============================================================
+TOPIC: SOFTWARE AUTOMATION ARCHITECTURE
+============================================================
+
+============================================================
+TOPIC: GIT
+============================================================
+
+Configuration files contain environment-specific settings.
+
+Testing should be repeatable, traceable, and measurable.
+
+For cross-entropy loss L, perplexity can be represented as:
+
+JSON is commonly used for API request and response bodies.
+
+============================================================
+TOPIC: PLAYWRIGHT
+============================================================
+
+A low severity defect usually has limited impact.
+
+An HTTP response contains a status code, headers, and response body.
+
+If the defect still exists, the tester may reopen the defect.
+
+Common headers include Content-Type, Accept, Authorization, User-Agent, and Cookie.
+
+Large input values can be used to test field length limits and application stability.
+
+try:
+    result = 10 / value
+except ZeroDivisionError:
+    result = 0
+
+Good software should be readable, testable, maintainable, reusable, and reliable.
+
+HTML defines the structure of a web page.
+
+PUT is commonly used to replace or update a resource.
+
+Continuous integration automatically builds and tests software changes. Continuous delivery and continuous deployment automate the process of preparing and releasing software.
+
+Equivalence partitioning divides input data into groups that are expected to behave similarly.
+
+<input
+    type="email"
+    name="email"
+    id="email"
+    placeholder="Enter Email"
+>
+
+The expected result describes what should happen when a test is executed.
+
+The page.goto method navigates to a URL.
+
+A sibling is an element that shares the same parent.
+
+tests
+pages
+services
+clients
+utils
+config
+data
+reports
+
+def test_addition():
+    assert 2 + 3 == 5
+
+on
+
+Positional information allows the model to distinguish the order of tokens.
+
+For example:
+
+A software development lifecycle commonly includes requirements analysis, design, implementation, testing, deployment, and maintenance.
+
+Modular software divides a large system into smaller components. Each component should have a clear responsibility and well-defined interfaces.
+
+A 200 response generally indicates a successful request.
+
+============================================================
+TOPIC: SELENIUM
+============================================================
+
+API tests can validate JSON response bodies.
+
+A 400 response indicates that the server could not process the request because of invalid input or syntax.
+
+A checkpoint can contain model parameters, optimizer state, epoch information, configuration, and validation metrics.
+
+Common HTTP status codes include:
+
+A checkpoint stores information required to resume or evaluate training.
+
+Geniee is a custom decoder-only Transformer language model.
+
+The root cause should be distinguished from symptoms.

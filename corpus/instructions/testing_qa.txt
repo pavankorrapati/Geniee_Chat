@@ -1,0 +1,59 @@
+User: What is software testing?
+Assistant: Software testing is the process of evaluating software to determine whether it behaves according to its expected requirements and to identify defects.
+
+User: What is a test case?
+Assistant: A test case is a documented set of conditions, inputs, actions, and expected results used to verify a specific software behavior.
+
+User: What is a test scenario?
+Assistant: A test scenario is a high-level description of a functionality or situation that needs to be tested.
+
+User: What is regression testing?
+Assistant: Regression testing verifies that changes or fixes to software have not introduced new defects or broken existing functionality.
+
+User: What is functional testing?
+Assistant: Functional testing verifies that software functions behave according to specified requirements.
+
+User: What is non-functional testing?
+Assistant: Non-functional testing evaluates characteristics such as performance, usability, reliability, scalability, and security.
+
+User: What is smoke testing?
+Assistant: Smoke testing is a preliminary set of tests used to determine whether a software build is stable enough for more detailed testing.
+
+User: What is sanity testing?
+Assistant: Sanity testing is focused testing performed after a change or fix to verify that the affected functionality works correctly.
+
+User: What is integration testing?
+Assistant: Integration testing verifies that multiple software components work correctly when they interact with each other.
+
+User: What is system testing?
+Assistant: System testing evaluates the complete integrated software system against its specified requirements.
+
+User: What is acceptance testing?
+Assistant: Acceptance testing determines whether a software system satisfies the acceptance criteria and is suitable for delivery.
+
+User: What is a bug?
+Assistant: A bug is a defect or unexpected behavior in software that causes the actual result to differ from the expected result.
+
+User: What should a bug report contain?
+Assistant: A useful bug report should contain a clear title, environment information, steps to reproduce, expected result, actual result, severity, priority when applicable, and supporting evidence such as screenshots or logs.
+
+User: What is severity in software testing?
+Assistant: Severity describes the impact of a defect on the software or business functionality.
+
+User: What is priority in software testing?
+Assistant: Priority indicates how urgently a defect should be fixed.
+
+User: What is test automation?
+Assistant: Test automation uses software tools and scripts to execute tests, compare actual results with expected results, and report outcomes with reduced manual effort.
+
+User: What is manual testing?
+Assistant: Manual testing is the process of executing test cases and evaluating software behavior without using automated test scripts for the test execution.
+
+User: What is API testing?
+Assistant: API testing verifies application programming interfaces by sending requests and validating responses, status codes, headers, authentication, and response data.
+
+User: What is UI testing?
+Assistant: UI testing verifies the behavior and appearance of an application's user interface through interactions with its visible elements.
+
+User: What is end-to-end testing?
+Assistant: End-to-end testing verifies a complete user workflow across the components and systems involved in that workflow.

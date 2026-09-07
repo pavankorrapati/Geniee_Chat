@@ -1,0 +1,108 @@
+User: What is software testing?
+
+Assistant: Software testing is the process of evaluating software to determine whether it behaves as expected and to identify defects. Testing can be performed manually or automatically and can cover functionality, performance, security, usability, compatibility, and other quality attributes.
+
+User: What is a test case?
+
+Assistant: A test case is a documented set of conditions, inputs, steps, and expected results used to verify a specific software behavior. A test case commonly contains a title, preconditions, test data, execution steps, expected results, and priority.
+
+User: What is a test scenario?
+
+Assistant: A test scenario is a high-level description of functionality or behavior that should be tested. A scenario can be broken into multiple detailed test cases.
+
+User: What is regression testing?
+
+Assistant: Regression testing verifies that existing functionality continues to work after software changes. Changes may include new features, bug fixes, configuration changes, dependency updates, or infrastructure modifications.
+
+User: What is smoke testing?
+
+Assistant: Smoke testing is a small set of high-level tests used to determine whether a build is stable enough for more detailed testing. Smoke tests normally cover critical application functionality.
+
+User: What is sanity testing?
+
+Assistant: Sanity testing is focused testing performed after a small change or bug fix to verify that the affected functionality works and that the change did not introduce obvious related problems.
+
+User: What is the difference between severity and priority?
+
+Assistant: Severity describes the technical or business impact of a defect. Priority describes how urgently the defect should be addressed. A defect can have high severity but lower priority depending on business circumstances.
+
+User: What information should a good bug report contain?
+
+Assistant: A good bug report should contain a clear title, environment information, preconditions, reproducible steps, expected result, actual result, severity, priority when applicable, and supporting evidence such as screenshots, logs, API responses, or videos.
+
+User: How do I write a good bug title?
+
+Assistant: A good bug title briefly describes the problem, affected functionality, and important condition. It should be specific enough that another person can understand the defect without reading the complete description.
+
+User: How do I test a login page?
+
+Assistant: A login page should be tested with valid credentials, invalid credentials, empty fields, incorrect email formats, incorrect passwords, password visibility, account lockout behavior, session creation, error messages, keyboard navigation, browser compatibility, security controls, and relevant API behavior.
+
+User: What should I test for an email field?
+
+Assistant: Test the email field with valid email addresses, invalid formats, empty input, whitespace, maximum length, special characters, uppercase and lowercase values, duplicate values where relevant, and appropriate validation messages.
+
+User: What should I test for a password field?
+
+Assistant: Test valid and invalid passwords, empty input, minimum and maximum length, special characters, spaces, password masking, visibility controls, authentication errors, and security-related requirements.
+
+User: What is API testing?
+
+Assistant: API testing validates application programming interfaces directly by sending requests and checking responses. Tests commonly verify status codes, response bodies, headers, authentication, validation, error handling, response time, and data consistency.
+
+User: What should I verify in an API response?
+
+Assistant: Verify the HTTP status code, response structure, required fields, data types, values, headers, authentication behavior, error messages, response time, and consistency with the expected business rules.
+
+User: What is end-to-end testing?
+
+Assistant: End-to-end testing validates a complete business workflow across multiple components of a system. For example, an e-commerce test may create an account, log in, add an item to a cart, complete checkout, and verify the resulting order.
+
+User: What makes an automated test reliable?
+
+Assistant: Reliable automated tests use stable locators, deterministic test data, proper synchronization, isolated test state, meaningful assertions, controlled environments, clear cleanup, and useful logging. They should avoid unnecessary timing assumptions and excessive dependencies between tests.
+
+User: Why do automated tests become flaky?
+
+Assistant: Automated tests can become flaky because of unstable locators, race conditions, timing problems, shared test data, external dependencies, network instability, asynchronous application behavior, or incorrect test isolation.
+
+User: How should I debug a failed Playwright test?
+
+Assistant: Start by identifying the failing step and error message. Check the locator, page state, timing, network requests, console errors, and test data. Screenshots, traces, videos, logs, and browser inspection can provide additional evidence. Avoid immediately adding arbitrary sleeps without understanding the root cause.
+
+User: How should I design a Playwright automation framework?
+
+Assistant: A Playwright framework can separate tests, page objects, fixtures, configuration, test data, utilities, API clients, and reporting. Reusable components should contain common interactions while tests should focus on business behavior and assertions.
+
+User: When should a manual test be automated?
+
+Assistant: A test is a good automation candidate when it is repeated frequently, has stable expected behavior, requires many data combinations, is important for regression testing, or is time-consuming to execute manually. Highly exploratory or frequently changing tests may be less suitable for immediate automation.
+
+User: What is API and UI test separation?
+
+Assistant: API and UI tests should generally be organized separately because they validate different layers of the application. API tests are usually faster and focus on service behavior, while UI tests validate complete user interactions and presentation behavior.
+
+User: What is a test automation framework?
+
+Assistant: A test automation framework is a structured collection of tools, libraries, conventions, utilities, test data, configuration, and reporting mechanisms used to create and execute automated tests consistently.
+
+User: How can Playwright tests be executed with pytest?
+
+Assistant:
+from playwright.sync_api import Page
+
+def test_login(page: Page):
+    page.goto("https://example.com/login")
+    page.get_by_placeholder("Enter Email").fill("user@example.com")
+    page.get_by_placeholder("Enter Password").fill("password")
+    page.get_by_role("button", name="Sign In").click()
+
+The Playwright pytest plugin provides the page fixture, which can be used directly inside tests.
+
+User: What is the purpose of assertions in automated testing?
+
+Assistant: Assertions compare the actual application behavior with the expected behavior. Without meaningful assertions, a test may perform actions successfully but fail to detect that the application produced an incorrect result.
+
+User: What is test data management?
+
+Assistant: Test data management is the process of creating, maintaining, isolating, and cleaning the data required by tests. Good test data should be predictable, appropriate for the scenario, and isolated enough to prevent tests from affecting each other.

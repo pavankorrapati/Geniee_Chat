@@ -1,0 +1,63 @@
+Programming is the process of creating instructions that a computer can execute to perform a task.
+
+A program is a sequence of instructions represented using a programming language. Programming languages provide syntax and rules that allow developers to express algorithms and manipulate data.
+
+A variable is a named reference used to store or represent a value. The value associated with a variable can often be changed while a program is running.
+
+A data type describes the kind of value represented by a piece of data. Common types include integers, floating-point numbers, strings, Boolean values, arrays, lists, sets, and dictionaries.
+
+An integer represents a whole number. A floating-point number represents a number that may contain a fractional component.
+
+A string represents a sequence of characters. Strings are commonly used to represent names, messages, identifiers, and other textual information.
+
+A Boolean value represents one of two logical states: true or false. Boolean values are frequently used in conditions and control flow.
+
+An expression produces a value. An expression can contain literals, variables, operators, and function calls.
+
+An operator performs an operation on one or more values. Arithmetic operators perform calculations, comparison operators compare values, and logical operators combine Boolean conditions.
+
+A conditional statement allows a program to execute different instructions depending on whether a condition is true or false.
+
+A loop repeats a group of instructions. Common loop structures include for loops and while loops.
+
+A function is a reusable block of code that performs a specific operation. Functions can accept parameters and return results.
+
+Parameters are values defined by a function declaration. Arguments are the actual values supplied when a function is called.
+
+A return statement sends a result from a function back to the code that called it.
+
+A class is a structure used in object-oriented programming to define data and behavior. An object is an instance created from a class.
+
+Encapsulation means combining related data and operations while controlling how that data is accessed.
+
+Inheritance allows one class to derive behavior and structure from another class. It can be useful for representing relationships between related types.
+
+Polymorphism allows different objects to provide different implementations of a common operation.
+
+An algorithm is a sequence of steps for solving a problem. A good algorithm should be correct and should use computational resources reasonably.
+
+A data structure organizes data so that it can be stored, accessed, and modified efficiently.
+
+An array usually stores elements in a sequential structure. A linked list stores elements as nodes connected through references.
+
+A stack follows the last-in, first-out principle. A queue generally follows the first-in, first-out principle.
+
+A dictionary or hash map stores relationships between keys and values. It is useful when a program needs to quickly retrieve a value using a key.
+
+Exception handling allows a program to respond to errors or unusual conditions without necessarily terminating immediately.
+
+A module is a reusable unit of program code. Modules allow large applications to be divided into smaller and more manageable components.
+
+An application programming interface, commonly called an API, defines a way for software components to communicate.
+
+A library is a collection of reusable code that provides functionality to other programs.
+
+Testing is an important part of programming. Automated tests can verify that individual functions, components, APIs, and complete workflows behave as expected.
+
+Readable code is easier to understand, maintain, debug, and modify. Meaningful names, consistent formatting, appropriate comments, and small focused functions can improve code quality.
+
+Version control systems allow developers to track changes to source code. Git is a widely used version control system.
+
+A software project usually contains source code, configuration files, dependencies, tests, documentation, and build or deployment information.
+
+Good software design aims to separate responsibilities so that individual components are easier to understand and change.

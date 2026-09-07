@@ -1,0 +1,149 @@
+Geniee is a small language model created as an experimental artificial intelligence project.
+
+Geniee is designed to understand text and generate text using a Transformer architecture.
+
+The name Geniee represents a helpful digital intelligence that can learn patterns from language.
+
+Geniee is being developed step by step. The project begins with tokenization, datasets, self attention, Transformer blocks, training, and text generation.
+
+A language model learns by predicting the next token in a sequence.
+
+For example, when a model sees the sentence "The sky is", it may learn that words such as "blue" can commonly follow.
+
+Geniee uses neural networks to learn relationships between tokens.
+
+Self attention allows Geniee to examine relationships between different tokens in a sequence.
+
+A Transformer block contains attention and feed forward layers.
+
+Multiple Transformer blocks can be stacked together to create a deeper language model.
+
+The model processes a sequence of tokens and produces probabilities for possible next tokens.
+
+Training changes the model parameters so that its predictions become closer to the expected next tokens.
+
+Python is a programming language widely used for artificial intelligence, automation, data science, and software development.
+
+Python code is usually designed to be readable and expressive.
+
+A variable stores a value that a program can use later.
+
+A function is a reusable block of code that performs a particular task.
+
+Machine learning is a branch of artificial intelligence in which computers learn patterns from data.
+
+Deep learning uses neural networks with multiple layers.
+
+Artificial intelligence can be used for language understanding, image recognition, recommendation systems, robotics, and automation.
+
+A chatbot is a software application that communicates with users through natural language.
+
+A good chatbot should understand the user's request and generate a useful response.
+
+Software testing is the process of evaluating software to discover defects and verify expected behavior.
+
+Automation testing uses software tools to execute tests automatically.
+
+Playwright is a browser automation framework that can be used to test modern web applications.
+
+A test can open a web page, enter information into fields, click buttons, and verify results.
+
+Selenium is another popular browser automation framework.
+
+API testing verifies that software services communicate correctly.
+
+An API can receive a request, process information, and return a response.
+
+Good software should be reliable, maintainable, and easy to test.
+
+Learning to build an AI system is similar to building a complex machine one component at a time.
+
+First, the data must be prepared.
+
+Next, the text must be converted into tokens.
+
+The tokens are converted into numerical representations that the neural network can process.
+
+The Transformer then processes these representations.
+
+During training, the model compares its prediction with the expected answer.
+
+The difference between the prediction and the expected token is measured using a loss function.
+
+The optimizer updates the model parameters to reduce the loss.
+
+After many training steps, the model can learn useful statistical patterns from the training data.
+
+Geniee is an experimental project designed to demonstrate how a language model can be built from the ground up.
+
+Geniee starts small because understanding every component is more important than immediately creating a huge model.
+
+The long term goal is to evolve Geniee from a small educational language model into a useful conversational AI system.
+
+Geniee can eventually be connected to a chatbot application.
+
+A chatbot application can provide a user interface where people can communicate with Geniee.
+
+The future Geniee interface may contain conversations, message history, settings, and model controls.
+
+Geniee should be helpful, clear, and honest.
+
+If Geniee does not know something, it should eventually learn to acknowledge uncertainty instead of inventing information.
+
+A curious developer may ask how an artificial intelligence system works.
+
+The answer begins with data, mathematics, neural networks, optimization, and experimentation.
+
+Interesting fact: the human brain contains billions of neurons connected through an enormous network.
+
+Interesting fact: computers represent information using numerical values.
+
+Interesting fact: language can be represented as a sequence of tokens.
+
+Interesting fact: the same sentence can be divided into different tokens depending on the tokenizer.
+
+Interesting fact: attention allows a model to assign different importance to different parts of a sequence.
+
+Interesting fact: larger models generally have more parameters, but model quality also depends strongly on data, training, architecture, and optimization.
+
+The ocean covers most of the Earth's surface.
+
+The Moon orbits the Earth.
+
+The Earth orbits the Sun.
+
+Water freezes at approximately zero degrees Celsius under standard atmospheric pressure.
+
+Plants use sunlight, water, and carbon dioxide during photosynthesis.
+
+The Python programming language was named after the comedy group Monty Python.
+
+A computer can perform millions or billions of simple mathematical operations very quickly.
+
+A neural network does not think like a human brain, even though both systems use networks of connected units.
+
+A model can produce fluent text without necessarily understanding the world in the same way a human does.
+
+Good training data helps a language model learn better patterns.
+
+Bad or repetitive training data can cause a model to produce repetitive output.
+
+A language model can sometimes repeat phrases when it has not learned enough diverse patterns.
+
+Increasing the amount and quality of training data can improve language generation.
+
+Geniee is learning one token at a time.
+
+Geniee begins with simple experiments.
+
+Geniee grows through data, training, testing, and improvement.
+
+Every successful test is one small step toward a better language model.
+
+Every failed test is useful because it reveals something that needs to be improved.
+
+Building Geniee is an engineering journey.
+
+The goal is not to build a perfect AI immediately.
+
+The goal is to understand how each component works and gradually make the system better.

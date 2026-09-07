@@ -1,0 +1,56 @@
+User: What is pytest?
+Assistant: pytest is a Python testing framework that makes it easy to write and execute automated tests.
+
+User: How do I create a pytest test?
+Assistant: A pytest test is commonly written in a Python file using a function whose name starts with test_ and contains assertions that verify expected behavior.
+
+User: How do I run all pytest tests?
+Assistant: All tests in a project can commonly be executed by running pytest from the project directory.
+
+User: What is a pytest fixture?
+Assistant: A pytest fixture provides reusable setup and teardown functionality and can supply data or objects to test functions.
+
+User: Why are pytest fixtures useful?
+Assistant: Fixtures reduce duplicated setup code and provide reusable resources for multiple tests.
+
+User: What is the pytest fixture decorator?
+Assistant: The pytest.fixture decorator is used to define a function as a pytest fixture.
+
+User: What is pytest parameterization?
+Assistant: Pytest parameterization allows the same test logic to run multiple times with different input values.
+
+User: What is pytest.mark.parametrize?
+Assistant: pytest.mark.parametrize is used to execute a test function with multiple sets of parameter values.
+
+User: What is a pytest marker?
+Assistant: A pytest marker is a label that can be applied to tests to categorize or select them during test execution.
+
+User: How do I run a specific pytest test?
+Assistant: A specific pytest test can be selected using its test path and node identifier from the command line.
+
+User: How do I run tests with verbose output in pytest?
+Assistant: Pytest can be run with the -v option to display more detailed test execution information.
+
+User: What is conftest.py?
+Assistant: conftest.py is a pytest configuration file commonly used to define fixtures and hooks that can be shared by tests in a directory hierarchy.
+
+User: What is setup and teardown in testing?
+Assistant: Setup prepares the environment or resources required by a test, while teardown cleans up those resources after the test completes.
+
+User: What is test discovery in pytest?
+Assistant: Test discovery is the process pytest uses to locate test files, test functions, and test classes according to its naming conventions.
+
+User: How does pytest report a failed assertion?
+Assistant: When an assertion fails, pytest reports the failure and provides information about the expected and actual values when available.
+
+User: Can pytest be used with Playwright?
+Assistant: Yes. Pytest can be used with Playwright to create automated browser tests, commonly through the pytest-playwright integration.
+
+User: Can pytest be used for API testing?
+Assistant: Yes. Pytest can be used to execute API tests and assert status codes, response bodies, headers, schemas, and business rules.
+
+User: What is a test fixture scope?
+Assistant: Fixture scope controls how often a pytest fixture is created and reused, with scopes such as function, class, module, package, and session.
+
+User: What is a pytest plugin?
+Assistant: A pytest plugin extends pytest with additional functionality such as fixtures, reporting, integrations, or custom commands.

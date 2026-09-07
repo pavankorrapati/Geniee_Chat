@@ -1,0 +1,63 @@
+Test automation is the practice of using software tools and scripts to execute tests automatically.
+
+Automated testing can reduce repetitive manual work and provide fast feedback when software changes are introduced.
+
+A test automation framework provides a structure for organizing tests, test data, configuration, utilities, reporting, and execution.
+
+A test case describes a specific condition or workflow that should be verified. A test normally contains setup actions, test actions, and verification steps.
+
+An assertion checks whether an observed result matches an expected result. If an assertion fails, the test normally reports a failure.
+
+UI automation interacts with application interfaces in a way that simulates user actions. Common actions include opening a page, entering text, clicking buttons, selecting options, and verifying displayed information.
+
+A locator identifies an element on a web page. Common locator strategies include role, text, label, placeholder, CSS selector, and XPath.
+
+Stable locators are important for reliable automation. Locators based on semantic roles, accessible labels, or stable attributes are often preferable to selectors that depend heavily on changing visual styles.
+
+A page object represents a page or reusable part of an application through code. Page objects can centralize locators and common actions.
+
+Synchronization is an important part of UI automation. A test should wait for meaningful conditions instead of relying unnecessarily on fixed delays.
+
+An explicit wait waits for a specific condition, such as an element becoming visible or a page reaching a particular state.
+
+A fixed sleep pauses execution for a specified amount of time. Fixed sleeps can make tests slower and may still fail when application timing changes.
+
+Test isolation means that one test should not unexpectedly depend on the state created by another test.
+
+A test fixture prepares the environment needed for a test and may also clean up resources after execution.
+
+Parameterized tests allow the same test logic to execute against multiple input values.
+
+A regression test verifies that existing functionality continues to work after changes have been made to the application.
+
+Smoke tests are a small collection of tests used to verify that the most important application functionality is working.
+
+End-to-end tests verify complete workflows across multiple components of an application.
+
+Integration tests verify interactions between different software components.
+
+Unit tests normally verify small units of code such as individual functions or classes.
+
+A test suite is a collection of related test cases. Test suites can be organized by feature, module, risk, or execution purpose.
+
+Parallel test execution allows multiple tests to run at the same time. Parallelization can reduce total execution time when the test environment supports it.
+
+Flaky tests are tests that sometimes pass and sometimes fail without a corresponding change in the application. Flakiness can be caused by timing problems, unstable test data, shared state, environment instability, or unreliable external dependencies.
+
+Test data should be controlled and predictable whenever possible. Poor test data can produce misleading results.
+
+A good automation framework provides logging and reporting so that failures can be investigated efficiently.
+
+Screenshots, videos, traces, request logs, response bodies, and browser console logs can help diagnose UI automation failures.
+
+Continuous integration systems can execute automated tests whenever code changes are submitted. Automated testing therefore provides rapid feedback to developers and testers.
+
+Automation should not replace all manual testing. Exploratory testing, usability evaluation, visual assessment, and other activities can still require human judgment.
+
+A successful automation strategy focuses on reliable, maintainable, and valuable tests rather than simply maximizing the number of automated test cases.
+
+Playwright and Selenium are examples of browser automation technologies. They can be used to automate browser interactions and validate web applications.
+
+Pytest is a popular Python testing framework. It provides test discovery, fixtures, assertions, parameterization, plugins, and reporting integrations.
+
+A maintainable test should clearly express the behavior being verified. Test code should be treated as production-quality code because unreliable automation can reduce confidence in the testing process.

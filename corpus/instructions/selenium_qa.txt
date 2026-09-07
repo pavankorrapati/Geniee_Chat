@@ -1,0 +1,59 @@
+User: What is Selenium?
+Assistant: Selenium is a framework and set of tools used to automate web browsers for testing and browser-based automation.
+
+User: What is Selenium WebDriver?
+Assistant: Selenium WebDriver is an API that allows programs to control and interact with web browsers.
+
+User: What is a WebDriver?
+Assistant: A WebDriver provides the interface through which automation code communicates with and controls a browser.
+
+User: What browsers can Selenium automate?
+Assistant: Selenium can automate major browsers including Chrome, Firefox, Edge, and Safari when the appropriate browser drivers or supported browser integrations are available.
+
+User: What is a Selenium locator?
+Assistant: A Selenium locator is a strategy used to identify an element on a web page.
+
+User: What locator strategies are available in Selenium?
+Assistant: Common Selenium locator strategies include ID, name, class name, tag name, link text, partial link text, CSS selector, and XPath.
+
+User: What is XPath?
+Assistant: XPath is a language used to locate nodes in an XML or HTML document and is commonly used to identify web elements.
+
+User: What is a CSS selector?
+Assistant: A CSS selector is a pattern used to identify HTML elements based on their tag, attributes, classes, IDs, relationships, or other CSS properties.
+
+User: How do I find an element by ID in Selenium Python?
+Assistant: In Selenium Python, an element can be located using driver.find_element(By.ID, "element_id").
+
+User: How do I click a button using Selenium Python?
+Assistant: A button can be clicked by locating it with Selenium and calling the click() method.
+
+User: How do I enter text into an input using Selenium?
+Assistant: Text can be entered into an input by locating the element and using the send_keys() method.
+
+User: What is an implicit wait in Selenium?
+Assistant: An implicit wait instructs WebDriver to wait for a specified amount of time when searching for elements before reporting that an element cannot be found.
+
+User: What is an explicit wait in Selenium?
+Assistant: An explicit wait waits for a specific condition to become true before continuing execution.
+
+User: What is WebDriverWait?
+Assistant: WebDriverWait is a Selenium utility used to wait until a specified condition is satisfied or a timeout occurs.
+
+User: What is a page object model?
+Assistant: Page Object Model is a test automation design pattern that represents application pages or components as objects containing locators and interaction methods.
+
+User: What are the advantages of Page Object Model?
+Assistant: Page Object Model improves test maintainability, reduces duplicated locator logic, and separates page interaction details from test logic.
+
+User: What is a Selenium stale element exception?
+Assistant: A stale element exception occurs when an element reference is no longer valid because the page or DOM has changed.
+
+User: What is headless browser execution?
+Assistant: Headless browser execution runs browser automation without displaying the browser's graphical user interface.
+
+User: What is cross-browser testing?
+Assistant: Cross-browser testing verifies that a web application behaves correctly across different supported browsers and browser configurations.
+
+User: How is Selenium different from Playwright?
+Assistant: Selenium is a widely used browser automation framework with broad language and browser support, while Playwright provides modern browser automation with built-in features such as auto-waiting, browser contexts, and multi-browser automation.

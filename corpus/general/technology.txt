@@ -1,0 +1,13 @@
+Technology refers to tools, systems, and techniques created to solve problems and perform useful tasks. Modern technology includes computers, mobile devices, communication networks, databases, cloud systems, and artificial intelligence.
+
+A computer processes information using hardware and software. Hardware includes physical components such as processors, memory, storage devices, keyboards, displays, and network interfaces. Software consists of programs and instructions that tell the computer what to do.
+
+The central processing unit executes instructions and performs calculations. Memory temporarily stores information needed by running programs. Storage devices keep information for longer periods.
+
+Computer networks allow devices to exchange information. The Internet is a global network that connects many smaller networks. Applications communicate across networks using protocols that define how information is transmitted.
+
+Databases are used to store and organize structured information. A database system can allow applications to create, read, update, and delete data.
+
+Cloud computing provides computing resources such as storage, databases, and virtual machines through network connections. Cloud services allow organizations to scale computing resources according to their needs.
+
+Software development involves understanding requirements, designing solutions, writing code, testing the implementation, fixing defects, and maintaining the software over time.

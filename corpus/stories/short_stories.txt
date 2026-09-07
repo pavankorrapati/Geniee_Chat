@@ -1,0 +1,29 @@
+Maya found an old notebook on a wooden table. The notebook contained several pages of handwritten observations about the stars.
+
+Every evening, Maya looked at the sky from the small balcony outside her room. She wanted to understand why the stars appeared to move across the sky.
+
+One night she noticed a bright object that seemed to move differently from the others. She wrote down the time, direction, and position in her notebook.
+
+The next morning she searched through a science book and discovered that planets could appear to move differently from distant stars.
+
+Maya realized that careful observation could reveal patterns that were difficult to notice at first.
+
+She continued recording her observations every night. Over time, her notebook became a detailed record of the changing night sky.
+
+The experience taught Maya an important lesson: curiosity becomes more powerful when it is combined with careful observation.
+
+---
+
+Arun wanted to learn programming, but his first program failed.
+
+He read the error message several times and still could not understand it.
+
+Instead of giving up, he divided the problem into smaller parts. First he checked the input. Then he checked the function. Finally he examined the line mentioned by the error.
+
+He discovered that he had used the wrong variable name.
+
+After fixing it, the program worked.
+
+Arun smiled because the solution had been much simpler than he expected.
+
+He learned that debugging is often a process of asking small questions until the source of a problem becomes clear.

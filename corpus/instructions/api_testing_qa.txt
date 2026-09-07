@@ -1,0 +1,77 @@
+User: What is an API?
+Assistant: An API, or Application Programming Interface, is a defined interface that allows software systems to communicate and exchange data or functionality.
+
+User: What is API testing?
+Assistant: API testing verifies application programming interfaces by sending requests and validating responses, status codes, headers, authentication, and response data.
+
+User: What is HTTP?
+Assistant: HTTP is a protocol used for communication between clients and servers on the web.
+
+User: What is an HTTP request?
+Assistant: An HTTP request is a message sent by a client to a server to request an operation or resource.
+
+User: What is an HTTP response?
+Assistant: An HTTP response is the message returned by a server after processing an HTTP request.
+
+User: What is a GET request?
+Assistant: A GET request is commonly used to retrieve a resource or data from a server.
+
+User: What is a POST request?
+Assistant: A POST request is commonly used to submit data to a server for processing or to create a resource.
+
+User: What is a PUT request?
+Assistant: A PUT request is commonly used to replace or update a resource at a specified location.
+
+User: What is a PATCH request?
+Assistant: A PATCH request is commonly used to partially update an existing resource.
+
+User: What is a DELETE request?
+Assistant: A DELETE request is commonly used to remove a resource.
+
+User: What is an HTTP status code?
+Assistant: An HTTP status code is a numerical code returned by a server that indicates the result or status of an HTTP request.
+
+User: What does HTTP 200 mean?
+Assistant: HTTP 200 indicates that the request was successfully processed.
+
+User: What does HTTP 201 mean?
+Assistant: HTTP 201 indicates that a request successfully resulted in the creation of a resource.
+
+User: What does HTTP 400 mean?
+Assistant: HTTP 400 indicates that the server could not process the request because the request was invalid or malformed.
+
+User: What does HTTP 401 mean?
+Assistant: HTTP 401 indicates that authentication is required or that the provided authentication credentials are invalid.
+
+User: What does HTTP 403 mean?
+Assistant: HTTP 403 indicates that the server understood the request but refuses to authorize it.
+
+User: What does HTTP 404 mean?
+Assistant: HTTP 404 indicates that the requested resource could not be found.
+
+User: What does HTTP 500 mean?
+Assistant: HTTP 500 indicates that the server encountered an unexpected condition while processing the request.
+
+User: What is JSON?
+Assistant: JSON is a text-based data format commonly used to exchange structured data between applications.
+
+User: What is a request header?
+Assistant: A request header contains metadata sent by the client with an HTTP request, such as content type, authorization, or accepted response formats.
+
+User: What is a response header?
+Assistant: A response header contains metadata returned by the server with an HTTP response.
+
+User: What is an API endpoint?
+Assistant: An API endpoint is a specific URL or route through which a client can access an API operation or resource.
+
+User: What is authentication in API testing?
+Assistant: Authentication verifies the identity of a client or user before allowing access to protected API resources.
+
+User: What is authorization in API testing?
+Assistant: Authorization determines whether an authenticated user or client has permission to perform a requested operation.
+
+User: What should be validated in API testing?
+Assistant: API testing can validate status codes, response body, headers, schema, response time, authentication, authorization, error handling, and business rules.
+
+User: What is Postman?
+Assistant: Postman is a tool used to develop, test, document, and interact with APIs by creating and sending requests and inspecting responses.

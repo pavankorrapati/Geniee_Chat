@@ -1,0 +1,135 @@
+User: What is artificial intelligence?
+
+Assistant: Artificial intelligence is a field of computer science focused on creating systems that can perform tasks that normally require capabilities associated with human intelligence, such as learning, reasoning, perception, and language processing.
+
+User: What is machine learning?
+
+Assistant: Machine learning is a branch of artificial intelligence in which models learn patterns from data and use those patterns to make predictions or decisions.
+
+User: What is deep learning?
+
+Assistant: Deep learning is a type of machine learning that uses neural networks with multiple layers to learn complex representations from data.
+
+User: What is a neural network?
+
+Assistant: A neural network is a computational model made of interconnected units that transform input values and learn parameters during training.
+
+User: What is a transformer?
+
+Assistant: A transformer is a neural network architecture that uses attention mechanisms to process relationships between elements in a sequence.
+
+User: What is attention?
+
+Assistant: Attention is a mechanism that allows a neural network to assign different importance to different elements of an input sequence when producing a representation or prediction.
+
+User: What is a language model?
+
+Assistant: A language model is a machine learning model that learns statistical relationships between tokens or words and can assign probabilities to sequences or predict subsequent tokens.
+
+User: How does a language model generate text?
+
+Assistant: A language model receives a sequence of tokens, calculates probabilities for possible next tokens, selects a token according to its generation strategy, and repeats the process until a stopping condition is reached.
+
+User: What is a token?
+
+Assistant: A token is a unit of text processed by a language model. Depending on the tokenizer, a token can represent a word, part of a word, punctuation, whitespace, or another text unit.
+
+User: What is tokenization?
+
+Assistant: Tokenization converts text into a sequence of tokens that can be represented as numerical token IDs for a machine learning model.
+
+User: What is training?
+
+Assistant: Training is the process of adjusting model parameters using examples so that the model improves according to a specified objective.
+
+User: What is overfitting?
+
+Assistant: Overfitting occurs when a model learns the training examples too closely and performs poorly on new examples.
+
+User: Why is validation data important?
+
+Assistant: Validation data provides an independent set of examples that can be used to monitor generalization and compare training configurations without directly optimizing the model on those examples.
+
+User: What is software testing?
+
+Assistant: Software testing is the process of evaluating software to determine whether it behaves according to expected requirements and to identify defects.
+
+User: What is test automation?
+
+Assistant: Test automation uses software tools and scripts to execute tests automatically and verify expected results.
+
+User: What is regression testing?
+
+Assistant: Regression testing checks whether existing functionality continues to work correctly after software changes.
+
+User: What is an API?
+
+Assistant: An API, or application programming interface, defines how software components can communicate with each other.
+
+User: What is API testing?
+
+Assistant: API testing verifies that an API correctly handles valid requests, invalid requests, authentication, authorization, responses, errors, and business rules.
+
+User: What is a test case?
+
+Assistant: A test case describes a specific scenario, including the conditions, actions, inputs, and expected results used to verify a particular behavior.
+
+User: What is a bug?
+
+Assistant: A bug is a defect or unexpected behavior in software that causes the application to behave differently from the expected behavior.
+
+User: What is Playwright?
+
+Assistant: Playwright is a browser automation framework that can be used to test web applications across supported browsers.
+
+User: What is Selenium?
+
+Assistant: Selenium is a collection of tools and libraries used to automate web browsers.
+
+User: What is Pytest?
+
+Assistant: Pytest is a Python testing framework that provides test discovery, fixtures, assertions, parameterization, and an extensible plugin system.
+
+User: How should I test a login page?
+
+Assistant: A login page should be tested with valid and invalid credentials, empty fields, incorrect passwords, invalid email formats, authentication failures, successful login, logout behavior, session handling, and appropriate validation messages.
+
+User: How can I make UI automation reliable?
+
+Assistant: Use stable locators, explicit synchronization, isolated test data, independent tests, reusable page objects, meaningful assertions, good logging, and controlled test environments.
+
+User: Why should fixed sleeps be avoided in automation?
+
+Assistant: Fixed sleeps pause execution for an arbitrary amount of time. They can make tests slower and may still fail when application timing changes. Waiting for a meaningful application condition is generally more reliable.
+
+User: What is a locator?
+
+Assistant: A locator is a mechanism used by an automation framework to identify an element in an application interface.
+
+User: What is an assertion?
+
+Assistant: An assertion compares an actual result with an expected condition and reports a test failure when the condition is not satisfied.
+
+User: What should an API test verify?
+
+Assistant: An API test can verify the HTTP status code, response body, response schema, headers, business rules, authentication, authorization, error handling, and important data changes.
+
+User: What is a good training dataset?
+
+Assistant: A good training dataset is sufficiently large, diverse, relevant, accurate, and representative of the tasks that the model is expected to perform.
+
+User: Why can a large model overfit a small dataset?
+
+Assistant: A model with many parameters has enough capacity to memorize a small collection of examples. If the dataset is too small, the model may achieve very low training loss while failing to generalize to new examples.
+
+User: How can overfitting be reduced?
+
+Assistant: Overfitting can be reduced by increasing data diversity, improving data quality, using appropriate regularization, monitoring validation performance, reducing model capacity when necessary, and stopping training when validation performance begins to deteriorate.
+
+User: What is the purpose of a checkpoint?
+
+Assistant: A checkpoint stores the state of a model and often its optimizer so that training can be resumed or a particular trained model can be used later.
+
+User: What is the difference between training loss and validation loss?
+
+Assistant: Training loss measures model performance on examples used for optimization, while validation loss measures performance on held-out examples. A large difference between them can indicate poor generalization or overfitting.

@@ -1,0 +1,67 @@
+A software bug is an incorrect or unexpected behavior in an application.
+
+A defect is generally identified when actual behavior differs from expected behavior defined by requirements, specifications, design, or accepted business behavior.
+
+A good bug report should contain a clear title, description, environment, preconditions, reproduction steps, expected result, actual result, severity, and supporting evidence.
+
+A bug title should summarize the problem clearly. It should identify the affected feature and the observed problem.
+
+Reproduction steps should be precise and repeatable. Another tester should be able to follow the steps and observe the same behavior.
+
+The expected result describes what the application should have done.
+
+The actual result describes what the application actually did.
+
+Screenshots can provide visual evidence for UI defects. Logs, network traces, API responses, and videos can provide additional diagnostic information.
+
+Severity describes the impact of a defect on the system or users.
+
+A critical defect may prevent an essential system function from operating or may cause severe data or security consequences.
+
+A high-severity defect significantly affects important functionality and may block a major workflow.
+
+A medium-severity defect affects functionality but usually has a workaround or limited impact.
+
+A low-severity defect has limited functional impact, such as a minor visual or wording issue.
+
+Priority indicates how urgently a defect should be addressed.
+
+A defect can have high priority even when its severity is moderate if the affected functionality is important for an upcoming release.
+
+A defect can have high severity but lower immediate priority when the affected feature is rarely used and there is a temporary workaround.
+
+A defect lifecycle can include states such as New, Open, In Progress, Resolved, Closed, and Reopened.
+
+A defect may be reopened when the reported behavior still exists after a developer marks it as resolved.
+
+Defect verification is the process of checking whether a fix actually resolves the reported problem.
+
+Regression testing should be performed after important fixes to ensure that related functionality has not been broken.
+
+Duplicate defects should be linked or consolidated when multiple reports describe the same underlying problem.
+
+A defect should include environment information such as application version, browser, operating system, device, or deployment environment when relevant.
+
+API defects may require request URLs, HTTP methods, request payloads, headers, response status codes, and response bodies.
+
+UI defects may require page URLs, element information, screenshots, browser details, and reproduction steps.
+
+Intermittent defects can be difficult to reproduce. For such issues, timestamps, logs, network information, test data, and repeated execution results are particularly useful.
+
+A root cause analysis attempts to determine why a defect occurred rather than only describing its visible symptom.
+
+Defect trends can provide information about software quality. Teams can analyze defect counts, severity distribution, reopened defects, escape rates, and resolution time.
+
+A defect escape occurs when a problem reaches a later environment or production without being detected during an earlier testing stage.
+
+Shift-left testing encourages testing activities earlier in the software development lifecycle.
+
+Good bug reports focus on observable facts and avoid blaming individuals.
+
+A useful bug report helps developers reproduce, understand, diagnose, and fix the problem efficiently.
+
+Testers should verify fixes against the original reproduction steps and expected result.
+
+After a defect is fixed, regression testing should cover related workflows and areas that may have been affected by the change.
+
+Effective defect management requires collaboration between testers, developers, product owners, and other stakeholders.

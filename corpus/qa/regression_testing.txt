@@ -1,0 +1,61 @@
+Regression testing verifies that existing software functionality continues to work after changes are introduced.
+
+Software changes can include new features, bug fixes, configuration changes, dependency updates, database changes, infrastructure changes, and refactoring.
+
+A regression test suite contains tests that cover functionality considered important and potentially affected by changes.
+
+Regression testing is different from testing only the newly developed feature. The purpose is to detect unintended effects on existing behavior.
+
+A small smoke suite can be executed first to determine whether the application is stable enough for broader regression testing.
+
+Regression testing can be performed manually, automatically, or through a combination of both approaches.
+
+Automated regression testing is especially useful for frequently repeated workflows.
+
+A regression suite should contain stable and valuable tests. Tests that are unreliable or obsolete can reduce the usefulness of the suite.
+
+Test selection can be based on changed code, affected components, business risk, historical defects, and dependencies.
+
+Risk-based regression testing prioritizes tests according to the potential impact of failures.
+
+A full regression suite can be expensive to execute when an application contains many tests. Teams therefore often use different regression levels.
+
+A smoke regression suite may contain the most critical business workflows.
+
+A feature-level regression suite can focus on a particular application module.
+
+A full regression suite can cover a broad range of system functionality before a major release.
+
+Regression tests should verify important user journeys such as authentication, navigation, data creation, search, update, deletion, reporting, and integrations.
+
+API regression testing can verify that existing endpoints continue to accept valid requests and return expected responses after backend changes.
+
+UI regression testing can verify that important workflows continue to work after frontend changes.
+
+Database changes can cause unexpected regression problems. Tests should verify important data creation, retrieval, update, and deletion behavior.
+
+Integration changes can affect external service communication. Regression tests should verify critical integrations when appropriate.
+
+Browser upgrades and dependency changes can also introduce compatibility problems.
+
+Regression failures should be investigated rather than simply retried until they pass.
+
+A flaky regression test can hide real failures and should be analyzed and stabilized.
+
+Regression test results should be recorded so that teams can identify trends across builds and releases.
+
+Continuous integration systems can automatically execute regression tests after code changes.
+
+Continuous delivery pipelines may use a combination of fast smoke tests and broader regression suites.
+
+Test parallelization can reduce regression execution time when tests are independent and the infrastructure can support parallel execution.
+
+Regression data should be predictable and isolated to prevent tests from interfering with each other.
+
+A regression suite should be maintained as the application changes. Tests for removed functionality should be retired, and tests for important new behavior should be added.
+
+Historical defects can be valuable sources of regression tests. When a defect is discovered, a test can be added to prevent the same problem from returning.
+
+Regression testing provides confidence that software changes have not introduced unexpected failures into existing functionality.
+
+The goal of regression testing is not to execute every possible test. The goal is to provide appropriate confidence that important existing behavior remains correct.

@@ -1,0 +1,107 @@
+Python is a high level programming language used for software development, automation, data analysis, scientific computing, and artificial intelligence. Python programs are generally easy to read because the language uses clear syntax and indentation. Variables can store values such as strings, numbers, lists, dictionaries, and objects. Functions allow developers to organize reusable pieces of logic. Classes and objects are commonly used to implement larger software systems.
+
+Python supports many libraries for different engineering tasks. The pathlib library provides tools for working with files and directories. The json module is useful for reading and writing structured data. The logging module helps applications record useful diagnostic information. The argparse module can be used to create command line interfaces. Developers can combine these standard libraries with third party packages to build automation frameworks, web applications, data pipelines, and machine learning systems.
+
+Software testing is the process of evaluating a software system to determine whether it satisfies specified requirements. Testing can identify defects before software is delivered to users. A test case normally contains a set of preconditions, actions, test data, and expected results. A tester compares the actual result with the expected result and records any differences as defects.
+
+Manual testing is performed by a human tester who interacts with an application and checks its behavior. Automated testing uses software tools to execute repeatable test steps. Automation can reduce repetitive work and can provide fast feedback when a software application changes. Automated tests are particularly useful for regression testing because the same test scenarios can be executed many times.
+
+A good test automation framework normally separates test cases, test data, configuration, reusable utilities, reporting, and application-specific actions. Separation of responsibilities makes the framework easier to maintain. Page objects can represent pages or components of a web application. API clients can encapsulate HTTP communication. Configuration files can store environment-specific values such as base URLs and feature settings.
+
+Selenium is a browser automation framework used to automate web browsers. Selenium WebDriver provides an interface for controlling browsers programmatically. A WebDriver client can open a browser, navigate to a URL, locate elements, enter values, click controls, and inspect results. Selenium supports major browsers and is widely used for end to end web application testing.
+
+A Selenium test can locate an element using several strategies. Common locator strategies include ID, name, class name, CSS selector, XPath, link text, and accessible role or text based approaches provided by supporting tools. A stable locator is important because a test becomes unreliable when it depends on frequently changing implementation details.
+
+Explicit waits are commonly used when a test must wait for a specific condition. For example, a test may wait until an element becomes visible or clickable. Implicit waits configure a general waiting behavior for element lookup. Excessive fixed sleeps can make tests slow and unreliable, so condition based synchronization is usually preferred.
+
+Playwright is a browser automation framework that supports Chromium, Firefox, and WebKit. Playwright can be used with Python to create automated end to end tests. It provides browser, context, page, locator, assertion, network, and tracing capabilities. Browser contexts provide isolated sessions that are useful when tests need separate cookies, storage, and authentication state.
+
+Playwright locators provide a structured way to identify elements on a page. A locator can be created using a role, label, text, placeholder, CSS selector, or XPath. Role based locators can improve test readability because they describe how a user perceives an element. For example, a button can be identified by its accessible role and visible name.
+
+Assertions are an important part of automated testing. A test should verify that the application produced the expected result rather than only checking that an action completed. Assertions can validate text, visibility, URL values, attributes, element state, response status, and other application behavior.
+
+Pytest is a Python testing framework commonly used for unit tests, integration tests, API tests, and browser automation. A pytest test function normally starts with the prefix test_. Fixtures provide reusable setup and teardown logic. Fixtures can create browser instances, pages, API clients, test data, or temporary resources.
+
+Test data should be managed carefully. Hard coding large amounts of test data directly inside test functions can make maintenance difficult. Data can instead be stored in JSON, YAML, CSV, databases, or Python objects depending on the requirements. Parameterized tests allow the same test logic to execute against multiple data sets.
+
+API testing verifies communication between software components. An HTTP request normally contains a method, URL, headers, optional parameters, and sometimes a request body. Common HTTP methods include GET, POST, PUT, PATCH, and DELETE. A server returns an HTTP response containing a status code, headers, and often a response body.
+
+The GET method is generally used to retrieve information. POST is commonly used to create a resource or submit data. PUT can replace an existing resource, while PATCH is often used for a partial update. DELETE is used to remove a resource. The exact behavior depends on the API contract.
+
+HTTP status codes provide information about the result of a request. Status codes in the 200 range generally indicate successful processing. A 201 response commonly indicates that a resource was created. A 204 response indicates successful processing with no response body. Client errors are represented by 400 range status codes, while server errors are represented by 500 range status codes.
+
+REST APIs commonly exchange data using JSON. JSON represents objects using key and value pairs and arrays using ordered collections. An API response may contain identifiers, status values, messages, nested objects, and lists of resources. Automated API tests should validate both the HTTP status and important response data.
+
+Authentication is used to control access to protected resources. Some applications use sessions and cookies, while others use tokens. Bearer tokens are commonly sent through the Authorization header. A test framework should handle authentication in a reusable way so individual test cases do not need to duplicate login logic.
+
+Continuous integration is a software development practice in which code changes are automatically built and tested. A CI pipeline can install dependencies, run unit tests, execute API tests, execute browser tests, generate reports, and publish artifacts. Automated feedback helps teams detect regressions early.
+
+Git is a distributed version control system. Developers use Git to record changes, create branches, merge work, and collaborate with other engineers. A commit represents a set of changes recorded in repository history. Branches allow development work to be isolated before it is merged into a shared branch.
+
+A database stores structured information for later retrieval and modification. SQL databases organize information using tables, rows, and columns. SQL can be used to select, insert, update, and delete data. A SELECT query retrieves information, while INSERT adds records and UPDATE changes existing records.
+
+Data validation is important when software interacts with databases. A test can create a record through an API and then verify the corresponding database state. Database assertions should use reliable identifiers and should clean up temporary data when appropriate.
+
+Web applications normally contain a frontend and a backend. The frontend runs in a browser and provides the user interface. The backend implements business logic and communicates with databases or external services. APIs provide communication between the frontend and backend and can also be consumed by other applications.
+
+A web page is represented internally as a document structure commonly called the Document Object Model. HTML elements represent controls and content. CSS determines presentation and layout. JavaScript can change the page dynamically and respond to user actions. Modern web applications often update parts of a page without performing a complete page reload.
+
+Accessibility helps ensure that software can be used by people with different abilities and assistive technologies. Semantic HTML, accessible names, labels, roles, keyboard support, and appropriate focus management contribute to accessible applications. Automated tests can check some accessibility properties, although complete accessibility evaluation may require additional tools and human review.
+
+Reliable automation depends on synchronization. Modern web applications frequently perform asynchronous operations such as API requests, rendering, animations, and data loading. A test should wait for meaningful conditions instead of assuming that a fixed amount of time is sufficient.
+
+An automation framework should also provide useful reporting. Test reports can show passed tests, failed tests, skipped tests, execution duration, screenshots, traces, logs, and error messages. Detailed reports help engineers reproduce failures and identify the underlying cause.
+
+Machine learning is a field of artificial intelligence in which computer systems learn patterns from data. Instead of specifying every rule manually, a machine learning model can learn parameters from examples. Training data is used to optimize model parameters according to an objective function.
+
+Neural networks are computational models made from layers of connected operations. A neural network transforms an input representation into an output representation. During training, the model compares its prediction with a target and calculates a loss. An optimization algorithm then adjusts model parameters to reduce the loss.
+
+A language model predicts tokens in a sequence. A token can represent a word, part of a word, punctuation, or another piece of text. During next token prediction, the model receives previous tokens and attempts to predict the following token. Repeating this process allows a decoder language model to generate text one token at a time.
+
+Tokenization converts text into token identifiers. A tokenizer has a vocabulary that maps token pieces to integer IDs. Special tokens can represent concepts such as beginning of sequence, end of sequence, padding, system messages, user messages, and assistant messages. The tokenizer must be compatible with the model vocabulary.
+
+A transformer is a neural network architecture based on attention mechanisms. Transformer models process sequences of tokens and learn relationships between different positions in a sequence. Attention allows a token representation to use information from other relevant positions.
+
+Self attention computes query, key, and value representations from an input sequence. Attention scores measure how strongly each query should attend to each key. A softmax operation converts the scores into weights. The weighted values are combined to produce the attention output.
+
+Multi head attention divides the model representation into multiple attention heads. Each head can learn different relationships within the sequence. The outputs of the heads are combined and projected back into the model dimension.
+
+A decoder only transformer uses causal attention so that a token cannot directly attend to future tokens during next token prediction. A causal mask prevents information from later positions from leaking into earlier predictions. This makes the architecture suitable for autoregressive language generation.
+
+Positional information helps a transformer distinguish between different positions in a sequence. Token embeddings represent the identities of tokens, while positional embeddings represent their positions. The two representations can be combined before passing the sequence through transformer blocks.
+
+A transformer block commonly contains a self attention layer and a feed forward network. Layer normalization can be applied before these components in a pre normalization architecture. Residual connections add the output of a sublayer back to its input. These design choices help optimization and information flow through deeper networks.
+
+A feed forward network applies transformations independently to each sequence position. It commonly expands the model dimension to a larger hidden dimension, applies a nonlinear activation, and projects the result back to the model dimension. The activation allows the network to learn nonlinear relationships.
+
+Training a language model requires input tokens and target tokens. For next token prediction, the target sequence is shifted by one position relative to the input. If the input contains tokens A, B, C, and D, the targets are B, C, D, and the next token. Cross entropy loss measures the difference between predicted token probabilities and the target tokens.
+
+An optimizer updates model parameters based on gradients. AdamW is commonly used for transformer training because it combines adaptive optimization with decoupled weight decay. Learning rate controls the size of parameter updates. Gradient clipping can prevent unusually large gradients from destabilizing training.
+
+A training dataset should be separated into training and validation data. The training set is used to update model parameters. The validation set is not used for parameter updates and provides an estimate of how well the model generalizes to unseen examples.
+
+Overfitting occurs when a model learns the training examples very closely but performs poorly on unseen data. A debug overfit test can intentionally use a tiny dataset and train until the model nearly memorizes it. If the training loss falls very low, the test can provide evidence that the model, loss function, and optimization pipeline are connected correctly.
+
+A useful language model requires much more data than a small debugging dataset. A few hundred instruction examples can validate a training pipeline but cannot produce broad language understanding. Base pretraining normally uses a large text corpus before instruction tuning is applied.
+
+Instruction tuning teaches a pretrained language model to respond to prompts in a desired format. Training examples can contain system instructions, user messages, and assistant responses. Loss masking can ensure that only assistant tokens contribute to the supervised objective.
+
+Evaluation should be performed using data that was not used during training. Useful evaluation categories include language modeling loss, instruction following, coding tasks, factual questions, reasoning tasks, and domain-specific tasks. A model intended for software testing can also be evaluated on test case generation, API testing, Playwright, Selenium, debugging, and automation framework questions.
+
+Model inference generates tokens from a prompt. Greedy decoding selects the token with the highest probability at every step. Sampling allows the model to choose among probable tokens. Temperature changes the sharpness of the probability distribution. Top-k limits sampling to the most probable k tokens, while top-p limits sampling to a probability mass.
+
+Repetition penalties can reduce repetitive generation, although they must be tuned carefully. An end of sequence token can stop generation when the model determines that its response is complete. Maximum context length limits how many tokens the model can process at once.
+
+A small language model is useful for learning the engineering process of building an LLM. The important components include tokenization, embeddings, attention, transformer blocks, the language modeling head, dataset preparation, batching, optimization, checkpointing, evaluation, and inference.
+
+Geniee is being developed as a decoder only transformer language model. The project separates model code, tokenizer code, data processing, training, and inference. This separation makes it easier to test individual components and replace parts of the system as the model grows.
+
+The Geniee model uses token embeddings and positional embeddings to convert token IDs into vector representations. Transformer blocks process the representations using causal self attention and feed forward layers. A final normalization layer produces stable representations before the language modeling head projects them into vocabulary logits.
+
+A training checkpoint can contain model parameters, optimizer state, configuration values, epoch information, training loss, and validation loss. Saving checkpoints allows training to be resumed and makes it possible to select the model with the best validation performance.
+
+Reproducibility is important when experimenting with machine learning. A random seed can control dataset shuffling and parameter initialization. Recording the model configuration, tokenizer version, dataset version, training settings, and software environment makes experiments easier to compare.
+
+A well designed machine learning project should validate each stage independently. Tokenizer tests can verify encoding and decoding. Dataset tests can verify tensor shapes and target alignment. Model tests can verify output dimensions and causal masking. Training tests can verify that loss decreases on a small dataset. Inference tests can verify that a checkpoint loads and generates tokens.
+
+The first goal of a new language model project should be correctness rather than scale. A small model with a verified training pipeline is more useful for development than a large model with an untested data or optimization pipeline. Once correctness has been established, data quantity, model size, context length, and training compute can be increased systematically.

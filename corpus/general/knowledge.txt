@@ -1,0 +1,13 @@
+Knowledge is information that has been learned through observation, experience, education, or investigation. People acquire knowledge by reading, listening, experimenting, asking questions, and solving problems.
+
+Learning is a process through which information and skills become easier to understand and use. Effective learning usually requires practice, feedback, and repeated exposure to important ideas.
+
+A fact is a statement that can be verified using reliable evidence. An opinion expresses a person's judgment or belief. Distinguishing facts from opinions is important when evaluating information.
+
+Problem solving involves identifying a problem, understanding its causes, considering possible solutions, and selecting an appropriate approach. Good problem solving often requires logical reasoning and careful analysis.
+
+Communication allows people and computer systems to exchange information. Written communication uses words and symbols, while computers can also communicate through structured data such as JSON and XML.
+
+Curiosity encourages people to explore unfamiliar subjects. Asking clear questions is one of the most useful ways to improve understanding. When a question is difficult, breaking it into smaller questions can make it easier to solve.
+
+Critical thinking involves examining evidence, identifying assumptions, comparing alternatives, and reaching conclusions based on available information. It is useful in science, engineering, programming, education, and everyday decision making.

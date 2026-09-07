@@ -1,0 +1,43 @@
+Deep learning is a subfield of machine learning that uses neural networks with multiple computational layers. These networks can learn increasingly complex representations from data.
+
+A neural network is composed of interconnected computational units commonly called neurons. A neuron receives numerical inputs, combines them using learned weights and a bias, and applies an activation function.
+
+A basic neural network can contain an input layer, one or more hidden layers, and an output layer. The input layer receives the data, hidden layers transform the representation, and the output layer produces predictions.
+
+Deep neural networks contain multiple hidden layers. Each layer can learn a different level of representation. Earlier layers may learn simple patterns, while deeper layers can combine those patterns into more complex structures.
+
+An activation function introduces nonlinearity into a neural network. Common activation functions include ReLU, sigmoid, and hyperbolic tangent.
+
+ReLU, or rectified linear unit, returns zero for negative inputs and approximately the input value for positive inputs. It is widely used because it is simple and computationally efficient.
+
+Weights determine how strongly individual inputs influence a neuron. During training, these weights are adjusted to reduce the model's loss.
+
+Backpropagation is an algorithm used to calculate gradients of the loss with respect to neural network parameters. These gradients can then be used by an optimization algorithm to update the parameters.
+
+A forward pass occurs when input data travels through the network to produce an output. A backward pass calculates gradients that indicate how the parameters contributed to the error.
+
+An epoch represents one complete pass through the training dataset. Training may require many epochs, although more epochs do not necessarily produce a better model.
+
+A batch is a subset of training examples processed together. Batch size controls how many examples are processed before an optimization update.
+
+Mini-batch training is common because processing a small group of examples at a time can provide a useful balance between computational efficiency and optimization stability.
+
+Dropout is a regularization technique in which some activations are randomly ignored during training. This can reduce reliance on particular pathways and sometimes improve generalization.
+
+Batch normalization and layer normalization are techniques that help control the distribution of activations within neural networks. Layer normalization is particularly common in transformer architectures.
+
+Convolutional neural networks are specialized neural networks that are effective for many image-related tasks. They use convolutional operations to detect local patterns.
+
+Recurrent neural networks process sequential information while maintaining a hidden state. They were widely used for language and sequence tasks before transformer architectures became dominant.
+
+Attention mechanisms allow a model to assign different levels of importance to different parts of an input sequence.
+
+Deep learning models can contain millions or billions of trainable parameters. Larger models generally require more computational resources and more high-quality training data.
+
+A model with many parameters can memorize a small dataset. This is why increasing model size without increasing the amount and quality of training data can result in severe overfitting.
+
+Training a deep learning model requires monitoring both training and validation performance. A decreasing training loss combined with an increasing validation loss is a common indication of overfitting.
+
+Deep learning is used in computer vision, speech recognition, natural language processing, recommendation systems, robotics, scientific computing, and many other fields.
+
+Modern language models are examples of deep learning systems. They use neural networks to learn statistical relationships in large collections of text and other data.

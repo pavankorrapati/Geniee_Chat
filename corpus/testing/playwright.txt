@@ -1,0 +1,59 @@
+Playwright is a browser automation framework designed for testing and automating modern web applications.
+
+Playwright supports browser automation for Chromium, Firefox, and WebKit. It provides APIs for navigation, element interaction, assertions, network handling, screenshots, tracing, and browser contexts.
+
+A Playwright test can launch a browser, create a page, navigate to a URL, interact with elements, and verify application behavior.
+
+A browser context provides an isolated browser session. Context isolation is useful because tests can have independent cookies, local storage, sessions, and other browser state.
+
+A page represents a browser tab or document. A test can navigate a page to a URL and interact with the elements rendered by the application.
+
+Locators are a central part of Playwright. A locator identifies elements and provides methods for actions and assertions.
+
+Playwright supports semantic locators such as role, label, placeholder, text, and test ID. These locators can make tests more readable and resilient.
+
+A role locator can identify elements according to their accessible role. Examples include button, textbox, checkbox, heading, link, and dialog.
+
+A label locator can identify a form control using its associated label. A placeholder locator can locate an input using its placeholder text.
+
+A test ID locator can identify an element using an application-defined test identifier. Test IDs can provide stable automation hooks when semantic locators are not sufficient.
+
+Locator chaining can narrow a search from a larger component to a specific descendant element.
+
+Playwright performs automatic waiting for many actions. Before clicking or filling an element, Playwright can wait for the element to become actionable.
+
+Assertions also provide automatic waiting for expected application states. This reduces the need for arbitrary sleep statements.
+
+The locator method should generally be preferred over manually constructing brittle CSS or XPath selectors when a semantic locator is available.
+
+A Playwright test can fill an input field, click a button, select an option, check a checkbox, upload a file, and inspect visible text.
+
+A login test might navigate to a login page, fill an email field, fill a password field, click the sign-in button, and verify that the authenticated page is displayed.
+
+Playwright can intercept and inspect network requests. This is useful for validating API interactions triggered by UI operations.
+
+Playwright can also mock network responses. Mocking can make tests deterministic when an external service is unavailable or unpredictable.
+
+Screenshots can be captured when a test fails. Traces can provide detailed information about actions, network activity, screenshots, and page state.
+
+A trace is particularly useful for diagnosing timing problems and unexpected UI behavior.
+
+Playwright supports parallel test execution. Parallelization can significantly reduce execution time when tests are properly isolated.
+
+Fixtures allow reusable setup and teardown logic. A fixture can create a page, authenticate a user, prepare test data, or configure an environment.
+
+Pytest can be combined with the Playwright Python library to create a structured browser automation framework.
+
+The pytest-playwright integration provides fixtures and configuration that simplify browser test setup.
+
+A test framework can use a browser context with an authenticated storage state. This allows tests to start with an existing login session without repeating authentication steps.
+
+Good Playwright tests should use stable locators, clear assertions, isolated data, meaningful test names, and minimal unnecessary waiting.
+
+Playwright can be used for smoke testing, regression testing, end-to-end testing, UI validation, and browser-based functional testing.
+
+Automation frameworks should separate application actions from test intent. Reusable page objects or component abstractions can help maintain this separation.
+
+When an automation test fails, the first investigation should identify whether the problem is caused by the application, locator, synchronization, test data, browser, environment, or automation framework.
+
+A reliable Playwright framework combines browser automation with structured test organization, reusable utilities, reporting, diagnostics, and continuous integration.

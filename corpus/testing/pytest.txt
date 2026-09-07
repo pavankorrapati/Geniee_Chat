@@ -1,0 +1,63 @@
+Pytest is a Python testing framework designed to make it easy to write and execute automated tests.
+
+A basic pytest test is commonly represented by a Python function whose name begins with test_. Pytest discovers test files and functions according to its naming conventions.
+
+An assertion checks whether an actual result matches an expected condition. Python's assert statement can be used directly in pytest tests.
+
+Fixtures provide reusable setup and teardown functionality. A fixture can prepare test data, create an object, initialize a browser, or clean up resources after a test.
+
+A fixture can be shared by multiple tests. Fixture scope determines how often the fixture is created and destroyed.
+
+Common fixture scopes include function, class, module, package, and session.
+
+A function-scoped fixture is created separately for each test function. This can provide strong test isolation.
+
+A session-scoped fixture can be reused across an entire test execution session. This can be useful for expensive resources that do not need to be recreated for every test.
+
+Pytest supports parameterization. Parameterized tests allow the same test function to run with different inputs and expected results.
+
+For example, a login test can be executed with valid credentials, invalid credentials, empty credentials, and incorrectly formatted credentials.
+
+Markers allow tests to be categorized. A project can define markers such as smoke, regression, API, UI, integration, or slow.
+
+Test selection can use markers and expressions. This allows a team to run a subset of the complete test suite.
+
+A conftest.py file can contain shared fixtures and configuration used by multiple test modules.
+
+Pytest plugins extend the framework with additional functionality such as browser automation, reporting, parallel execution, coverage, and test result integrations.
+
+The pytest command-line interface provides options for verbose output, selecting tests, showing standard output, stopping after failures, and generating reports.
+
+The -v option provides more detailed test information. The -s option allows standard output to appear during execution.
+
+A test report should provide enough information to identify failed tests and investigate the cause.
+
+Pytest can be integrated with Selenium and Playwright for browser automation.
+
+Pytest can also be used for API testing. A test can send an HTTP request, inspect the response, and assert the expected status code and response content.
+
+A reusable API client can centralize HTTP operations such as GET, POST, PUT, PATCH, and DELETE.
+
+Authentication information should be managed securely and should not be hard-coded into test source files.
+
+Test configuration can be provided through environment variables, configuration files, or controlled test settings.
+
+Pytest supports setup and cleanup through fixtures. Cleanup is important for releasing browser sessions, files, database connections, and other resources.
+
+Independent tests are easier to execute in parallel and easier to diagnose.
+
+A flaky test can reduce confidence in the automation suite. Pytest itself does not automatically make tests reliable; the test design must handle synchronization, state, and data correctly.
+
+A good pytest project usually separates tests, fixtures, page objects, API clients, test data, configuration, and utility functions.
+
+Test names should describe the behavior being verified. A descriptive name makes failures easier to understand.
+
+Pytest can be used in continuous integration pipelines. A CI system can execute the test suite automatically after code changes.
+
+When a test fails, logs and captured output can help determine whether the failure occurred during setup, execution, or assertion.
+
+Test coverage measures how much of the application code or behavior is exercised by tests. High coverage does not automatically guarantee high quality.
+
+The purpose of automated tests is to provide reliable feedback about software behavior, not simply to produce a large number of test cases.
+
+A maintainable pytest framework should emphasize readable tests, reusable fixtures, controlled test data, reliable assertions, useful reporting, and predictable execution.

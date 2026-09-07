@@ -1,0 +1,13 @@
+Software is a collection of instructions that allows a computer to perform useful tasks. Software can be divided into categories such as operating systems, applications, development tools, and libraries.
+
+An operating system manages computer hardware and provides services to applications. Examples of operating system concepts include processes, memory management, files, permissions, and networking.
+
+A program is usually written in a programming language and translated or interpreted so that a computer can execute it. Programming languages provide constructs such as variables, functions, conditions, loops, classes, and modules.
+
+Good software should be understandable, maintainable, testable, and reliable. Developers often divide large programs into smaller components so that each component has a clear responsibility.
+
+Debugging is the process of finding and fixing problems in software. A developer may reproduce a failure, inspect logs, examine program state, identify the cause, apply a change, and run tests again.
+
+Version control systems allow developers to track changes to source code. Version control makes collaboration easier and allows developers to review previous versions of a project.
+
+Automated tests can execute software checks repeatedly. Continuous integration systems can automatically build software and run tests whenever changes are submitted.

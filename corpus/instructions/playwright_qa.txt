@@ -1,0 +1,53 @@
+User: What is Playwright?
+Assistant: Playwright is a browser automation framework used to automate and test web applications across supported browsers.
+
+User: Which browsers does Playwright support?
+Assistant: Playwright supports Chromium, Firefox, and WebKit.
+
+User: What is a Playwright locator?
+Assistant: A Playwright locator identifies an element on a web page so that actions and assertions can be performed against that element.
+
+User: What is get_by_role in Playwright?
+Assistant: get_by_role is a Playwright locator method that identifies elements using their accessible role and optionally their accessible name.
+
+User: What is get_by_text in Playwright?
+Assistant: get_by_text is a Playwright locator method used to locate elements based on visible text.
+
+User: What is get_by_label in Playwright?
+Assistant: get_by_label is a Playwright locator method used to locate form controls associated with a label.
+
+User: What is get_by_placeholder in Playwright?
+Assistant: get_by_placeholder is a Playwright locator method used to locate form elements using their placeholder text.
+
+User: What is an assertion in Playwright?
+Assistant: An assertion verifies that a page or element has the expected state, value, visibility, text, or other property.
+
+User: How do I navigate to a URL in Playwright?
+Assistant: In Playwright Python, a page can navigate to a URL using the page.goto() method.
+
+User: How do I click a button in Playwright?
+Assistant: A button can be clicked using a locator followed by the click() method, for example page.get_by_role("button", name="Login").click().
+
+User: How do I enter text into an input in Playwright?
+Assistant: Text can be entered into an input using a locator and the fill() method.
+
+User: What is auto-waiting in Playwright?
+Assistant: Auto-waiting allows Playwright to wait for elements to reach appropriate conditions before performing supported actions.
+
+User: What is a fixture in pytest?
+Assistant: A pytest fixture provides reusable setup and teardown functionality and can supply data or objects to tests.
+
+User: How can Playwright be used with pytest?
+Assistant: Playwright can be used with pytest through the pytest-playwright integration, which provides fixtures such as page for browser-based tests.
+
+User: How do I test a login page using Playwright?
+Assistant: A login test typically navigates to the login page, enters valid credentials into the appropriate fields, clicks the login button, and verifies the expected authenticated state or destination.
+
+User: What is a browser context in Playwright?
+Assistant: A browser context is an isolated browser session that provides separate cookies, local storage, and other session state.
+
+User: What is a Playwright page?
+Assistant: A Playwright page represents a browser tab or page and provides methods for navigation, interaction, and assertions.
+
+User: What is a screenshot in Playwright?
+Assistant: A screenshot captures the current visual state of a page or element and can be saved to a file for debugging or test evidence.

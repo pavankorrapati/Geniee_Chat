@@ -1,0 +1,79 @@
+API testing verifies the behavior of application programming interfaces.
+
+An API allows different software components to communicate through defined requests and responses.
+
+HTTP is commonly used for web APIs. An HTTP request can contain a method, URL, headers, query parameters, path parameters, and a request body.
+
+Common HTTP methods include GET, POST, PUT, PATCH, and DELETE.
+
+GET requests are commonly used to retrieve information. POST requests are commonly used to create resources or submit data.
+
+PUT requests are commonly used to replace or update a resource. PATCH requests are commonly used to partially update a resource.
+
+DELETE requests are commonly used to remove a resource.
+
+An HTTP response contains a status code, headers, and sometimes a response body.
+
+Status code 200 indicates a successful request. Status code 201 commonly indicates that a resource was created successfully.
+
+Status code 202 indicates that a request has been accepted for processing but may not have completed yet.
+
+Status code 204 indicates successful processing with no response content.
+
+Status code 400 generally indicates that the server could not process the request because of invalid input.
+
+Status code 401 generally indicates that authentication is required or that supplied authentication credentials are invalid.
+
+Status code 403 generally indicates that the client is authenticated but does not have permission to perform the requested operation.
+
+Status code 404 indicates that the requested resource could not be found.
+
+Status code 409 commonly indicates a conflict with the current state of a resource.
+
+Status code 422 is commonly used when the request is syntactically valid but contains data that fails validation.
+
+Status code 500 indicates an internal server error.
+
+API testing should verify both successful and unsuccessful scenarios.
+
+A positive API test uses valid input and verifies that the expected operation succeeds.
+
+A negative API test intentionally provides invalid input and verifies that the API returns an appropriate error.
+
+Boundary testing checks behavior at the limits of accepted values. For example, if a field accepts a maximum of 100 characters, tests should verify values around that boundary.
+
+Authentication testing verifies that protected endpoints correctly require valid authentication.
+
+Authorization testing verifies that users can access only resources and operations for which they have permission.
+
+Request headers can contain information such as content type, authorization credentials, correlation identifiers, or client metadata.
+
+The Content-Type header describes the format of the request body. JSON is a common format for API requests and responses.
+
+Query parameters are commonly used to filter, sort, search, or paginate API results.
+
+Path parameters identify a specific resource in a URL.
+
+API response validation should verify the status code, response structure, important field values, data types, and business rules.
+
+Schema validation checks whether a response follows an expected structural format.
+
+API tests can verify relationships between multiple requests. For example, a test may create a user, retrieve the user, update the user, and finally delete the user.
+
+API tests should avoid unnecessary dependencies on external systems when deterministic behavior is required.
+
+Test data should be isolated when possible. Tests that modify shared data can interfere with each other.
+
+API performance can also be tested by measuring response time, throughput, concurrency, and resource usage.
+
+Contract testing verifies that a service continues to follow an agreed interface between consumers and providers.
+
+Postman is commonly used for manually exploring and testing APIs. Automated API tests can be implemented using programming languages and testing frameworks.
+
+Python provides libraries that can be used to send HTTP requests and validate responses.
+
+A reliable API automation framework should provide reusable request methods, authentication handling, environment configuration, test data management, assertions, logging, and reporting.
+
+API testing is especially valuable because it can validate application behavior without depending on the visual user interface.
+
+A strong API test suite covers functional behavior, validation rules, authentication, authorization, error handling, data integrity, and important business scenarios.
