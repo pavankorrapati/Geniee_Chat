@@ -19,6 +19,8 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     response: str
+    source: str
+    sources: list[str] = []
 
 
 def get_chatbot():
@@ -35,13 +37,18 @@ def health() -> dict[str, str]:
 @router.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest) -> ChatResponse:
     try:
-        response = get_chatbot().respond(
+        chatbot = get_chatbot()
+        response = chatbot.respond(
             request.message,
             max_new_tokens=request.max_new_tokens,
         )
     except (OSError, RuntimeError, ValueError) as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
-    return ChatResponse(response=response)
+    return ChatResponse(
+        response=response,
+        source=chatbot.last_source,
+        sources=chatbot.last_sources,
+    )
 
 
 @router.post("/v1/chat/completions")

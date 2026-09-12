@@ -11,6 +11,7 @@ from chat.conversation import GenieeConversation
 from chat.prompt import DEFAULT_SYSTEM_PROMPT
 from generation.generate import load_geniee
 from rag.retriever import LocalRetriever, load_corpus_documents
+from rag.web_retriever import WebRetriever
 
 CHECKPOINT_PATH = PROJECT_ROOT / "checkpoints" / "geniee_sft_best.pt"
 INSTRUCTION_SPLIT_DIR = PROJECT_ROOT / "data" / "processed" / "splits"
@@ -25,13 +26,59 @@ def _question_terms(text):
     stop_words = {
         "a", "an", "and", "are", "can", "do", "does", "how", "in",
         "is", "it", "of", "on", "or", "the", "to", "what", "when",
-        "why", "with",
+        "why", "with", "describe", "explain", "tell", "give",
     }
+    normalized = _normalize_question(text)
     return {
         word
-        for word in re.findall(r"[a-z0-9]+", text.lower())
+        for word in re.findall(r"[a-z0-9]+", normalized.lower())
         if word not in stop_words
     }
+
+
+def _normalize_question(text):
+    normalized = text.casefold()
+    normalized = re.sub(r"\([^)]*\)", " ", normalized)
+    normalized = normalized.replace("-", " ")
+    normalized = re.sub(r"[^a-z0-9\s]", " ", normalized)
+    normalized = re.sub(r"\bsqli\b", "sql injection", normalized)
+    normalized = re.sub(r"\bxss\b", "cross site scripting", normalized)
+    normalized = re.sub(r"\bbruteforce\b|\bbrute force\b", "brute force", normalized)
+    normalized = normalized.replace("cross-site", "cross site")
+    normalized = normalized.replace("vulnerability scanning", "vulnerability scan")
+    normalized = normalized.replace("penetration testing", "penetration test")
+    for source, target in {
+        "zjanasena": "janasena",
+        "janasena": "jana sena",
+        "cheif": "chief",
+        "andhras": "andhra",
+        "seleniumj": "selenium",
+        "as per": "",
+        "in andhra pradesh": "",
+        "largest film budget": "largest telugu film budget",
+    }.items():
+        normalized = normalized.replace(source, target)
+    normalized = re.sub(
+        r"^what is brute force attack$|^what is brute force attack in security testing$",
+        "what is a brute force attack in security testing",
+        normalized,
+    )
+    normalized = re.sub(
+        r"^what is sql injection and how do you test for it$",
+        "what is sql injection testing",
+        normalized,
+    )
+    normalized = re.sub(
+        r"^what is cross site scripting cross site scripting and what are its main types$",
+        "what are the main types of cross site scripting",
+        normalized,
+    )
+    normalized = re.sub(
+        r"^how do you approach testing api security$",
+        "how do you approach testing api security",
+        normalized,
+    )
+    return " ".join(normalized.split())
 
 
 def _load_instruction_answers():
@@ -58,6 +105,7 @@ class GenieeChat:
         system_prompt=DEFAULT_SYSTEM_PROMPT,
         knowledge_base=None,
         retriever=None,
+        web_retriever=None,
     ):
         self.generator = generator
         self.conversation = GenieeConversation(system_prompt=system_prompt, max_turns=6)
@@ -65,15 +113,18 @@ class GenieeChat:
         self.retriever = retriever if retriever is not None else LocalRetriever(
             load_corpus_documents(CORPUS_DIR)
         )
+        self.web_retriever = web_retriever if web_retriever is not None else WebRetriever()
+        self.last_source = "local"
+        self.last_sources: list[str] = []
 
     def _retrieve_answer(self, user_text):
-        query = user_text.strip().lower()
+        query = _normalize_question(user_text.strip())
         query_terms = _question_terms(query)
         if not query_terms:
             return None
 
         exact_match = next(
-            (answer for question, answer, _ in self.knowledge_base if question.lower() == query),
+            (answer for question, answer, _ in self.knowledge_base if _normalize_question(question) == query),
             None,
         )
         if exact_match:
@@ -86,11 +137,12 @@ class GenieeChat:
                 continue
             overlap = len(query_terms & question_terms)
             score = overlap / len(query_terms | question_terms)
-            if overlap and score > best_score:
+            query_coverage = overlap / len(query_terms)
+            if query_coverage >= 0.8 and score > best_score:
                 best_score = score
                 best_answer = answer
 
-        return best_answer if best_score >= 0.5 else None
+        return best_answer if best_score >= 0.65 else None
 
     def _fit_prompt_to_context(self, max_new_tokens):
         """Drop oldest turns until prompt + generation fit the context window."""
@@ -135,10 +187,24 @@ class GenieeChat:
             raise ValueError("max_new_tokens must be greater than 0")
 
         self.conversation.add_user(user_text)
+        self.last_source = "local"
+        self.last_sources = []
         retrieved = self._retrieve_answer(user_text)
         if retrieved:
             self.conversation.add_assistant(retrieved)
             return retrieved
+
+        if not self.retriever.retrieve(user_text):
+            try:
+                web_evidence = self.web_retriever.retrieve(user_text)
+            except (OSError, ValueError, KeyError, TypeError):
+                web_evidence = []
+            if web_evidence:
+                response = " ".join(sentence for sentence, _ in web_evidence)
+                self.last_source = "web"
+                self.last_sources = [url for _, url in web_evidence]
+                self.conversation.add_assistant(response)
+                return response
 
         prompt = self._fit_prompt_to_context(max_new_tokens)
         references = self.retriever.retrieve(user_text)
@@ -170,7 +236,16 @@ class GenieeChat:
             if evidence:
                 response = " ".join(evidence)
         elif not references and self._looks_unreliable(response, user_text):
-            response = UNKNOWN_ANSWER
+            try:
+                web_evidence = self.web_retriever.retrieve(user_text)
+            except Exception:
+                web_evidence = []
+            if web_evidence:
+                response = " ".join(sentence for sentence, _ in web_evidence)
+                self.last_source = "web"
+                self.last_sources = [url for _, url in web_evidence]
+            else:
+                response = UNKNOWN_ANSWER
         self.conversation.add_assistant(response)
         return response
 
@@ -199,7 +274,9 @@ class GenieeChat:
                 continue
 
             try:
-                print("\nGeniee: " + self.respond(user_input))
+                response = self.respond(user_input)
+                label = "Geniee (web-grounded)" if self.last_source == "web" else "Geniee"
+                print(f"\n{label}: {response}")
             except Exception as exc:
                 print(f"\nGeneration error: {exc}")
 

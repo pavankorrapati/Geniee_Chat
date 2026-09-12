@@ -24,6 +24,11 @@ class FakeGenerator:
         return "Explain something new clearly and directly."
 
 
+class FakeWebRetriever:
+    def retrieve(self, query):
+        return [("Orbital mechanics describes the motion of objects under gravity.", "https://example.test")]
+
+
 def test_chat_uses_exact_instruction_answer():
     generator = FakeGenerator()
     chat = GenieeChat(
@@ -47,3 +52,17 @@ def test_chat_uses_model_for_unknown_question():
 
     assert chat.respond("Explain something new") == "Explain something new clearly and directly."
     assert generator.calls == 1
+
+
+def test_chat_uses_web_evidence_for_unknown_question():
+    generator = FakeGenerator()
+    chat = GenieeChat(
+        generator,
+        knowledge_base=[],
+        retriever=LocalRetriever([]),
+        web_retriever=FakeWebRetriever(),
+    )
+
+    assert chat.respond("Explain orbital mechanics") == (
+        "Orbital mechanics describes the motion of objects under gravity."
+    )

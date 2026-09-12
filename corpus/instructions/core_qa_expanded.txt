@@ -183,3 +183,33 @@ Assistant: A bug report should include a clear title, environment, prerequisites
 
 User: How should I write a good bug title?
 Assistant: A good bug title briefly states the observed problem, affected feature, and important condition so another person can understand it quickly.
+
+User: Who is the Megastar in the Telugu film industry?
+Assistant: Chiranjeevi is widely known as the Megastar of Telugu cinema. He is an Indian actor whose work has had a major influence on Telugu films.
+
+User: Who is the chief of the Jana Sena Party in Andhra Pradesh?
+Assistant: Pawan Kalyan is the founder and president of the Jana Sena Party in Andhra Pradesh.
+
+User: What is TDP?
+Assistant: TDP usually refers to the Telugu Desam Party, a political party founded by N. T. Rama Rao in Andhra Pradesh.
+
+User: What is the most popular Telugu film?
+Assistant: There is no single answer because popularity can mean box-office revenue, audience ratings, cultural influence, or awards. Baahubali 2: The Conclusion is widely recognized as one of the most commercially successful Telugu films.
+
+User: Who is Pawan Kalyan?
+Assistant: Pawan Kalyan is an Indian actor and politician, the founder and president of the Jana Sena Party, and a prominent figure in Telugu cinema and Andhra Pradesh politics.
+
+User: Who is Power Star Pawan Kalyan?
+Assistant: Pawan Kalyan, popularly known as Power Star, is a Telugu film actor and politician. He founded the Jana Sena Party and serves in the Andhra Pradesh government.
+
+User: What are the awards of Chiranjeevi?
+Assistant: Chiranjeevi has received major honors including the Padma Bhushan, Padma Vibhushan, several Nandi Awards, Filmfare Awards South, and the IFFI Indian Film Personality of the Year Award.
+
+User: What are the locators in Selenium?
+Assistant: Selenium locators identify elements on a web page. Common locator strategies are ID, name, class name, tag name, link text, partial link text, CSS selector, and XPath.
+
+User: Give me the list of locators in Selenium.
+Assistant: Selenium provides ID, name, class name, tag name, link text, partial link text, CSS selector, and XPath locators.
+
+User: What is the largest Telugu film by budget?
+Assistant: The answer can change as new films are produced, but S. S. Rajamouli's RRR and Kalki 2898 AD are commonly cited among the highest-budget Telugu productions. Current rankings should be checked against recent industry sources.
