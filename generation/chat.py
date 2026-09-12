@@ -10,9 +10,15 @@ if str(PROJECT_ROOT) not in sys.path:
 from chat.conversation import GenieeConversation
 from chat.prompt import DEFAULT_SYSTEM_PROMPT
 from generation.generate import load_geniee
+from rag.retriever import LocalRetriever, load_corpus_documents
 
 CHECKPOINT_PATH = PROJECT_ROOT / "checkpoints" / "geniee_sft_best.pt"
 INSTRUCTION_SPLIT_DIR = PROJECT_ROOT / "data" / "processed" / "splits"
+CORPUS_DIR = PROJECT_ROOT / "corpus"
+UNKNOWN_ANSWER = (
+    "I do not have enough trained information to answer that accurately yet. "
+    "Please add a trusted example or document for this topic."
+)
 
 
 def _question_terms(text):
@@ -46,10 +52,19 @@ def _load_instruction_answers():
 class GenieeChat:
     """Interactive Geniee chat using the same format used during SFT."""
 
-    def __init__(self, generator, system_prompt=DEFAULT_SYSTEM_PROMPT, knowledge_base=None):
+    def __init__(
+        self,
+        generator,
+        system_prompt=DEFAULT_SYSTEM_PROMPT,
+        knowledge_base=None,
+        retriever=None,
+    ):
         self.generator = generator
         self.conversation = GenieeConversation(system_prompt=system_prompt, max_turns=6)
         self.knowledge_base = knowledge_base if knowledge_base is not None else _load_instruction_answers()
+        self.retriever = retriever if retriever is not None else LocalRetriever(
+            load_corpus_documents(CORPUS_DIR)
+        )
 
     def _retrieve_answer(self, user_text):
         query = user_text.strip().lower()
@@ -102,6 +117,15 @@ class GenieeChat:
         text = text.replace("<|endoftext|>", "").replace("⁇", "")
         return text.strip() or "I am sorry, I could not generate a response."
 
+    @staticmethod
+    def _looks_unreliable(text, question=""):
+        words = text.split()
+        if len(words) < 5 or len(set(words)) < max(3, len(words) // 3):
+            return True
+        question_terms = _question_terms(question)
+        response_terms = _question_terms(text)
+        return bool(question_terms) and not question_terms.intersection(response_terms)
+
     def respond(self, user_text, max_new_tokens=80):
         user_text = user_text.strip()
         if not user_text:
@@ -117,6 +141,13 @@ class GenieeChat:
             return retrieved
 
         prompt = self._fit_prompt_to_context(max_new_tokens)
+        references = self.retriever.retrieve(user_text)
+        if references:
+            reference_text = "\n\nRelevant local reference:\n" + "\n\n".join(
+                f"[{name}] {text[:1200]}" for name, text in references
+            )
+            prompt_head, assistant_marker = prompt.rsplit("<|assistant|>\n", 1)
+            prompt = prompt_head + reference_text + "\n<|assistant|>\n" + assistant_marker
 
         try:
             raw = self.generator.generate(
@@ -134,6 +165,12 @@ class GenieeChat:
             raise
 
         response = self.clean_response(raw)
+        if references and self._looks_unreliable(response, user_text):
+            evidence = self.retriever.best_sentences(user_text)
+            if evidence:
+                response = " ".join(evidence)
+        elif not references and self._looks_unreliable(response, user_text):
+            response = UNKNOWN_ANSWER
         self.conversation.add_assistant(response)
         return response
 
