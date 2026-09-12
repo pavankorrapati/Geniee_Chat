@@ -1,0 +1,185 @@
+User: What is Python?
+Assistant: Python is a high-level, general-purpose programming language known for readable syntax and a broad ecosystem.
+
+User: What is pytest?
+Assistant: pytest is a Python testing framework used to write, organize, and execute automated tests.
+
+User: What is a Python variable?
+Assistant: A Python variable is a name bound to an object or value during program execution.
+
+User: What is a Python string?
+Assistant: A string is an immutable sequence of characters enclosed in single quotes, double quotes, or triple quotes.
+
+User: What is a Python dictionary?
+Assistant: A dictionary is a mutable collection of key-value pairs. Keys are unique and are used to retrieve values.
+
+User: What is a Python list?
+Assistant: A list is an ordered, mutable collection that can contain duplicate values and different types of objects.
+
+User: What is a Python tuple?
+Assistant: A tuple is an ordered, immutable collection of values.
+
+User: What is a Python set?
+Assistant: A set is an unordered collection that stores unique values and supports set operations such as union and intersection.
+
+User: What is a Python function?
+Assistant: A function is a reusable block of code that performs a task and can accept arguments and return a result.
+
+User: How do I define a Python function?
+Assistant: Define a function with the def keyword, followed by its name, parameters, a colon, and an indented function body.
+
+User: What is a Python module?
+Assistant: A module is a Python file containing reusable code such as functions, classes, and variables.
+
+User: What is a Python package?
+Assistant: A package is a directory that groups related Python modules into a reusable structure.
+
+User: What is a Python exception?
+Assistant: An exception is an event raised during execution that indicates an error or other unusual condition.
+
+User: How do I handle an exception in Python?
+Assistant: Use a try block for risky code and one or more except blocks to handle specific exceptions. Use finally for cleanup that must always run.
+
+User: What is a Python class?
+Assistant: A class is a blueprint that defines the data and behavior of objects.
+
+User: What is inheritance in Python?
+Assistant: Inheritance allows a class to reuse or extend attributes and methods defined by another class.
+
+User: What is polymorphism?
+Assistant: Polymorphism allows different object types to respond to the same operation according to their own implementation.
+
+User: What is a list comprehension?
+Assistant: A list comprehension is a compact expression for creating a list by transforming or filtering items from an iterable.
+
+User: What is a virtual environment?
+Assistant: A virtual environment is an isolated Python environment that keeps a project's dependencies separate from other projects.
+
+User: What is pip?
+Assistant: pip is the standard Python package installer used to install and manage packages from Python package indexes.
+
+User: What is unit testing?
+Assistant: Unit testing checks a small, isolated unit of code, such as a function or method, against expected behavior.
+
+User: What is integration testing?
+Assistant: Integration testing checks whether multiple components work correctly together across their interfaces.
+
+User: What is end-to-end testing?
+Assistant: End-to-end testing verifies a complete user workflow through the system, from the entry point to the final result.
+
+User: What is a test case?
+Assistant: A test case is a documented set of preconditions, steps, inputs, and expected results used to verify one behavior.
+
+User: What is a test suite?
+Assistant: A test suite is a collection of related test cases that are run together.
+
+User: What is a regression test?
+Assistant: A regression test checks that previously working behavior still works after code or configuration changes.
+
+User: What is a smoke test?
+Assistant: A smoke test is a small set of critical checks used to determine whether a build is stable enough for deeper testing.
+
+User: What is a pytest fixture?
+Assistant: A pytest fixture provides reusable setup or test data and can also perform cleanup for tests.
+
+User: What is pytest parametrization?
+Assistant: Pytest parametrization runs the same test function with multiple input and expected-output combinations.
+
+User: How do I run pytest?
+Assistant: Run pytest from the project directory with the command python -m pytest or pytest.
+
+User: How do I run one pytest file?
+Assistant: Run one file with python -m pytest path/to/test_file.py.
+
+User: What does an assertion do in a test?
+Assistant: An assertion compares an actual condition or value with the expected result and fails the test when they differ.
+
+User: What is Selenium?
+Assistant: Selenium is a browser automation framework for controlling web browsers and testing web applications.
+
+User: What is Playwright?
+Assistant: Playwright is a browser automation and end-to-end testing framework that supports Chromium, Firefox, and WebKit.
+
+User: What is a CSS selector?
+Assistant: A CSS selector is a pattern used to identify HTML elements by tags, attributes, classes, IDs, or relationships.
+
+User: What is a Selenium locator?
+Assistant: A Selenium locator is a strategy for identifying a web element, such as an ID, name, CSS selector, XPath, or class name.
+
+User: What should a login page test cover?
+Assistant: Test valid and invalid credentials, empty fields, invalid formats, error messages, account lockout, session behavior, logout, and security controls.
+
+User: What is an API?
+Assistant: An API, or application programming interface, defines how software components communicate through agreed inputs, operations, and outputs.
+
+User: What is API testing?
+Assistant: API testing verifies endpoints, request data, response data, status codes, headers, authentication, authorization, errors, and business rules.
+
+User: What does HTTP 200 mean?
+Assistant: HTTP 200 means the request succeeded and the server returned a successful response.
+
+User: What does HTTP 201 mean?
+Assistant: HTTP 201 means a request succeeded and a new resource was created.
+
+User: What does HTTP 400 mean?
+Assistant: HTTP 400 means the server rejected the request because it was invalid or malformed.
+
+User: What does HTTP 401 mean?
+Assistant: HTTP 401 means authentication is required or the supplied authentication credentials are invalid.
+
+User: What does HTTP 403 mean?
+Assistant: HTTP 403 means the server understood the request but refuses to authorize it.
+
+User: What does HTTP 404 mean?
+Assistant: HTTP 404 means the requested resource could not be found.
+
+User: What does HTTP 500 mean?
+Assistant: HTTP 500 means the server encountered an unexpected internal error while processing the request.
+
+User: What is a GET request?
+Assistant: A GET request retrieves a resource and should not normally change server state.
+
+User: What is a POST request?
+Assistant: A POST request submits data to a server, commonly to create a resource or trigger an operation.
+
+User: What is a PUT request?
+Assistant: A PUT request commonly replaces or fully updates a resource at a specified URL.
+
+User: What is a DELETE request?
+Assistant: A DELETE request asks the server to remove a specified resource.
+
+User: What is JSON?
+Assistant: JSON is a text format for representing structured data using objects, arrays, strings, numbers, booleans, and null.
+
+User: What is machine learning?
+Assistant: Machine learning is a field in which models learn patterns from data to make predictions or decisions.
+
+User: What is training in machine learning?
+Assistant: Training adjusts a model's parameters using data so that its predictions become closer to the desired outputs.
+
+User: What is overfitting?
+Assistant: Overfitting occurs when a model learns the training examples too closely and performs poorly on new data.
+
+User: What is a neural network?
+Assistant: A neural network is a model made of connected computational units that transform inputs into outputs using learned parameters.
+
+User: What is a transformer model?
+Assistant: A transformer is a neural network architecture that uses attention to model relationships between elements in a sequence.
+
+User: What is next-token prediction?
+Assistant: Next-token prediction is the task of predicting the next token from the tokens that came before it.
+
+User: What is a tokenizer?
+Assistant: A tokenizer converts text into smaller pieces called tokens and maps those tokens to numerical IDs for a model.
+
+User: What is Git?
+Assistant: Git is a distributed version-control system used to track changes to files and collaborate on software projects.
+
+User: What is a Git commit?
+Assistant: A Git commit records a snapshot of staged changes with a message describing the change.
+
+User: What is a bug report?
+Assistant: A bug report should include a clear title, environment, prerequisites, reproduction steps, expected result, actual result, severity, and evidence.
+
+User: How should I write a good bug title?
+Assistant: A good bug title briefly states the observed problem, affected feature, and important condition so another person can understand it quickly.

@@ -331,6 +331,36 @@ def build_dataset():
         )
 
     # ======================================================
+    # KEEP ONE CANONICAL ANSWER PER QUESTION
+    # ======================================================
+
+    question_records = {}
+    question_duplicates = 0
+
+    for record in records:
+        question = next(
+            message["content"]
+            for message in record["messages"]
+            if message["role"] == "user"
+        )
+        question_key = " ".join(question.casefold().split())
+        source = record["metadata"].get("source", "")
+        current = question_records.get(question_key)
+
+        if current is None:
+            question_records[question_key] = record
+            continue
+
+        current_source = current["metadata"].get("source", "")
+        current_is_curated = current_source.endswith("core_qa_expanded.txt")
+        source_is_curated = source.endswith("core_qa_expanded.txt")
+        if source_is_curated and not current_is_curated:
+            question_records[question_key] = record
+        question_duplicates += 1
+
+    records = list(question_records.values())
+
+    # ======================================================
     # REMOVE EXACT DUPLICATES
     # ======================================================
 
@@ -414,6 +444,10 @@ def build_dataset():
 
     print(
         f"Duplicate records    : {duplicates}"
+    )
+
+    print(
+        f"Duplicate questions  : {question_duplicates}"
     )
 
     print(

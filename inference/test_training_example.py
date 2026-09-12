@@ -127,7 +127,7 @@ print(f"Vocabulary: {tokenizer.vocab_size}")
 
 config = GenieeConfig(
     vocab_size=tokenizer.vocab_size,
-    max_seq_len=128,
+    max_seq_len=256,
     d_model=512,
     num_heads=8,
     ffn_hidden_dim=2048,
@@ -203,9 +203,6 @@ with torch.no_grad():
 # Decode
 # ==========================================================
 
-# generated_text = tokenizer.decode(
-#     generated_ids[0].tolist()
-# )
 generated_text = tokenizer.decode(
     generated_ids
 )

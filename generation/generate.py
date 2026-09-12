@@ -45,10 +45,12 @@ class GenieeGenerator:
 
     @staticmethod
     def _apply_top_p(logits, top_p):
-        if top_p is None or top_p >= 1.0:
+        if top_p is None:
             return logits
-        if top_p <= 0:
-            raise ValueError("top_p must be > 0")
+        if not 0 < top_p <= 1:
+            raise ValueError("top_p must be between 0 and 1")
+        if top_p == 1.0:
+            return logits
         sorted_logits, sorted_indices = torch.sort(logits, descending=True, dim=-1)
         probs = F.softmax(sorted_logits, dim=-1)
         cumulative = torch.cumsum(probs, dim=-1)
@@ -62,7 +64,7 @@ class GenieeGenerator:
 
     def _suppress_special_tokens(self, logits):
         logits = logits.clone()
-        for name in ("unk_id", "bos_id"):
+        for name in ("unk_id", "bos_id", "pad_id"):
             token_id = getattr(self.tokenizer, name, None)
             if token_id is not None and token_id >= 0:
                 logits[:, token_id] = float("-inf")
@@ -177,14 +179,27 @@ def load_geniee(checkpoint_path, device=None):
     tokenizer = GenieeTokenizer(tokenizer_path)
     checkpoint = torch.load(checkpoint_path, map_location="cpu")
     saved = checkpoint.get("config", {})
+    state = checkpoint.get("model_state_dict", checkpoint)
+
+    position_weights = state.get("embeddings.position_embedding.weight")
+    token_weights = state.get("embeddings.token_embedding.weight")
+    inferred_max_seq_len = position_weights.shape[0] if position_weights is not None else 256
+    inferred_vocab_size = token_weights.shape[0] if token_weights is not None else tokenizer.vocab_size
+    inferred_d_model = token_weights.shape[1] if token_weights is not None else 512
+    ffn_weights = state.get("blocks.0.feed_forward.linear1.weight")
+    inferred_ffn_hidden_dim = ffn_weights.shape[0] if ffn_weights is not None else 2048
+    inferred_num_layers = sum(
+        key.startswith("blocks.") and key.endswith(".attention.q_proj.weight")
+        for key in state
+    ) or 8
 
     config = GenieeConfig(
-        vocab_size=int(saved.get("vocab_size", tokenizer.vocab_size)),
-        max_seq_len=int(saved.get("max_seq_len", 256)),
-        d_model=int(saved.get("d_model", 512)),
+        vocab_size=int(saved.get("vocab_size", inferred_vocab_size)),
+        max_seq_len=int(saved.get("max_seq_len", inferred_max_seq_len)),
+        d_model=int(saved.get("d_model", inferred_d_model)),
         num_heads=int(saved.get("num_heads", 8)),
-        ffn_hidden_dim=int(saved.get("ffn_hidden_dim", 2048)),
-        num_layers=int(saved.get("num_layers", 8)),
+        ffn_hidden_dim=int(saved.get("ffn_hidden_dim", inferred_ffn_hidden_dim)),
+        num_layers=int(saved.get("num_layers", inferred_num_layers)),
         dropout=float(saved.get("dropout", 0.0)),
     )
 
@@ -194,7 +209,6 @@ def load_geniee(checkpoint_path, device=None):
         )
 
     model = GenieeModel(config)
-    state = checkpoint.get("model_state_dict", checkpoint)
     model.load_state_dict(state)
     return GenieeGenerator(model, tokenizer, device or ("cuda" if torch.cuda.is_available() else "cpu"))
 
