@@ -41,7 +41,7 @@ TOKENIZER_PATH = (
 CHECKPOINT_PATH = (
     PROJECT_ROOT
     / "checkpoints"
-    / "geniee_pretrain_best.pt"
+    / "geniee_sft_best.pt"
 )
 
 

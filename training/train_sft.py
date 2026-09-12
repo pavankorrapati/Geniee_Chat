@@ -72,6 +72,10 @@ BEST_CHECKPOINT = (
     CHECKPOINT_DIR
     / "geniee_sft_best.pt"
 )
+BASE_CHECKPOINT = (
+    CHECKPOINT_DIR
+    / "geniee_pretrain_best.pt"
+)
 
 # ----------------------------------------------------------
 # Debug-overfit checkpoint
@@ -90,7 +94,7 @@ DEBUG_CHECKPOINT = (
 # Dataset configuration
 # ==========================================================
 
-MAX_SEQ_LEN = 128
+MAX_SEQ_LEN = 256
 
 BATCH_SIZE = 2
 
@@ -198,6 +202,15 @@ def parse_args():
         help=(
             "Number of epochs used by "
             "--debug-overfit."
+        ),
+    )
+
+    parser.add_argument(
+        "--from-scratch",
+        action="store_true",
+        help=(
+            "Ignore the pretrained checkpoint and "
+            "initialize SFT from random weights."
         ),
     )
 
@@ -1264,6 +1277,38 @@ def main():
         tokenizer=tokenizer,
         dropout=effective_dropout,
     )
+
+    # ------------------------------------------------------
+    # Initialize SFT from pretrained weights.
+    # ------------------------------------------------------
+
+    if not args.from_scratch and BASE_CHECKPOINT.exists():
+        base_checkpoint = torch.load(
+            BASE_CHECKPOINT,
+            map_location="cpu",
+        )
+        base_config = base_checkpoint.get("config", {})
+        expected = {
+            "vocab_size": model.config.vocab_size,
+            "max_seq_len": model.config.max_seq_len,
+            "d_model": model.config.d_model,
+            "num_heads": model.config.num_heads,
+            "ffn_hidden_dim": model.config.ffn_hidden_dim,
+            "num_layers": model.config.num_layers,
+        }
+        for key, value in expected.items():
+            if int(base_config.get(key, value)) != value:
+                raise ValueError(
+                    f"Base checkpoint {key} mismatch: "
+                    f"{base_config.get(key)} != {value}"
+                )
+        model.load_state_dict(base_checkpoint["model_state_dict"])
+        print(f"Initialized SFT from: {BASE_CHECKPOINT}")
+    elif not args.from_scratch:
+        print(f"WARNING: pretrained checkpoint not found: {BASE_CHECKPOINT}")
+        print("SFT will start from random weights. Run train_pretrain.py first for best results.")
+    else:
+        print("SFT initialized from random weights (--from-scratch).")
 
     model = model.to(
         DEVICE

@@ -70,7 +70,7 @@ BEST_CHECKPOINT = (
 # MODEL CONFIGURATION
 # ============================================================
 
-MAX_SEQ_LEN = 128
+MAX_SEQ_LEN = 256
 D_MODEL = 512
 NUM_HEADS = 8
 FFN_HIDDEN_DIM = 2048
@@ -91,6 +91,8 @@ LEARNING_RATE = 1e-4
 WEIGHT_DECAY = 0.01
 
 GRAD_CLIP = 1.0
+
+STRIDE = 64
 
 NUM_WORKERS = 0
 

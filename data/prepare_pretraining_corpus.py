@@ -14,7 +14,7 @@ RAW_CORPUS = (
     PROJECT_ROOT
     / "data"
     / "raw"
-    / "corpus_v2.txt"
+    / "corpus_clean.txt"
 )
 
 OUTPUT_DIR = (

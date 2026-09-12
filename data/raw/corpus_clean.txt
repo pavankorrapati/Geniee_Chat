@@ -1,0 +1,1020 @@
+GENIEE PRETRAINING CORPUS V2
+
+TOPIC: GENERAL SOFTWARE ENGINEERING
+
+Software engineering is the systematic process of designing, developing, testing, deploying, and maintaining software systems.
+
+A software system consists of source code, configuration, data, dependencies, infrastructure, and documentation. Software development involves understanding requirements, designing solutions, implementing functionality, validating behavior, and maintaining the application throughout its lifecycle.
+
+A software development lifecycle commonly includes requirements analysis, design, implementation, testing, deployment, and maintenance.
+
+Requirements describe what a software system should do. Functional requirements describe specific behaviors and capabilities. Non-functional requirements describe qualities such as performance, security, reliability, scalability, usability, and maintainability.
+
+Good software should be readable, testable, maintainable, reusable, and reliable.
+
+Modular software divides a large system into smaller components. Each component should have a clear responsibility and well-defined interfaces.
+
+An API is an interface through which software components communicate. APIs allow applications to exchange data and invoke operations without requiring knowledge of the internal implementation.
+
+Automation reduces repetitive manual work by allowing software tools and scripts to execute predefined operations.
+
+Software testing provides information about the quality and behavior of software. Testing can identify defects, verify requirements, and reduce the risk of failures in production.
+
+Continuous integration automatically builds and tests software changes. Continuous delivery and continuous deployment automate the process of preparing and releasing software.
+
+TOPIC: PYTHON PROGRAMMING
+
+Python is a high-level general-purpose programming language. Python emphasizes readability and provides a concise syntax.
+
+Python programs can contain variables, expressions, functions, classes, modules, exceptions, loops, conditional statements, and data structures.
+
+A variable stores a reference to a value.
+
+Example:
+
+name = "Geniee"
+version = 1
+learning_rate = 0.001
+
+Python supports integers, floating-point numbers, strings, Boolean values, lists, tuples, sets, dictionaries, and objects.
+
+Conditional statements allow a program to execute different code depending on conditions.
+
+Example:
+
+if score >= 90:
+result = "excellent"
+elif score >= 70:
+result = "good"
+else:
+result = "needs improvement"
+
+A for loop iterates over a sequence.
+
+Example:
+
+for item in items:
+print(item)
+
+A while loop repeatedly executes code while a condition remains true.
+
+Functions allow reusable operations to be defined.
+
+Example:
+
+def add(a, b):
+return a + b
+
+Functions can accept positional arguments, keyword arguments, default arguments, and variable-length arguments.
+
+Classes provide a mechanism for creating objects.
+
+Example:
+
+class User:
+
+def __init__(self, username):
+self.username = username
+
+def login(self):
+return True
+
+Exception handling allows a program to respond to runtime errors.
+
+Example:
+
+try:
+result = 10 / value
+except ZeroDivisionError:
+result = 0
+
+A Python module is a file containing Python definitions and statements. Modules can be imported using the import statement.
+
+Example:
+
+import json
+from pathlib import Path
+
+Python can read and write files.
+
+Example:
+
+with open("data.txt", "r", encoding="utf-8") as file:
+content = file.read()
+
+Lists are ordered mutable collections.
+
+Example:
+
+numbers = [1, 2, 3, 4, 5]
+
+Dictionaries store key-value pairs.
+
+Example:
+
+user = {
+"name": "Geniee",
+"version": 1
+}
+
+Python supports object-oriented programming concepts including encapsulation, inheritance, abstraction, and polymorphism.
+
+Python also supports comprehensions, generators, lambda expressions, decorators, context managers, and asynchronous programming.
+
+Python is widely used for automation, testing, web development, data processing, machine learning, artificial intelligence, and scripting.
+
+TOPIC: SOFTWARE TESTING
+
+Software testing is the process of evaluating a software application to determine whether it satisfies specified requirements and behaves as expected.
+
+Testing can identify defects before software reaches production.
+
+A test case contains information required to verify a particular behavior. A typical test case contains a test case identifier, description, preconditions, test steps, test data, expected result, actual result, and execution status.
+
+A test scenario describes a functionality or behavior that needs to be tested.
+
+A test condition is a specific aspect of the system that can be verified.
+
+The expected result describes what should happen when a test is executed.
+
+The actual result describes what happened during test execution.
+
+A test passes when the actual result matches the expected result.
+
+A test fails when the actual result differs from the expected result.
+
+Functional testing verifies that the application performs required functions.
+
+Non-functional testing evaluates characteristics such as performance, security, usability, reliability, compatibility, and scalability.
+
+Manual testing is performed by a tester without relying primarily on automated test scripts.
+
+Automation testing uses software tools to execute tests automatically.
+
+Unit testing verifies individual functions or components.
+
+Integration testing verifies communication and interaction between components.
+
+System testing evaluates the complete integrated application.
+
+Acceptance testing verifies whether the software satisfies business and user requirements.
+
+Regression testing verifies that existing functionality continues to work after changes are introduced.
+
+Smoke testing is a broad initial verification that determines whether a build is stable enough for more detailed testing.
+
+Sanity testing is focused testing performed after a change or fix to verify that a particular area behaves correctly.
+
+Positive testing verifies expected behavior using valid inputs.
+
+Negative testing verifies that the application handles invalid, unexpected, or incorrect inputs appropriately.
+
+Boundary value analysis focuses on values at the boundaries of valid input ranges.
+
+Equivalence partitioning divides input data into groups that are expected to behave similarly.
+
+Exploratory testing combines learning, test design, and execution to investigate application behavior.
+
+End-to-end testing verifies complete business workflows across multiple components.
+
+Test data is information used during test execution. Test data can include valid values, invalid values, boundary values, duplicate values, empty values, and large values.
+
+Assertions compare actual application behavior with expected behavior.
+
+A defect is a deviation between expected behavior and actual behavior.
+
+A defect report commonly contains a summary, description, environment, reproduction steps, expected result, actual result, actual result, severity, priority, attachments, and evidence.
+
+Severity describes the technical or business impact of a defect.
+
+Priority describes how urgently a defect should be addressed.
+
+A critical defect may prevent a major business function from operating.
+
+A high severity defect can significantly affect important functionality.
+
+A medium severity defect may affect part of the application but allow alternative workflows.
+
+A low severity defect usually has limited impact.
+
+The defect lifecycle can contain states such as New, Open, In Progress, Fixed, Retest, Reopened, Verified, Closed, and Rejected.
+
+When a developer fixes a defect, the tester should execute the relevant test again to verify the fix.
+
+If the defect still exists, the tester may reopen the defect.
+
+Testing should be repeatable, traceable, and measurable.
+
+TOPIC: TEST AUTOMATION
+
+Test automation uses software to execute predefined tests and evaluate application behavior.
+
+Automation is useful for repetitive tests, regression suites, smoke tests, data-driven testing, and continuous integration.
+
+Automation does not completely replace manual testing. Exploratory testing, usability evaluation, visual assessment, and many forms of investigation still benefit from human judgment.
+
+A good automation framework separates test cases, test data, configuration, utilities, API clients, page objects, reporting, and reusable services.
+
+Reusable automation components reduce duplication and improve maintainability.
+
+A test framework should provide clear failure messages and useful logs.
+
+Test isolation is important because one test should not unnecessarily depend on the state created by another test.
+
+Independent tests can execute in parallel more safely than tests with hidden dependencies.
+
+A flaky test is a test that sometimes passes and sometimes fails without a corresponding change in the application.
+
+Common causes of flaky tests include timing issues, unstable test data, environment instability, race conditions, external dependencies, and unreliable selectors.
+
+Stable automation requires reliable locators, proper synchronization, isolated data, deterministic environments, and meaningful assertions.
+
+TOPIC: PLAYWRIGHT
+
+Playwright is a browser automation and end-to-end testing framework.
+
+Playwright supports browser automation for Chromium, Firefox, and WebKit.
+
+A browser represents a browser process.
+
+A BrowserContext provides an isolated browser session.
+
+A Page represents a browser tab or page.
+
+A Locator identifies an element or group of elements on a page.
+
+Locators provide methods for interacting with web elements.
+
+Examples include:
+
+page.get_by_role("button", name="Sign In")
+page.get_by_label("Email")
+page.get_by_text("Dashboard")
+page.locator("input[name='email']")
+
+The get_by_role locator identifies an element using its accessible role.
+
+Example:
+
+page.get_by_role("button", name="Sign In").click()
+
+The get_by_label locator identifies a form control using its associated label.
+
+Example:
+
+page.get_by_label("Email").fill("user@example.com")
+
+The get_by_text locator identifies elements based on visible text.
+
+Example:
+
+page.get_by_text("Welcome").click()
+
+CSS selectors can identify elements using HTML attributes, classes, IDs, and relationships.
+
+Example:
+
+page.locator("#username")
+
+XPath can also identify elements, although stable semantic locators are generally preferred when available.
+
+The page.goto method navigates to a URL.
+
+Example:
+
+page.goto("https://example.com")
+
+The page.click method can click an element.
+
+The page.fill method enters text into an input field.
+
+Example:
+
+page.get_by_label("Email").fill("user@example.com")
+
+Playwright provides automatic waiting for many actions and assertions.
+
+Assertions can be implemented using the expect API.
+
+Example:
+
+expect(page.get_by_text("Dashboard")).to_be_visible()
+
+A screenshot can be captured using the screenshot method.
+
+Example:
+
+page.screenshot(path="login.png")
+
+Playwright supports network interception and request monitoring.
+
+Playwright can also perform API testing using APIRequestContext.
+
+Authentication state can be saved using storage_state.
+
+A storage state can contain cookies and local storage required for an authenticated session.
+
+Playwright can be integrated with pytest using pytest-playwright.
+
+A common Playwright Python project contains test files, page objects, fixtures, configuration, test data, utilities, and reports.
+
+TOPIC: SELENIUM
+
+Selenium is a browser automation framework commonly used for web application testing.
+
+Selenium WebDriver provides an interface for controlling browsers.
+
+A WebDriver session represents a connection between the test and a browser.
+
+Selenium supports browser interactions such as navigation, clicking, typing, selecting options, and retrieving element properties.
+
+Common Selenium operations include get, click, send_keys, clear, and find_element.
+
+Example:
+
+driver.get("https://example.com")
+
+An element can be located using strategies such as ID, name, class name, tag name, CSS selector, XPath, link text, and partial link text.
+
+Example:
+
+driver.find_element(By.ID, "username")
+
+Explicit waits allow tests to wait for specific conditions.
+
+Example:
+
+WebDriverWait(driver, 10).until(
+EC.visibility_of_element_located((By.ID, "username"))
+)
+
+Implicit waits configure a default waiting period for element searches.
+
+Explicit waits are generally preferred when synchronization needs to be specific and predictable.
+
+Selenium Page Object Model organizes page-specific locators and actions into reusable classes.
+
+The Page Object Model improves readability and reduces duplication.
+
+TOPIC: API TESTING
+
+API testing verifies the behavior, reliability, security, and correctness of application programming interfaces.
+
+An API allows software components to communicate.
+
+REST APIs commonly use HTTP methods such as GET, POST, PUT, PATCH, and DELETE.
+
+GET is commonly used to retrieve data.
+
+POST is commonly used to create a new resource or submit data.
+
+PUT is commonly used to replace or update a resource.
+
+PATCH is commonly used for partial updates.
+
+DELETE is commonly used to remove a resource.
+
+An HTTP request can contain a method, URL, headers, query parameters, path parameters, cookies, and request body.
+
+An HTTP response contains a status code, headers, and response body.
+
+Common HTTP status codes include:
+
+200 OK
+201 Created
+202 Accepted
+204 No Content
+400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+409 Conflict
+422 Unprocessable Entity
+429 Too Many Requests
+500 Internal Server Error
+502 Bad Gateway
+503 Service Unavailable
+
+A 200 response generally indicates a successful request.
+
+A 201 response generally indicates that a resource was created.
+
+A 400 response indicates that the server could not process the request because of invalid input or syntax.
+
+A 401 response indicates that authentication is required or invalid.
+
+A 403 response indicates that the client is authenticated but does not have sufficient permission.
+
+A 404 response indicates that the requested resource could not be found.
+
+A 500 response indicates an internal server error.
+
+API tests should verify status codes, response schemas, required fields, data types, headers, authentication, error messages, and business rules.
+
+Positive API tests use valid requests.
+
+Negative API tests use invalid requests and verify appropriate error handling.
+
+API tests can validate JSON response bodies.
+
+Example JSON:
+
+{
+"id": 101,
+"name": "Geniee",
+"active": true
+}
+
+API authentication can use sessions, cookies, API keys, OAuth tokens, JWT tokens, or other mechanisms.
+
+An API test should not expose secrets such as passwords, private keys, access tokens, or credentials in source code.
+
+TOPIC: REST API CONCEPTS
+
+REST stands for Representational State Transfer.
+
+A RESTful API commonly exposes resources through URLs.
+
+For example:
+
+GET /users
+
+can retrieve users.
+
+A resource can be identified by a path.
+
+Example:
+
+GET /users/101
+
+can retrieve the user with identifier 101.
+
+Query parameters provide optional filtering or pagination information.
+
+Example:
+
+GET /users?page=2&limit=20
+
+Path parameters identify a specific resource.
+
+Example:
+
+GET /users/101
+
+Request headers provide metadata about a request.
+
+Common headers include Content-Type, Accept, Authorization, User-Agent, and Cookie.
+
+The Content-Type header describes the format of the request body.
+
+The Accept header indicates response formats that the client can process.
+
+JSON is commonly used for API request and response bodies.
+
+API pagination allows large result sets to be divided into smaller pages.
+
+Rate limiting controls how many requests a client can make during a specified period.
+
+Idempotency describes whether repeating the same request produces the same intended state.
+
+GET, PUT, and DELETE are generally considered idempotent when implemented according to HTTP semantics.
+
+API contracts define expected request and response structures.
+
+TOPIC: PYTEST
+
+pytest is a Python testing framework.
+
+A pytest test function commonly starts with the prefix test_.
+
+Example:
+
+def test_addition():
+assert 2 + 3 == 5
+
+Assertions verify expected behavior.
+
+pytest discovers test files commonly matching patterns such as test_*.py or *_test.py.
+
+Fixtures provide reusable test setup and teardown.
+
+Example:
+
+import pytest
+
+@pytest.fixture
+def user():
+return {
+"name": "Geniee"
+}
+
+A test can use the fixture as an argument.
+
+Example:
+
+def test_user(user):
+assert user["name"] == "Geniee"
+
+Fixtures can have scopes such as function, class, module, package, and session.
+
+Parametrization allows a test to execute with multiple sets of input data.
+
+Example:
+
+@pytest.mark.parametrize(
+"a,b,expected",
+[
+(1, 2, 3),
+(2, 3, 5),
+(5, 5, 10),
+]
+)
+def test_addition(a, b, expected):
+assert a + b == expected
+
+pytest supports markers for categorizing tests.
+
+Examples include smoke, regression, api, ui, and integration.
+
+pytest can generate output and integrate with reporting tools.
+
+pytest can be combined with Playwright to create browser automation tests.
+
+TOPIC: HTML CSS AND DOM
+
+HTML defines the structure of a web page.
+
+An HTML document contains elements such as html, head, body, div, form, input, button, label, heading, paragraph, and link elements.
+
+Example:
+
+<input
+type="email"
+name="email"
+id="email"
+placeholder="Enter Email"
+>
+
+Attributes provide additional information about an element.
+
+The id attribute identifies an element.
+
+The class attribute associates one or more CSS classes with an element.
+
+The name attribute is commonly used by forms.
+
+The type attribute identifies the type of an input element.
+
+The label element describes a form control.
+
+Example:
+
+<label for="email">Email</label>
+<input id="email" type="email">
+
+Accessibility attributes can provide additional semantic information.
+
+The aria-label attribute provides an accessible name when appropriate.
+
+The DOM represents the document as a tree of elements.
+
+A parent element contains child elements.
+
+An ancestor is an element higher in the DOM hierarchy.
+
+A descendant is an element contained within another element.
+
+A sibling is an element that shares the same parent.
+
+CSS selectors identify elements based on structure, attributes, classes, IDs, and relationships.
+
+Example:
+
+input[type="email"]
+
+A stable automation locator should preferably use meaningful semantics or stable attributes rather than fragile generated CSS classes.
+
+Dynamic classes can change between builds and may cause test failures.
+
+Accessibility-based selectors such as role and label can make automation more resilient when the application provides good semantic markup.
+
+TOPIC: GIT
+
+Git is a distributed version control system.
+
+A repository stores project history and source code.
+
+A commit records a set of changes.
+
+A branch provides an independent line of development.
+
+The main branch commonly represents a stable development line.
+
+Common Git commands include:
+
+git init
+git clone
+git status
+git add
+git commit
+git push
+git pull
+git fetch
+git checkout
+git switch
+git merge
+git rebase
+git log
+
+The working tree contains files currently being edited.
+
+The staging area contains changes prepared for a commit.
+
+A commit should represent a meaningful logical change.
+
+Pull requests allow changes to be reviewed before merging.
+
+Code reviews help identify defects, maintainability issues, security problems, and design concerns.
+
+TOPIC: CI CD
+
+Continuous Integration is the practice of frequently integrating changes into a shared repository and automatically building and testing those changes.
+
+Continuous Delivery automates the preparation of software for release.
+
+Continuous Deployment automatically deploys changes that pass required checks.
+
+A CI pipeline can include source checkout, dependency installation, compilation, linting, unit tests, integration tests, API tests, UI tests, artifact generation, and deployment.
+
+Automated testing is an important part of CI/CD because it provides rapid feedback.
+
+A failed pipeline should provide enough logs and evidence to diagnose the failure.
+
+Test reports can be stored as pipeline artifacts.
+
+Screenshots, videos, traces, logs, and API responses can help diagnose automated test failures.
+
+TOPIC: MACHINE LEARNING
+
+Machine learning is a field of artificial intelligence in which models learn patterns from data.
+
+Training data is used to optimize model parameters.
+
+A model maps input information to predictions or representations.
+
+The training process typically consists of a forward pass, loss calculation, gradient calculation, and parameter update.
+
+A loss function measures the difference between model predictions and desired targets.
+
+An optimizer updates model parameters using gradients.
+
+Training loss measures model performance on training data.
+
+Validation loss measures performance on held-out validation data.
+
+Overfitting occurs when a model learns the training data too specifically and performs poorly on unseen data.
+
+Increasing training data can improve generalization.
+
+A neural network consists of layers containing learnable parameters.
+
+Deep learning uses neural networks with multiple layers.
+
+Transformers are neural network architectures that use attention mechanisms to process sequences.
+
+TOPIC: TRANSFORMERS
+
+A Transformer is a neural network architecture designed for processing sequences.
+
+Transformers use attention mechanisms to model relationships between tokens.
+
+A token is a discrete unit of text processed by a language model.
+
+Tokenization converts text into token identifiers.
+
+A vocabulary maps tokens to integer identifiers.
+
+An embedding layer converts token identifiers into dense vectors.
+
+Positional information allows the model to distinguish the order of tokens.
+
+Self-attention allows each token representation to interact with other token representations.
+
+Multi-head attention uses multiple attention heads to learn different relationships.
+
+A feed-forward network applies nonlinear transformations after attention.
+
+A Transformer block commonly contains attention, normalization, residual connections, and a feed-forward network.
+
+A decoder-only Transformer predicts the next token based on previous tokens.
+
+Causal attention prevents a token from attending to future tokens during autoregressive language modeling.
+
+For example, given:
+
+The cat sat
+
+the model can learn to predict a likely next token such as:
+
+on
+
+Next-token prediction is the foundation of autoregressive language models.
+
+The model produces logits for each vocabulary token.
+
+A softmax operation can convert logits into probabilities.
+
+Temperature controls the randomness of sampling.
+
+A lower temperature makes generation more deterministic.
+
+A higher temperature produces more varied outputs.
+
+Top-k sampling restricts candidate tokens to the k most probable tokens.
+
+Top-p sampling restricts candidate tokens to a probability mass selected by cumulative probability.
+
+Greedy decoding selects the highest-probability token.
+
+Autoregressive generation repeatedly predicts and appends one token at a time.
+
+TOPIC: LANGUAGE MODEL TRAINING
+
+A language model learns statistical relationships between tokens.
+
+During pretraining, a sequence of tokens is divided into input and target sequences.
+
+For next-token prediction, the target sequence is shifted relative to the input.
+
+For example:
+
+Input:
+The cat sat
+
+Target:
+cat sat down
+
+The model learns to predict each target token from the preceding input context.
+
+Cross-entropy loss is commonly used for next-token prediction.
+
+A vocabulary of size V produces V logits for each token position.
+
+If a sequence contains L positions, the model produces logits with a shape similar to:
+
+batch_size x sequence_length x vocabulary_size
+
+The training loop typically performs these steps:
+
+1. Load a batch.
+2. Move the batch to the selected device.
+3. Perform a forward pass.
+4. Calculate the loss.
+5. Clear previous gradients.
+6. Backpropagate the loss.
+7. Clip gradients if required.
+8. Update model parameters.
+9. Record training metrics.
+10. Evaluate validation performance.
+
+A checkpoint stores information required to resume or evaluate training.
+
+A checkpoint can contain model parameters, optimizer state, epoch information, configuration, and validation metrics.
+
+Validation data should not be used to directly optimize model parameters.
+
+Perplexity is commonly calculated from language-model loss.
+
+For cross-entropy loss L, perplexity can be represented as:
+
+perplexity = exp(L)
+
+Lower validation loss generally indicates better next-token prediction performance on the validation data.
+
+TOPIC: GENIEE
+
+Geniee is a custom decoder-only Transformer language model.
+
+Geniee uses a tokenizer to convert text into token IDs.
+
+The tokenizer vocabulary contains 2048 tokens in the current experimental configuration.
+
+The model uses a maximum context length of 128 tokens in the current experimental configuration.
+
+The current experimental Geniee architecture contains 8 Transformer layers.
+
+The model dimension is 512.
+
+The attention mechanism uses 8 attention heads.
+
+The feed-forward hidden dimension is 2048.
+
+The model uses dropout during training.
+
+Geniee is trained using next-token prediction.
+
+The training objective is cross-entropy loss.
+
+Geniee can generate text autoregressively.
+
+During generation, the prompt is converted into token IDs.
+
+The model predicts logits for the next token.
+
+A decoding strategy selects a token from the predicted distribution.
+
+The selected token is appended to the input sequence.
+
+The process repeats until the requested number of tokens has been generated or a stopping token is produced.
+
+Geniee is intended to become a domain-focused language model for software engineering, testing, automation, APIs, and related technical tasks.
+
+A small model trained on a very small corpus can demonstrate the complete machine-learning pipeline but may not produce high-quality language.
+
+Meaningful language-model quality requires substantially more diverse training data.
+
+The quality of training data is important because the model learns patterns present in that data.
+
+Training data should be clean, diverse, relevant, and free from unnecessary duplication.
+
+A domain-focused model should contain information representative of the tasks it is expected to perform.
+
+TOPIC: SOFTWARE AUTOMATION ARCHITECTURE
+
+A maintainable automation framework should separate responsibilities.
+
+A typical architecture can contain:
+
+tests
+pages
+services
+clients
+utils
+config
+data
+reports
+
+Test files contain test scenarios and assertions.
+
+Page objects contain page-specific locators and actions.
+
+Service classes contain reusable business operations.
+
+API clients provide reusable HTTP operations.
+
+Configuration files contain environment-specific settings.
+
+Test data files contain values required by tests.
+
+Utilities provide reusable helper functions.
+
+A layered architecture reduces coupling between tests and implementation details.
+
+For example, a login test should ideally call a login operation rather than duplicate low-level implementation throughout every test.
+
+Reusable API clients can provide methods such as:
+
+get
+post
+put
+patch
+delete
+
+An API client should handle common concerns such as headers, authentication, timeouts, response parsing, and error handling.
+
+Authentication can be centralized in an authentication service.
+
+Test configuration can be loaded from environment variables or configuration files.
+
+Secrets should not be hardcoded in source code.
+
+A robust automation framework should produce logs and reports that make failures easy to diagnose.
+
+TOPIC: TEST DATA
+
+Test data is information used during test execution.
+
+Good test data should be deterministic, isolated, realistic when required, and easy to maintain.
+
+Positive test data represents valid inputs.
+
+Negative test data represents invalid inputs.
+
+Boundary test data represents values at or near input limits.
+
+Examples for a numeric field accepting values from 1 to 100 include:
+
+0
+1
+2
+50
+99
+100
+101
+
+Empty values can be used to verify required-field validation.
+
+Duplicate values can be used to verify uniqueness constraints.
+
+Large input values can be used to test field length limits and application stability.
+
+Data-driven testing allows the same test logic to execute against multiple input combinations.
+
+Parameterized tests are a common way to implement data-driven testing.
+
+TOPIC: DEBUGGING
+
+Debugging is the process of identifying and resolving the cause of an unexpected behavior.
+
+A good debugging process starts by reproducing the problem.
+
+The next step is to inspect error messages, stack traces, logs, inputs, outputs, and application state.
+
+A stack trace identifies where an exception occurred and can help identify the code path that produced it.
+
+The root cause should be distinguished from symptoms.
+
+For example, a timeout may be caused by a slow API, an incorrect selector, an authentication problem, or an unavailable environment.
+
+Logging useful contextual information helps diagnose failures.
+
+In browser automation, screenshots, videos, traces, DOM snapshots, and network logs can provide useful evidence.
+
+In API testing, request URLs, HTTP methods, status codes, headers, payloads, and response bodies can help diagnose failures.
+
+A reproducible failure is easier to investigate than an intermittent failure.
+
+Small isolated experiments can help determine whether a problem originates from the application, test framework, environment, configuration, or data.
+
+TOPIC: QUALITY ENGINEERING
+
+Quality engineering focuses on building quality into the software development process rather than relying only on testing at the end.
+
+Quality includes correctness, reliability, security, performance, usability, maintainability, and observability.
+
+Test automation provides fast feedback but should be combined with code reviews, static analysis, monitoring, and good development practices.
+
+Shift-left testing means introducing validation earlier in the development lifecycle.
+
+Shift-right testing includes monitoring and validation of software behavior after deployment.
+
+Observability commonly involves logs, metrics, and traces.
+
+A quality engineering strategy should align testing activities with business risks.
+
+High-risk functionality should receive appropriate levels of validation.
+
+Automation should prioritize tests that provide valuable and repeatable feedback.
+
+TOPIC: CORE AUTOMATION CONCEPTS
+
+An automation system can combine browser automation, API automation, test generation, test execution, reporting, and intelligent analysis.
+
+A test generation system can convert structured test cases into executable automation code.
+
+A structured test case may contain:
+
+test case ID
+title
+preconditions
+steps
+test data
+expected results
+
+A code generator can map these concepts to automation framework operations.
+
+For example, a test step such as:
+
+Enter email in the Email field
+
+can be represented in Playwright as:
+
+page.get_by_label("Email").fill(email)
+
+A step such as:
+
+Click the Sign In button
+
+can be represented as:
+
+page.get_by_role("button", name="Sign In").click()
+
+A step such as:
+
+Verify Dashboard is visible
+
+can be represented as:
+
+expect(page.get_by_text("Dashboard")).to_be_visible()
+
+Automation intelligence can also analyze failed tests and identify likely causes.
+
+Self-healing locators attempt to recover when a previously used locator no longer matches the intended element.
+
+Locator strategies should prioritize semantic and stable attributes.
+
+AI-assisted automation can use language models to interpret test cases, generate code, summarize failures, classify defects, and suggest corrective actions.
+
+A useful automation assistant should provide deterministic results when deterministic behavior is required and should expose enough evidence to allow humans to verify generated results.
+
+The long-term goal of an automation intelligence system is to reduce repetitive engineering effort while maintaining reliability, traceability, and human oversight.

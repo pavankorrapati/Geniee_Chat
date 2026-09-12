@@ -779,7 +779,7 @@ TOKENIZER_PATH = (
 CHECKPOINT_PATH = (
     PROJECT_ROOT
     / "checkpoints"
-    / "geniee_sft_debug_best.pt"
+    / "geniee_pretrain_v2_best.pt"
 )
 
 

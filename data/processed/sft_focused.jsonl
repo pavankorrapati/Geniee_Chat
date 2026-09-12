@@ -1,0 +1,1 @@
+{"text": "<|im_start|>user\nConvert to Gherkin: User logs in with valid credentials<|im_end|>\n<|im_start|>assistant\nGiven the user is on the login page\nWhen they enter valid credentials\nThen they should be redirected to dashboard<|im_end|>"}

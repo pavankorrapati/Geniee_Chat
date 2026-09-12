@@ -1,405 +1,118 @@
 from pathlib import Path
 import sys
 
-
-# ==========================================================
-# Project root
-# ==========================================================
-
-PROJECT_ROOT = (
-    Path(__file__).resolve().parent.parent
-)
-
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(
-        0,
-        str(PROJECT_ROOT)
-    )
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-
-# ==========================================================
-# Geniee imports
-# ==========================================================
-
+from chat.conversation import GenieeConversation
+from chat.prompt import DEFAULT_SYSTEM_PROMPT
 from generation.generate import load_geniee
 
+CHECKPOINT_PATH = PROJECT_ROOT / "checkpoints" / "geniee_sft_best.pt"
 
-# ==========================================================
-# Configuration
-# ==========================================================
-
-CHECKPOINT_PATH = (
-    PROJECT_ROOT
-    / "checkpoints"
-    / "geniee_epoch_5.pt"
-)
-
-
-# ==========================================================
-# Geniee Chat
-# ==========================================================
 
 class GenieeChat:
-    """
-    Interactive command-line chatbot powered by Geniee.
-    """
+    """Interactive Geniee chat using the same format used during SFT."""
 
-    def __init__(
-        self,
-        generator
-    ):
-
+    def __init__(self, generator, system_prompt=DEFAULT_SYSTEM_PROMPT):
         self.generator = generator
+        self.conversation = GenieeConversation(system_prompt=system_prompt, max_turns=6)
 
-    # ======================================================
-    # Generate response
-    # ======================================================
-
-    # def respond(
-    #     self,
-    #     prompt
-    # ):
-    #     """
-    #     Generate a response for the supplied prompt.
-    #     """
-
-    #     if not isinstance(
-    #         prompt,
-    #         str
-    #     ):
-
-    #         raise TypeError(
-    #             "prompt must be a string"
-    #         )
-
-    #     prompt = prompt.strip()
-
-    #     if not prompt:
-
-    #         return ""
-
-    #     response = (
-    #         self.generator.generate(
-    #             prompt,
-    #             max_new_tokens=50,
-    #             temperature=0.8,
-    #             top_k=20,
-    #             top_p=0.9,
-    #             repetition_penalty=1.1,
-    #             do_sample=True
-    #         )
-    #     )
-
-    #     return response
-    def respond(
-        self,
-        prompt
-    ):
-        """
-        Generate only the newly generated response.
-        """
-
-        if not isinstance(
-            prompt,
-            str
-        ):
-
-            raise TypeError(
-                "prompt must be a string"
-            )
-
-        prompt = prompt.strip()
-
-        if not prompt:
-
-            return ""
-
-        response = (
-            self.generator.generate(
-                prompt,
-                max_new_tokens=50,
-                temperature=0.8,
-                top_k=20,
-                top_p=0.9,
-                repetition_penalty=1.1,
-                do_sample=True,
-                return_full_text=False
-            )
-        )
-
-        return response.strip()
-
-    # ======================================================
-    # Start chat
-    # ======================================================
-
-    def start(self):
-
-        print()
-        print(
-            "=" * 60
-        )
-
-        print(
-            "GENIEE CHAT"
-        )
-
-        print(
-            "=" * 60
-        )
-
-        print()
-        print(
-            "Type 'exit' or 'quit' to stop."
-        )
-
-        print(
-            "Type 'clear' to reset the conversation."
-        )
-
-        print()
-
-        conversation = []
-
+    def _fit_prompt_to_context(self, max_new_tokens):
+        """Drop oldest turns until prompt + generation fit the context window."""
+        tokenizer = self.generator.tokenizer
+        max_context = self.generator.model.config.max_seq_len
         while True:
-
-            try:
-
-                user_input = input(
-                    "You: "
-                )
-
-            except (
-                KeyboardInterrupt,
-                EOFError
-            ):
-
-                print()
-                print(
-                    "Exiting Geniee..."
-                )
-
-                break
-
-            user_input = (
-                user_input.strip()
-            )
-
-            # --------------------------------------------------
-            # Empty input
-            # --------------------------------------------------
-
-            if not user_input:
-
-                continue
-
-            # --------------------------------------------------
-            # Exit
-            # --------------------------------------------------
-
-            if user_input.lower() in {
-                "exit",
-                "quit"
-            }:
-
-                print()
-                print(
-                    "Goodbye!"
-                )
-
-                break
-
-            # --------------------------------------------------
-            # Clear conversation
-            # --------------------------------------------------
-
-            if user_input.lower() == "clear":
-
-                conversation.clear()
-
-                print()
-                print(
-                    "Conversation cleared."
-                )
-
-                print()
-
-                continue
-
-            # --------------------------------------------------
-            # Build prompt
-            # --------------------------------------------------
-
-            conversation.append(
-                (
-                    "User",
-                    user_input
-                )
-            )
-
-            prompt_parts = []
-
-            for role, message in conversation:
-
-                prompt_parts.append(
-                    f"{role}: {message}"
-                )
-
-            prompt_parts.append(
-                "Geniee:"
-            )
-
-            prompt = "\n".join(
-                prompt_parts
-            )
-
-            # --------------------------------------------------
-            # Generate
-            # --------------------------------------------------
-
-            try:
-
-                generated_text = (
-                    self.respond(
-                        prompt
-                    )
-                )
-
-            except Exception as error:
-
-                print()
-                print(
-                    "Generation error:"
-                )
-
-                print(
-                    error
-                )
-
-                # Remove the user message because
-                # generation failed.
-
-                conversation.pop()
-
-                print()
-
-                continue
-
-            # --------------------------------------------------
-            # Extract response
-            # --------------------------------------------------
-
-            response = (
-                self.extract_response(
-                    generated_text
-                )
-            )
-
-            print()
-            print(
-                f"Geniee: {response}"
-            )
-
-            print()
-
-            conversation.append(
-                (
-                    "Geniee",
-                    response
-                )
-            )
-
-    # ======================================================
-    # Extract Geniee response
-    # ======================================================
+            prompt = self.conversation.prompt()
+            token_count = len(tokenizer.encode(prompt, add_bos=True, add_eos=False))
+            if token_count + max_new_tokens <= max_context:
+                return prompt
+            messages = self.conversation.memory.messages
+            if len(messages) <= 2:
+                return prompt
+            # Remove the oldest complete user/assistant pair.
+            del messages[:2]
 
     @staticmethod
-    def extract_response(
-        generated_text
-    ):
-        """
-        Extract the Geniee portion from the generated text.
+    def clean_response(text):
+        if not text:
+            return "I’m sorry, I could not generate a response."
+        for marker in ("<|user|>", "<|system|>", "<|assistant|>"):
+            if marker in text:
+                text = text.split(marker, 1)[0]
+        return text.strip() or "I’m sorry, I could not generate a response."
 
-        Example:
-
-            User: Hello
-            Geniee: Hello! How can I help?
-
-        becomes:
-
-            Hello! How can I help?
-        """
-
-        if not generated_text:
-
+    def respond(self, user_text):
+        user_text = user_text.strip()
+        if not user_text:
             return ""
 
-        text = generated_text.strip()
+        self.conversation.add_user(user_text)
+        max_new_tokens = 80
+        prompt = self._fit_prompt_to_context(max_new_tokens)
 
-        if "Geniee:" in text:
+        try:
+            raw = self.generator.generate(
+                prompt,
+                max_new_tokens=max_new_tokens,
+                temperature=0.65,
+                top_k=30,
+                top_p=0.90,
+                repetition_penalty=1.05,
+                do_sample=True,
+                return_full_text=False,
+            )
+        except Exception:
+            self.conversation.memory.messages.pop()
+            raise
 
-            text = text.split(
-                "Geniee:",
-                1
-            )[1]
+        response = self.clean_response(raw)
+        self.conversation.add_assistant(response)
+        return response
 
-        if "User:" in text:
+    def start(self):
+        print("\n" + "=" * 70)
+        print("GENIEE CHAT")
+        print("=" * 70)
+        print("Commands: exit | quit | clear")
+        print("Model: SFT instruction-tuned Geniee")
 
-            text = text.split(
-                "User:",
-                1
-            )[0]
+        while True:
+            try:
+                user_input = input("\nYou: ").strip()
+            except (KeyboardInterrupt, EOFError):
+                print("\nGoodbye!")
+                break
 
-        return text.strip()
+            if not user_input:
+                continue
+            if user_input.lower() in {"exit", "quit"}:
+                print("Goodbye!")
+                break
+            if user_input.lower() == "clear":
+                self.conversation.clear()
+                print("Conversation cleared.")
+                continue
 
+            try:
+                print("\nGeniee: " + self.respond(user_input))
+            except Exception as exc:
+                print(f"\nGeneration error: {exc}")
 
-# ==========================================================
-# Load chatbot
-# ==========================================================
 
 def load_chatbot():
-
     if not CHECKPOINT_PATH.exists():
-
         raise FileNotFoundError(
-            "Geniee checkpoint not found:\n"
-            f"{CHECKPOINT_PATH}\n\n"
-            "Run training first."
+            f"SFT checkpoint not found: {CHECKPOINT_PATH}\n"
+            "Run training/train_pretrain.py first, then training/train_sft.py."
         )
+    return GenieeChat(load_geniee(CHECKPOINT_PATH))
 
-    print()
-    print(
-        "Loading Geniee..."
-    )
-
-    generator = load_geniee(
-        CHECKPOINT_PATH
-    )
-
-    print(
-        "Geniee loaded successfully."
-    )
-
-    return GenieeChat(
-        generator
-    )
-
-
-# ==========================================================
-# Main
-# ==========================================================
 
 def main():
+    load_chatbot().start()
 
-    chatbot = load_chatbot()
-
-    chatbot.start()
-
-
-# ==========================================================
-# Entry point
-# ==========================================================
 
 if __name__ == "__main__":
-
     main()

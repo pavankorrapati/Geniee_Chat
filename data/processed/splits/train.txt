@@ -8,9 +8,7 @@ Selenium supports browser interactions such as navigation, clicking, typing, sel
 
 A medium severity defect may affect part of the application but allow alternative workflows.
 
-============================================================
 TOPIC: TEST AUTOMATION
-============================================================
 
 A language model learns statistical relationships between tokens.
 
@@ -25,7 +23,7 @@ Negative test data represents invalid inputs.
 Machine learning is a field of artificial intelligence in which models learn patterns from data.
 
 WebDriverWait(driver, 10).until(
-    EC.visibility_of_element_located((By.ID, "username"))
+EC.visibility_of_element_located((By.ID, "username"))
 )
 
 Test data files contain values required by tests.
@@ -35,11 +33,11 @@ A stable automation locator should preferably use meaningful semantics or stable
 Test automation provides fast feedback but should be combined with code reviews, static analysis, monitoring, and good development practices.
 
 if score >= 90:
-    result = "excellent"
+result = "excellent"
 elif score >= 70:
-    result = "good"
+result = "good"
 else:
-    result = "needs improvement"
+result = "needs improvement"
 
 Example:
 
@@ -48,7 +46,7 @@ GET /users/101
 Selenium WebDriver provides an interface for controlling browsers.
 
 def login(self):
-        return True
+return True
 
 Boundary test data represents values at or near input limits.
 
@@ -121,9 +119,7 @@ GET /users
 
 driver.get("https://example.com")
 
-============================================================
 TOPIC: TEST DATA
-============================================================
 
 The attention mechanism uses 8 attention heads.
 
@@ -172,9 +168,7 @@ expect(page.get_by_text("Dashboard")).to_be_visible()
 
 Assertions verify expected behavior.
 
-============================================================
 TOPIC: SOFTWARE TESTING
-============================================================
 
 Software testing provides information about the quality and behavior of software. Testing can identify defects, verify requirements, and reduce the risk of failures in production.
 
@@ -258,14 +252,12 @@ The working tree contains files currently being edited.
 
 Automation does not completely replace manual testing. Exploratory testing, usability evaluation, visual assessment, and many forms of investigation still benefit from human judgment.
 
-============================================================
 TOPIC: PYTEST
-============================================================
 
 {
-    "id": 101,
-    "name": "Geniee",
-    "active": true
+"id": 101,
+"name": "Geniee",
+"active": true
 }
 
 Example:
@@ -338,23 +330,19 @@ A flaky test is a test that sometimes passes and sometimes fails without a corre
 
 @pytest.fixture
 def user():
-    return {
-        "name": "Geniee"
-    }
+return {
+"name": "Geniee"
+}
 
 A while loop repeatedly executes code while a condition remains true.
 
 Shift-left testing means introducing validation earlier in the development lifecycle.
 
-============================================================
 TOPIC: API TESTING
-============================================================
 
 Data-driven testing allows the same test logic to execute against multiple input combinations.
 
-============================================================
 TOPIC: CORE AUTOMATION CONCEPTS
-============================================================
 
 Test data is information used during test execution.
 
@@ -366,9 +354,7 @@ The aria-label attribute provides an accessible name when appropriate.
 
 The defect lifecycle can contain states such as New, Open, In Progress, Fixed, Retest, Reopened, Verified, Closed, and Rejected.
 
-============================================================
 TOPIC: DEBUGGING
-============================================================
 
 API testing verifies the behavior, reliability, security, and correctness of application programming interfaces.
 
@@ -398,9 +384,7 @@ A commit records a set of changes.
 
 A vocabulary of size V produces V logits for each token position.
 
-============================================================
 TOPIC: GENIEE
-============================================================
 
 A CI pipeline can include source checkout, dependency installation, compilation, linting, unit tests, integration tests, API tests, UI tests, artifact generation, and deployment.
 
@@ -414,9 +398,7 @@ The actual result describes what happened during test execution.
 
 page.goto("https://example.com")
 
-============================================================
 TOPIC: LANGUAGE MODEL TRAINING
-============================================================
 
 Causal attention prevents a token from attending to future tokens during autoregressive language modeling.
 
@@ -429,15 +411,15 @@ version = 1
 learning_rate = 0.001
 
 @pytest.mark.parametrize(
-    "a,b,expected",
-    [
-        (1, 2, 3),
-        (2, 3, 5),
-        (5, 5, 10),
-    ]
+"a,b,expected",
+[
+(1, 2, 3),
+(2, 3, 5),
+(5, 5, 10),
+]
 )
 def test_addition(a, b, expected):
-    assert a + b == expected
+assert a + b == expected
 
 For example, a test step such as:
 
@@ -448,9 +430,7 @@ The selected token is appended to the input sequence.
 
 Python supports integers, floating-point numbers, strings, Boolean values, lists, tuples, sets, dictionaries, and objects.
 
-============================================================
 TOPIC: MACHINE LEARNING
-============================================================
 
 Multi-head attention uses multiple attention heads to learn different relationships.
 
@@ -462,9 +442,7 @@ Example:
 
 In browser automation, screenshots, videos, traces, DOM snapshots, and network logs can provide useful evidence.
 
-============================================================
 TOPIC: QUALITY ENGINEERING
-============================================================
 
 A critical defect may prevent a major business function from operating.
 
@@ -507,9 +485,7 @@ Geniee is trained using next-token prediction.
 
 Severity describes the technical or business impact of a defect.
 
-============================================================
 TOPIC: HTML CSS AND DOM
-============================================================
 
 Manual testing is performed by a tester without relying primarily on automated test scripts.
 
@@ -520,7 +496,7 @@ API clients provide reusable HTTP operations.
 Attributes provide additional information about an element.
 
 with open("data.txt", "r", encoding="utf-8") as file:
-    content = file.read()
+content = file.read()
 
 A typical architecture can contain:
 
@@ -582,9 +558,7 @@ Accessibility attributes can provide additional semantic information.
 
 Temperature controls the randomness of sampling.
 
-============================================================
 TOPIC: GENERAL SOFTWARE ENGINEERING
-============================================================
 
 The quality of training data is important because the model learns patterns present in that data.
 
@@ -620,17 +594,13 @@ pytest supports markers for categorizing tests.
 
 A vocabulary maps tokens to integer identifiers.
 
-============================================================
 TOPIC: REST API CONCEPTS
-============================================================
 
 A RESTful API commonly exposes resources through URLs.
 
 class User:
 
-============================================================
 TOPIC: TRANSFORMERS
-============================================================
 
 A stack trace identifies where an exception occurred and can help identify the code path that produced it.
 
@@ -641,7 +611,7 @@ Exploratory testing combines learning, test design, and execution to investigate
 A test case contains information required to verify a particular behavior. A typical test case contains a test case identifier, description, preconditions, test steps, test data, expected result, actual result, and execution status.
 
 for item in items:
-    print(item)
+print(item)
 
 numbers = [1, 2, 3, 4, 5]
 
@@ -678,7 +648,7 @@ Positive test data represents valid inputs.
 Sanity testing is focused testing performed after a change or fix to verify that a particular area behaves correctly.
 
 def test_user(user):
-    assert user["name"] == "Geniee"
+assert user["name"] == "Geniee"
 
 Top-k sampling restricts candidate tokens to the k most probable tokens.
 
@@ -698,7 +668,7 @@ Screenshots, videos, traces, logs, and API responses can help diagnose automated
 Playwright supports browser automation for Chromium, Firefox, and WebKit.
 
 def __init__(self, username):
-        self.username = username
+self.username = username
 
 Assertions can be implemented using the expect API.
 
@@ -711,7 +681,7 @@ Enter email in the Email field
 Example:
 
 def add(a, b):
-    return a + b
+return a + b
 
 The Page Object Model improves readability and reduces duplication.
 
@@ -802,9 +772,7 @@ the model can learn to predict a likely next token such as:
 
 Selenium is a browser automation framework commonly used for web application testing.
 
-============================================================
 TOPIC: CI CD
-============================================================
 
 import json
 from pathlib import Path
@@ -830,8 +798,8 @@ An HTTP request can contain a method, URL, headers, query parameters, path param
 A 401 response indicates that authentication is required or invalid.
 
 user = {
-    "name": "Geniee",
-    "version": 1
+"name": "Geniee",
+"version": 1
 }
 
 An API test should not expose secrets such as passwords, private keys, access tokens, or credentials in source code.
@@ -939,9 +907,7 @@ A screenshot can be captured using the screenshot method.
 
 A maintainable automation framework should separate responsibilities.
 
-============================================================
 TOPIC: PYTHON PROGRAMMING
-============================================================
 
 A test scenario describes a functionality or behavior that needs to be tested.
 

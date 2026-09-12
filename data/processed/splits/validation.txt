@@ -12,13 +12,9 @@ For next-token prediction, the target sequence is shifted relative to the input.
 
 Python can read and write files.
 
-============================================================
 TOPIC: SOFTWARE AUTOMATION ARCHITECTURE
-============================================================
 
-============================================================
 TOPIC: GIT
-============================================================
 
 Configuration files contain environment-specific settings.
 
@@ -28,9 +24,7 @@ For cross-entropy loss L, perplexity can be represented as:
 
 JSON is commonly used for API request and response bodies.
 
-============================================================
 TOPIC: PLAYWRIGHT
-============================================================
 
 A low severity defect usually has limited impact.
 
@@ -43,9 +37,9 @@ Common headers include Content-Type, Accept, Authorization, User-Agent, and Cook
 Large input values can be used to test field length limits and application stability.
 
 try:
-    result = 10 / value
+result = 10 / value
 except ZeroDivisionError:
-    result = 0
+result = 0
 
 Good software should be readable, testable, maintainable, reusable, and reliable.
 
@@ -58,10 +52,10 @@ Continuous integration automatically builds and tests software changes. Continuo
 Equivalence partitioning divides input data into groups that are expected to behave similarly.
 
 <input
-    type="email"
-    name="email"
-    id="email"
-    placeholder="Enter Email"
+type="email"
+name="email"
+id="email"
+placeholder="Enter Email"
 >
 
 The expected result describes what should happen when a test is executed.
@@ -80,7 +74,7 @@ data
 reports
 
 def test_addition():
-    assert 2 + 3 == 5
+assert 2 + 3 == 5
 
 on
 
@@ -94,9 +88,7 @@ Modular software divides a large system into smaller components. Each component 
 
 A 200 response generally indicates a successful request.
 
-============================================================
 TOPIC: SELENIUM
-============================================================
 
 API tests can validate JSON response bodies.
 
