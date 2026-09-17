@@ -55,7 +55,7 @@ class FeedForward(nn.Module):
             dropout
         )
 
-    def forward(self, X):
+def forward(self, X):
 
         # -----------------------------------------
         # 1. Expand representation
