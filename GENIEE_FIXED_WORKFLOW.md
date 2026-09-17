@@ -39,6 +39,43 @@ This creates:
 
 `checkpoints/geniee_pretrain_best.pt`
 
+### 3a. Continue pretraining on the Python web corpus
+
+The web scripts produce this source file:
+
+`data/raw/corpus_web.txt`
+
+Prepare deterministic train and validation splits. The current preparation script combines every `.txt` file directly under `data/raw`, which preserves the existing corpus while adding the web corpus:
+
+```powershell
+python data\prepare_pretraining_corpus.py
+```
+
+Continue from the existing base checkpoint and save the Python-adapted model separately:
+
+```powershell
+python training\train_pretrain.py `
+	--train-file data\processed\splits\train.txt `
+	--validation-file data\processed\splits\validation.txt `
+	--init-checkpoint checkpoints\geniee_pretrain_best.pt `
+	--output-checkpoint checkpoints\geniee_pretrain_web_best.pt
+```
+
+Then instruction-tune from that adapted checkpoint:
+
+```powershell
+python training\train_sft.py `
+	--base-checkpoint checkpoints\geniee_pretrain_web_best.pt
+```
+
+Test Python completion with the adapted SFT model:
+
+```powershell
+python training\generate.py --prompt "def calculate_total(items):" --greedy --max-new-tokens 100
+```
+
+Do not retrain the tokenizer for this iteration. The existing tokenizer is shared by the checkpoint. If the tokenizer is retrained later, all model pretraining must also restart because token IDs and vocabulary size can change.
+
 ### 4. Instruction-tune from the pretrained checkpoint
 
 ```powershell

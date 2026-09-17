@@ -1,0 +1,206 @@
+Python Frequently Asked Questions — Python 3.14.7 documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Navigation
+
+
+index
+
+modules |
+
+next |
+
+previous |
+
+
+
+Python »
+
+
+
+
+
+
+
+
+3.14.7 Documentation »
+
+Python Frequently Asked Questions
+
+
+
+
+
+
+
+|
+
+
+
+Theme
+
+Auto
+Light
+Dark
+
+|
+
+
+
+
+
+
+
+Python Frequently Asked Questions ¶
+
+
+General Python FAQ
+
+Programming FAQ
+
+Design and History FAQ
+
+Library and Extension FAQ
+
+Extending/Embedding FAQ
+
+Python on Windows FAQ
+
+Graphic User Interface FAQ
+
+“Why is Python Installed on my Computer?” FAQ
+
+
+
+
+
+
+
+Previous topic
+
+Remote debugging attachment protocol
+
+
+Next topic
+
+General Python FAQ
+
+
+
+This page
+
+Report a bug
+
+Improve this page
+
+Show source
+
+
+
+
+
+«
+
+
+
+
+
+Navigation
+
+
+index
+
+modules |
+
+next |
+
+previous |
+
+
+
+Python »
+
+
+
+
+
+
+
+
+3.14.7 Documentation »
+
+Python Frequently Asked Questions
+
+
+
+
+
+
+
+|
+
+
+
+Theme
+
+Auto
+Light
+Dark
+
+|
+
+
+
+
+© Copyright 2001 Python Software Foundation.
+
+This page is licensed under the Python Software Foundation License Version 2.
+
+Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+
+
+See History and License for more information.
+
+
+
+The Python Software Foundation is a non-profit corporation.
+Please donate.
+
+
+
+Last updated on Sep 16, 2026 (02:12 UTC).
+
+Found a bug ?
+
+Created using Sphinx 8.2.3.

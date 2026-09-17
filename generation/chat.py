@@ -10,12 +10,14 @@ if str(PROJECT_ROOT) not in sys.path:
 from chat.conversation import GenieeConversation
 from chat.prompt import DEFAULT_SYSTEM_PROMPT
 from generation.generate import load_geniee
+from python_debugger import diagnose_traceback
 from rag.retriever import LocalRetriever, load_corpus_documents
 from rag.web_retriever import WebRetriever
 
 CHECKPOINT_PATH = PROJECT_ROOT / "checkpoints" / "geniee_sft_best.pt"
 INSTRUCTION_SPLIT_DIR = PROJECT_ROOT / "data" / "processed" / "splits"
 CORPUS_DIR = PROJECT_ROOT / "corpus"
+WEB_CORPUS_DIR = PROJECT_ROOT / "data" / "web" / "cleaned"
 UNKNOWN_ANSWER = (
     "I do not have enough trained information to answer that accurately yet. "
     "Please add a trusted example or document for this topic."
@@ -43,6 +45,17 @@ def _normalize_question(text):
     normalized = re.sub(r"[^a-z0-9\s]", " ", normalized)
     normalized = re.sub(r"\bsqli\b", "sql injection", normalized)
     normalized = re.sub(r"\bxss\b", "cross site scripting", normalized)
+    exception_aliases = {
+        "why do i get a keyerror": "what is a keyerror",
+        "why do i get keyerror": "what is a keyerror",
+        "why do i get a nameerror": "what is a nameerror",
+        "why do i get a typeerror": "what is a typeerror",
+        "why do i get an indexerror": "what is an indexerror",
+        "why do i get an attributeerror": "what is an attributeerror",
+        "why do i get a valueerror": "what is a valueerror",
+    }
+    for source, target in exception_aliases.items():
+        normalized = normalized.replace(source, target)
     normalized = re.sub(r"\bbruteforce\b|\bbrute force\b", "brute force", normalized)
     normalized = normalized.replace("cross-site", "cross site")
     normalized = normalized.replace("vulnerability scanning", "vulnerability scan")
@@ -78,6 +91,16 @@ def _normalize_question(text):
         "how do you approach testing api security",
         normalized,
     )
+    for exception_name in (
+        "modulenotfounderror", "importerror", "syntaxerror", "indentationerror",
+        "taberror", "nameerror", "typeerror", "valueerror", "indexerror",
+        "keyerror", "attributeerror", "unboundlocalerror", "zerodivisionerror",
+        "filenotfounderror", "permissionerror",
+    ):
+        if exception_name in normalized and normalized != f"what is a {exception_name}":
+            article = "an" if exception_name[0] in "aeiou" else "a"
+            normalized = f"what is {article} {exception_name}"
+            break
     return " ".join(normalized.split())
 
 
@@ -96,6 +119,19 @@ def _load_instruction_answers():
     return answers
 
 
+def _load_local_documents():
+    documents = load_corpus_documents(CORPUS_DIR)
+    if WEB_CORPUS_DIR.exists():
+        documents.extend(
+            (
+                f"web/{name}",
+                text,
+            )
+            for name, text in load_corpus_documents(WEB_CORPUS_DIR)
+        )
+    return documents
+
+
 class GenieeChat:
     """Interactive Geniee chat using the same format used during SFT."""
 
@@ -111,7 +147,7 @@ class GenieeChat:
         self.conversation = GenieeConversation(system_prompt=system_prompt, max_turns=6)
         self.knowledge_base = knowledge_base if knowledge_base is not None else _load_instruction_answers()
         self.retriever = retriever if retriever is not None else LocalRetriever(
-            load_corpus_documents(CORPUS_DIR)
+            _load_local_documents()
         )
         self.web_retriever = web_retriever if web_retriever is not None else WebRetriever()
         self.last_source = "local"
@@ -189,6 +225,12 @@ class GenieeChat:
         self.conversation.add_user(user_text)
         self.last_source = "local"
         self.last_sources = []
+
+        traceback_answer = diagnose_traceback(user_text)
+        if traceback_answer:
+            self.conversation.add_assistant(traceback_answer)
+            return traceback_answer
+
         retrieved = self._retrieve_answer(user_text)
         if retrieved:
             self.conversation.add_assistant(retrieved)

@@ -1,0 +1,131 @@
+User: How should Geniee diagnose a Python error?
+Assistant: Read the exception type and final traceback line first, locate the file and line number, inspect the failing values and control flow, reproduce the issue with the smallest input, then apply and retest a focused fix.
+
+User: What does a Python traceback tell me?
+Assistant: A traceback shows the call path that led to an exception, the file and line where each call occurred, and the final exception type and message. Start at the last line for the immediate failure, then inspect the highlighted source line and its inputs.
+
+User: What is a SyntaxError in Python?
+Assistant: SyntaxError means Python cannot parse the source code. Check the reported line and nearby lines for missing colons, parentheses, quotes, indentation, or invalid syntax, then run the file again after correcting the structure.
+
+User: What is IndentationError in Python?
+Assistant: IndentationError means the block structure is invalid, often because spaces and tabs are mixed or a statement is not indented consistently. Use consistent spaces and align code with its surrounding block.
+
+User: What is TabError in Python?
+Assistant: TabError occurs when tabs and spaces are mixed inconsistently for indentation. Convert indentation to spaces throughout the file and configure the editor to insert spaces.
+
+User: What is a NameError in Python?
+Assistant: NameError means code refers to a name that is not defined in the current scope. Check spelling, declaration order, imports, function scope, and whether the expected variable is actually assigned before use.
+
+User: What is a TypeError in Python?
+Assistant: TypeError means an operation or function received an object of an incompatible type. Inspect the types and values at the failing line, then convert data or change the operation to match the intended types.
+
+User: What is a ValueError in Python?
+Assistant: ValueError means a value has the right general type but an invalid content or format for the operation, such as int('abc'). Validate or normalize the value before using it.
+
+User: What is an IndexError in Python?
+Assistant: IndexError means a sequence index is outside its valid range. Check the sequence length, loop bounds, empty-input cases, and whether the code should iterate over values instead of indexes.
+
+User: What is a KeyError in Python?
+Assistant: KeyError means code accessed a dictionary key that does not exist. Check the available keys, validate input, use dict.get() when a default is appropriate, or handle the missing-key case explicitly.
+
+User: What is an AttributeError in Python?
+Assistant: AttributeError means an object does not provide the attribute or method being accessed. Check the object's actual type, spelling, initialization, imports, and whether a value is unexpectedly None.
+
+User: What is an UnboundLocalError in Python?
+Assistant: UnboundLocalError occurs when a local variable is read before it is assigned in that function. Initialize it on every control-flow path or use the correct outer-scope handling.
+
+User: What is a ZeroDivisionError in Python?
+Assistant: ZeroDivisionError occurs when code divides by zero. Validate the denominator before division and decide how the application should handle a zero or missing value.
+
+User: What is a FileNotFoundError in Python?
+Assistant: FileNotFoundError means the requested path does not exist or is not reachable from the process working directory. Check the path, current directory, spelling, file permissions, and use pathlib for clear path construction.
+
+User: What is a PermissionError in Python?
+Assistant: PermissionError means the operating system denied an operation. Check file ownership and permissions, whether another process has a lock, and whether the program should use a permitted path instead of bypassing security controls.
+
+User: What is a ModuleNotFoundError in Python?
+Assistant: ModuleNotFoundError means Python cannot find the requested module in the active environment. Verify the import name, selected interpreter, virtual environment, package installation, project path, and whether the package is listed in requirements.
+
+User: Why do I get ImportError in Python?
+Assistant: ImportError means Python found a module but could not import the requested name or dependency. Check the symbol name, package version, circular imports, package structure, and the complete traceback.
+
+User: Why does Python say No module named requests?
+Assistant: The active Python environment does not have the requests package available or the import is being run with a different interpreter. Activate the project environment and install it with python -m pip install requests, then verify python -c "import requests".
+
+User: How do I fix a circular import in Python?
+Assistant: A circular import occurs when modules import each other during initialization. Move shared definitions into a third module, import inside a function only when justified, or redesign the dependency direction.
+
+User: What is an UnboundLocalError caused by?
+Assistant: It is caused when Python treats a name as local because it is assigned somewhere in a function, but execution reads it before reaching the assignment. Initialize the local value or explicitly handle the intended outer variable.
+
+User: Why is my Python variable None?
+Assistant: The variable may come from a function without a return statement, an assignment that explicitly returns None, a failed lookup, or an uninitialized optional value. Print or debug its type and value at the assignment and call site.
+
+User: What does object is not callable mean in Python?
+Assistant: This TypeError occurs when code uses parentheses on a non-callable object, often because a function name was overwritten by a string, list, or property. Inspect the object's type and rename the conflicting variable.
+
+User: What does list index out of range mean?
+Assistant: It means code requested an index outside the list bounds, including an index from an empty list. Check len(list), loop boundaries, and empty-list handling before indexing.
+
+User: Why does my Python loop run forever?
+Assistant: The loop condition never becomes false or the state used by the condition is not updated. Inspect the condition and update statements, add a bounded iteration guard when appropriate, and log progress during debugging.
+
+User: Why is my Python code slow?
+Assistant: Profile before optimizing. Common causes include repeated work in loops, inefficient data structures, excessive I/O, network waits, unnecessary conversions, and algorithmic complexity. Optimize the measured bottleneck and retest behavior.
+
+User: How do I debug a Python program?
+Assistant: Reproduce the smallest failing case, read the traceback, inspect types and values near the failure, use breakpoints or logging, form one hypothesis, make a small change, and rerun focused tests.
+
+User: How do I print a variable's type in Python?
+Assistant: Use print(type(value)) or inspect the value with a debugger. Also inspect repr(value) when whitespace, escaping, or hidden characters may matter.
+
+User: How do I handle exceptions correctly in Python?
+Assistant: Catch only exceptions the program can handle, catch specific exception types, preserve useful context, log safely, and avoid a bare except that hides programming errors. Use finally or context managers for cleanup.
+
+User: Why should I not use a bare except in Python?
+Assistant: A bare except catches programming errors, interrupts, and unexpected failures, making diagnosis difficult. Catch the specific expected exceptions and let unexpected failures remain visible.
+
+User: What is the difference between assert and raise in Python?
+Assistant: assert is mainly for developer assumptions and can be disabled with optimization. raise is the explicit mechanism for reporting an expected application error, so validation and user-facing error handling should use raise.
+
+User: How do I fix a failing pytest test?
+Assistant: Read the failure and traceback, identify the first incorrect assertion or setup step, reproduce the test alone, inspect fixtures and inputs, fix the implementation or test expectation, and rerun the focused test before the full suite.
+
+User: What does pytest fixture not found mean?
+Assistant: Pytest cannot find a fixture with that name in the test module, conftest.py, or an installed plugin. Check spelling, fixture scope, conftest location, plugin installation, and pytest discovery.
+
+User: What does RuntimeWarning coroutine was never awaited mean?
+Assistant: An async function was called without awaiting the returned coroutine. Use await inside an async function, run the top-level coroutine with asyncio.run, or intentionally schedule it with an appropriate task mechanism.
+
+User: What is the difference between a Python list and a generator?
+Assistant: A list stores all its values in memory, while a generator produces values lazily as they are requested. Generators reduce memory use for large or streaming inputs but are usually consumed once.
+
+User: How do I fix a UnicodeDecodeError in Python?
+Assistant: The file bytes do not match the encoding used for decoding. Identify the file encoding, pass the correct encoding such as utf-8 to open, and handle malformed input deliberately instead of silently discarding data.
+
+User: What does JSONDecodeError mean in Python?
+Assistant: JSONDecodeError means the input is not valid JSON at the reported position. Check the raw response or file, delimiters, quotes, trailing commas, encoding, and whether an HTML error page was returned instead of JSON.
+
+User: Why does my API request return status code 401 in Python?
+Assistant: HTTP 401 means authentication is missing or invalid. Check the token or credentials, authorization header format, token expiry, target environment, and whether the request is using the intended configuration without logging secrets.
+
+User: Why does my API request return status code 403 in Python?
+Assistant: HTTP 403 means the server understood the request but refuses access. Check permissions, roles, scopes, resource ownership, IP or network policy, CSRF requirements, and the server's authorization rules.
+
+User: How do I diagnose a Python API timeout?
+Assistant: Check network reachability, the URL, DNS, TLS, proxy settings, server health, timeout values, request size, and retry policy. Use bounded timeouts and log request IDs or status details without logging secrets.
+
+User: Why does my Python program work in the terminal but not in VS Code?
+Assistant: VS Code may be using a different interpreter, working directory, environment variable set, or virtual environment. Compare sys.executable, the current working directory, installed packages, and launch configuration in both contexts.
+
+User: How do I check the active Python interpreter?
+Assistant: Run import sys followed by print(sys.executable), or use python -c "import sys; print(sys.executable)" in the terminal where the program runs.
+
+User: What is a Python virtual environment problem?
+Assistant: It occurs when dependencies or interpreter settings differ between environments. Activate the intended environment, install dependencies with its python -m pip, select the same interpreter in the editor, and verify sys.executable.
+
+User: How do I fix a Python dependency conflict?
+Assistant: Record the Python version and dependency versions, inspect the resolver error, use a clean virtual environment, pin compatible versions, update the requirements file, and run the project's tests after installation.
+
+User: How should Python code handle an error shown in a traceback?
+Assistant: Do not guess from the final message alone. Read the complete traceback, identify the first application frame, inspect the actual values at that line, reproduce it in isolation, apply a targeted fix, and add a regression test.

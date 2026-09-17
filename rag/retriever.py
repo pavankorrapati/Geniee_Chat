@@ -47,9 +47,12 @@ class LocalRetriever:
 
         ranked = []
         for name, text, document_terms in self.documents:
+            if len(text) < 80:
+                continue
             overlap = len(query_terms & document_terms)
             if overlap:
-                score = overlap / len(query_terms | document_terms)
+                coverage = overlap / len(query_terms)
+                score = coverage + overlap / len(query_terms | document_terms)
                 ranked.append((score, name, text))
         ranked.sort(reverse=True)
         return [(name, text) for score, name, text in ranked[:limit] if score >= 0.03]
@@ -59,9 +62,13 @@ class LocalRetriever:
         ranked = []
         for _, text, _ in self.documents:
             for sentence in re.split(r"(?<=[.!?])\s+", text):
+                if len(sentence.strip()) < 80:
+                    continue
                 sentence_terms = _terms(sentence)
                 overlap = len(query_terms & sentence_terms)
                 if overlap:
-                    ranked.append((overlap / len(query_terms | sentence_terms), sentence.strip()))
+                    coverage = overlap / len(query_terms)
+                    score = coverage + overlap / len(query_terms | sentence_terms)
+                    ranked.append((score, sentence.strip()))
         ranked.sort(reverse=True)
         return [sentence for _, sentence in ranked[:limit]]

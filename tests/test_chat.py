@@ -1,5 +1,6 @@
 from generation.chat import GenieeChat
 from rag.retriever import LocalRetriever
+from python_debugger import diagnose_traceback
 
 
 class FakeGenerator:
@@ -43,6 +44,31 @@ def test_chat_uses_exact_instruction_answer():
     )
 
     assert chat.respond("What is Python?") == "Python is a programming language."
+    assert generator.calls == 0
+
+
+def test_traceback_returns_reason_fix_and_verification():
+    traceback = '''Traceback (most recent call last):
+  File "app.py", line 4, in load_user
+    return users[user_id]
+KeyError: 'user_id'
+'''
+    answer = diagnose_traceback(traceback)
+
+    assert "KeyError" in answer
+    assert "Reason" in answer
+    assert "Recommended fix" in answer
+    assert "Verify" in answer
+
+
+def test_chat_handles_spaced_exception_question():
+    generator = FakeGenerator()
+    chat = GenieeChat(generator, knowledge_base=[])
+
+    answer = chat.respond("What is index error?")
+
+    assert "IndexError" in answer
+    assert "sequence index" in answer
     assert generator.calls == 0
 
 

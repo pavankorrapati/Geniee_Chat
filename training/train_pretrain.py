@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 import random
 import sys
+import argparse
 
 import torch
 import torch.nn as nn
@@ -280,6 +281,7 @@ def save_checkpoint(
     epoch,
     train_loss,
     validation_loss,
+    checkpoint_path,
 ):
 
     CHECKPOINT_DIR.mkdir(
@@ -309,7 +311,7 @@ def save_checkpoint(
 
     torch.save(
         checkpoint,
-        BEST_CHECKPOINT,
+        checkpoint_path,
     )
 
 
@@ -317,7 +319,45 @@ def save_checkpoint(
 # MAIN
 # ============================================================
 
+def parse_args():
+
+    parser = argparse.ArgumentParser(
+        description="Pretrain or continue pretraining Geniee."
+    )
+
+    parser.add_argument(
+        "--train-file",
+        type=Path,
+        default=TRAIN_PATH,
+        help="Training text split.",
+    )
+
+    parser.add_argument(
+        "--validation-file",
+        type=Path,
+        default=VALIDATION_PATH,
+        help="Validation text split.",
+    )
+
+    parser.add_argument(
+        "--init-checkpoint",
+        type=Path,
+        default=None,
+        help="Optional checkpoint from which to continue training.",
+    )
+
+    parser.add_argument(
+        "--output-checkpoint",
+        type=Path,
+        default=BEST_CHECKPOINT,
+        help="Path for the best checkpoint produced by this run.",
+    )
+
+    return parser.parse_args()
+
 def main():
+
+    args = parse_args()
 
     print()
     print("=" * 70)
@@ -327,8 +367,10 @@ def main():
     print()
     print(f"Device     : {DEVICE}")
     print(f"Tokenizer  : {TOKENIZER_PATH}")
-    print(f"Train data : {TRAIN_PATH}")
-    print(f"Val data   : {VALIDATION_PATH}")
+    print(f"Train data : {args.train_file}")
+    print(f"Val data   : {args.validation_file}")
+    print(f"Init model : {args.init_checkpoint or 'random weights'}")
+    print(f"Output     : {args.output_checkpoint}")
 
     print()
     print("-" * 70)
@@ -382,13 +424,13 @@ def main():
     print("Loading datasets...")
 
     train_dataset = PretrainingDataset(
-        text_path=TRAIN_PATH,
+        text_path=args.train_file,
         tokenizer=tokenizer,
         max_seq_len=MAX_SEQ_LEN,
     )
 
     validation_dataset = PretrainingDataset(
-        text_path=VALIDATION_PATH,
+        text_path=args.validation_file,
         tokenizer=tokenizer,
         max_seq_len=MAX_SEQ_LEN,
     )
@@ -455,6 +497,26 @@ def main():
         config=config
     ).to(DEVICE)
 
+    if args.init_checkpoint is not None:
+
+        if not args.init_checkpoint.exists():
+            raise FileNotFoundError(
+                f"Initial checkpoint not found: "
+                f"{args.init_checkpoint}"
+            )
+
+        print()
+        print(f"Loading initial checkpoint: {args.init_checkpoint}")
+
+        checkpoint = torch.load(
+            args.init_checkpoint,
+            map_location=DEVICE,
+        )
+
+        model.load_state_dict(
+            checkpoint["model_state_dict"]
+        )
+
     print(
         f"Parameters : "
         f"{count_parameters(model):,}"
@@ -517,6 +579,7 @@ def main():
                 epoch=epoch,
                 train_loss=train_loss,
                 validation_loss=validation_loss,
+                checkpoint_path=args.output_checkpoint,
             )
 
             print(
@@ -537,7 +600,7 @@ def main():
 
     print(
         f"Checkpoint           : "
-        f"{BEST_CHECKPOINT}"
+        f"{args.output_checkpoint}"
     )
 
     print()

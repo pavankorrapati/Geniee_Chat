@@ -214,6 +214,16 @@ def parse_args():
         ),
     )
 
+    parser.add_argument(
+        "--base-checkpoint",
+        type=Path,
+        default=BASE_CHECKPOINT,
+        help=(
+            "Checkpoint used to initialize SFT. "
+            "Ignored with --from-scratch."
+        ),
+    )
+
     return parser.parse_args()
 
 
@@ -1282,9 +1292,9 @@ def main():
     # Initialize SFT from pretrained weights.
     # ------------------------------------------------------
 
-    if not args.from_scratch and BASE_CHECKPOINT.exists():
+    if not args.from_scratch and args.base_checkpoint.exists():
         base_checkpoint = torch.load(
-            BASE_CHECKPOINT,
+            args.base_checkpoint,
             map_location="cpu",
         )
         base_config = base_checkpoint.get("config", {})
@@ -1303,9 +1313,9 @@ def main():
                     f"{base_config.get(key)} != {value}"
                 )
         model.load_state_dict(base_checkpoint["model_state_dict"])
-        print(f"Initialized SFT from: {BASE_CHECKPOINT}")
+        print(f"Initialized SFT from: {args.base_checkpoint}")
     elif not args.from_scratch:
-        print(f"WARNING: pretrained checkpoint not found: {BASE_CHECKPOINT}")
+        print(f"WARNING: pretrained checkpoint not found: {args.base_checkpoint}")
         print("SFT will start from random weights. Run train_pretrain.py first for best results.")
     else:
         print("SFT initialized from random weights (--from-scratch).")

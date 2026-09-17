@@ -1,105 +1,825 @@
-Playwright supports network interception and request monitoring.
+Software testing provides information about the quality and behavior of software. Testing can identify defects, verify requirements, and reduce the risk of failures in production.
 
-The model uses a maximum context length of 128 tokens in the current experimental configuration.
+Development Tools
+typing — Support for type hints
 
-batch_size x sequence_length x vocabulary_size
+async def main ():
+...
 
-Common Selenium operations include get, click, send_keys, clear, and find_element.
+9.3.3. Instance Objects
 
-Good test data should be deterministic, isolated, realistic when required, and easy to maintain.
+dis
+
+What’s New in Python
 
 For next-token prediction, the target sequence is shifted relative to the input.
 
-Python can read and write files.
+========================================================================
+SOURCE: Python 3.14 Documentation - 3.14__reference__index.txt
+========================================================================
 
-TOPIC: SOFTWARE AUTOMATION ARCHITECTURE
+The asyncio.iscoroutinefunction() is now deprecated
+and will be removed in Python 3.16;
+use inspect.iscoroutinefunction() instead.
+(Contributed by Jiahao Li and Kumar Aditya in gh-122875 .)
 
-TOPIC: GIT
+utcnow() :
+use datetime.datetime.now(tz=datetime.UTC) .
 
-Configuration files contain environment-specific settings.
+5.1.4. Nested List Comprehensions
 
-Testing should be repeatable, traceable, and measurable.
-
-For cross-entropy loss L, perplexity can be represented as:
-
-JSON is commonly used for API request and response bodies.
-
-TOPIC: PLAYWRIGHT
-
-A low severity defect usually has limited impact.
-
-An HTTP response contains a status code, headers, and response body.
-
-If the defect still exists, the tester may reopen the defect.
-
-Common headers include Content-Type, Accept, Authorization, User-Agent, and Cookie.
-
-Large input values can be used to test field length limits and application stability.
-
-try:
-result = 10 / value
-except ZeroDivisionError:
-result = 0
-
-Good software should be readable, testable, maintainable, reusable, and reliable.
-
-HTML defines the structure of a web page.
-
-PUT is commonly used to replace or update a resource.
-
-Continuous integration automatically builds and tests software changes. Continuous delivery and continuous deployment automate the process of preparing and releasing software.
-
-Equivalence partitioning divides input data into groups that are expected to behave similarly.
-
-<input
-type="email"
-name="email"
-id="email"
-placeholder="Enter Email"
->
-
-The expected result describes what should happen when a test is executed.
-
-The page.goto method navigates to a URL.
-
-A sibling is an element that shares the same parent.
-
-tests
-pages
-services
-clients
-utils
-config
-data
-reports
-
-def test_addition():
-assert 2 + 3 == 5
-
-on
-
-Positional information allows the model to distinguish the order of tokens.
-
-For example:
-
-A software development lifecycle commonly includes requirements analysis, design, implementation, testing, deployment, and maintenance.
-
-Modular software divides a large system into smaller components. Each component should have a clear responsibility and well-defined interfaces.
-
-A 200 response generally indicates a successful request.
-
-TOPIC: SELENIUM
-
-API tests can validate JSON response bodies.
+3.14.7 Documentation »
 
 A 400 response indicates that the server could not process the request because of invalid input or syntax.
 
-A checkpoint can contain model parameters, optimizer state, epoch information, configuration, and validation metrics.
+re
 
-Common HTTP status codes include:
+4.10. Compiling Python on Windows
 
-A checkpoint stores information required to resume or evaluate training.
+Theme
 
-Geniee is a custom decoder-only Transformer language model.
+2.3. Python-related paths and files
+
+Show source
+
+ast ¶
+
+Conditional statements allow a program to execute different code depending on conditions.
+
+pydoc
+
+Created using Sphinx 8.2.3.
+
+PyUnicodeWriter_WriteUCS4()
+
+3.5. Compiler and linker flags
+
+API pagination allows large result sets to be divided into smaller pages.
+
+GET /users
+
+Playwright supports browser automation for Chromium, Firefox, and WebKit.
+
+collections.abc — Abstract Base Classes for Containers
+
+uuid ¶
+
+decimal ¶
+
+ssl.SSLContext without protocol argument is deprecated.
+
+The model learns to predict each target token from the preceding input context.
+
+Curses Programming with Python
+
+Debugging is the process of identifying and resolving the cause of an unexpected behavior.
+
+Binary Data Services
+struct — Interpret bytes as packed binary data
+
+functools — Higher-order functions and operations on callable objects
+
+>>> list ( template )
+['Try some ', Interpolation('Stilton', 'variety', None, ''), ' cheese!']
+
+java_ver() has been deprecated since Python 3.13.
+This function is only useful for Jython support, has a confusing API,
+and is largely untested.
+
+Python supports integers, floating-point numbers, strings, Boolean values, lists, tuples, sets, dictionaries, and objects.
+
+Test configuration can be loaded from environment variables or configuration files.
+
+Meaningful language-model quality requires substantially more diverse training data.
+
+Hardcoded breakpoints ( breakpoint() and set_trace() ) now
+reuse the most recent Pdb instance that calls
+set_trace() , instead of creating a new one each time.
+As a result, all the instance specific data like display and
+commands are preserved across hardcoded breakpoints.
+(Contributed by Tian Gao in gh-121450 .)
+
+Constant.n
+
+The argparse.FileType type converter is deprecated.
+
+previous |
+
+An embedding layer converts token identifiers into dense vectors.
+
+Setting __cached__ on a module while
+failing to set __spec__.cached
+is deprecated. In Python 3.15, __cached__ will cease to be set or
+take into consideration by the import system or standard library. ( gh-97879 )
+
+The __args__ attribute of typing.Union objects is
+no longer writable.
+
+On FreeBSD, sys.platform no longer contains the major version number.
+
+compileall — Byte-compile Python libraries
+
+Before Python 3.14, old-style unions were implemented using the private class
+typing._UnionGenericAlias . This class is no longer needed for the implementation,
+but it has been retained for backward compatibility, with removal scheduled for Python
+3.17. Users should use documented introspection helpers like typing.get_origin()
+and typing.get_args() instead of relying on private implementation details.
+
+Reusable API clients can provide methods such as:
+
+graphlib
+
+cycle: Task-2 → Task-3 → Task-2
+
+Note that applying such a filter at runtime using the warnings module
+will only suppress the warning in code that is compiled after the filter is
+adjusted. Code that is compiled prior to the filter adjustment (for example,
+when a module is imported) will still emit the syntax warning.
+
+PEP 749 Implementing PEP 649
+
+Add 7z application/x-7z-compressed ( .7z )
+
+Automated testing is an important part of CI/CD because it provides rapid feedback.
+
+PUT is commonly used to replace or update a resource.
+
+previous |
+
+Ellipsis
+
+PyErr_Restore() :
+Use PyErr_SetRaisedException() instead.
+
+test.support.warnings_helper — Utilities for warnings tests
+
+input[type="email"]
+
+Add function ispackage() to determine whether an object is a
+package or not.
+(Contributed by Zhikang Yan in gh-125634 .)
+
+|
+
+Add the LOAD_CONST_IMMORTAL pseudo instruction,
+which does the same as LOAD_CONST , but is more efficient
+for immortal objects.
+(Contributed by Mark Shannon in gh-125837 .)
+
+Indicate through the HAS_PHA Boolean whether the ssl
+module supports TLSv1.3 post-handshake client authentication (PHA).
+(Contributed by Will Childs-Klein in gh-128036 .)
+
+Last updated on Sep 16, 2026 (02:12 UTC).
+
+A commit should represent a meaningful logical change.
+
+Python is a high level programming language used for software development, automation, data analysis, scientific computing, and artificial intelligence. Python programs are generally easy to read because the language uses clear syntax and indentation. Variables can store values such as strings, numbers, lists, dictionaries, and objects. Functions allow developers to organize reusable pieces of logic. Classes and objects are commonly used to implement larger software systems.
+
+set_threshold() now ignores any items after the second.
+
+A layered architecture reduces coupling between tests and implementation details.
+
+============================================================
+TOPIC: SOFTWARE TESTING
+============================================================
+
+wsgiref — WSGI Utilities and Reference Implementation
+
+netrc — netrc file processing
+
+A test scenario describes a functionality or behavior that needs to be tested.
+
+6. Using Python on Android
+6.1. Adding Python to an Android app
+
+Machine learning is a field of artificial intelligence in which models learn patterns from data.
+
+Python supports integers, floating-point numbers, strings, Boolean values, lists, tuples, sets, dictionaries, and objects.
+
+Setting __loader__ on a module while
+failing to set __spec__.loader
+is deprecated. In Python 3.16, __loader__ will cease to be set or
+taken into consideration by the import system or the standard library.
+
+Add a new import and export API for Python int objects
+( PEP 757 ):
+
+page.goto("https://example.com")
+
+RFC 1494 : CCITT Group 3 ( .g3 )
+
+See also
+
+Training data is used to optimize model parameters.
+
+TOPIC: GENERAL SOFTWARE ENGINEERING
+
+16.1.4. The Customization Modules
+
+AI-assisted automation can use language models to interpret test cases, generate code, summarize failures, classify defects, and suggest corrective actions.
+
+ssl.OP_NO_TLS* options
+
+Garbage collection
+
+with open("data.txt", "r", encoding="utf-8") as file:
+    content = file.read()
+
+Python »
+
+Example:
+
+Accessibility attributes can provide additional semantic information.
+
+Add support for rendering full source location information of
+instructions , rather than only the line number.
+This feature is added to the following interfaces via the show_positions
+keyword argument:
+
+Geniee is being developed as a decoder only transformer language model. The project separates model code, tokenizer code, data processing, training, and inference. This separation makes it easier to test individual components and replace parts of the system as the model grows.
+
+Training data should be clean, diverse, relevant, and free from unnecessary duplication.
+
+logging.handlers ¶
+
+Appropriately versioned pip commands may also be available.
+
+C API changes
+Python configuration C API
+
+12. Virtual Environments and Packages
+12.1. Introduction
+
+Example:
+
+previous |
+
+This page is licensed under the Python Software Foundation License Version 2.
+
+============================================================
+TOPIC: SOFTWARE AUTOMATION ARCHITECTURE
+============================================================
+
+ast ¶
+
+difflib ¶
+
+Self-attention allows each token representation to interact with other token representations.
+
+On Windows, use the py Python launcher in combination with the -m
+switch:
+
+xmlrpc — XMLRPC server and client modules
+
+Use isinstance(obj, collections.abc.Buffer) to test if obj
+implements the buffer protocol at runtime. For use
+in type annotations, either use Buffer or a union
+that explicitly specifies the types your code supports (e.g.,
+bytes | bytearray | memoryview ).
+
+plistlib — Generate and parse Apple .plist files
+
+_PyUnicode_AsString() : use PyUnicode_AsUTF8() .
+
+xmlrpc.client — XML-RPC client access
+
+Default interactive shell ¶
+
+Common causes of flaky tests include timing issues, unstable test data, environment instability, race conditions, external dependencies, and unreliable selectors.
+
+Tokenization converts text into token identifiers.
+
+The Python 2.3 Method Resolution Order
+
+gc
+
+A failed pipeline should provide enough logs and evidence to diagnose the failure.
+
+The pstree subcommand fetches the same information, but instead renders a
+visual async call tree, showing coroutine relationships in a hierarchical format.
+This command is particularly useful for debugging long-running or stuck
+asynchronous programs.
+It can help developers quickly identify where a program is blocked,
+what tasks are pending, and how coroutines are chained together.
+
+Support for __index__() and __int__() method returning non-int type:
+these methods will be required to return an instance of a strict subclass of
+int .
+
+========================================================================
+SOURCE: Python 3.14 Documentation - 3.14__installing__index.txt
+========================================================================
+
+importlib :
+
+4. More Control Flow Tools
+4.1. if Statements
+
+Add Windows Media Video video/x-ms-wmv ( .wmv )
+
+Pull requests allow changes to be reviewed before merging.
+
+batch_size x sequence_length x vocabulary_size
+
+8.10. Type parameter lists
+
+index
+
+types.UnionType is now an alias for typing.Union .
+See below for more details.
+(Contributed by Jelle Zijlstra in gh-105499 .)
+
+-J is no longer a reserved flag for Jython ,
+and now has no special meaning.
+(Contributed by Adam Turner in gh-133336 .)
+
+Playwright can be integrated with pytest using pytest-playwright.
+
+Cross-entropy loss is commonly used for next-token prediction.
+
+Regarding multi-core parallelism: as of Python 3.12, interpreters
+are now sufficiently isolated from one another to be used in parallel
+(see PEP 684 ). This unlocks a variety of CPU-intensive use cases
+for Python that were limited by the GIL .
+
+This section contains guidance on changes that may be needed to annotations
+or Python code that interacts with or introspects annotations,
+due to the changes related to deferred evaluation of annotations .
+
+Setting __package__ on a module while
+failing to set __spec__.parent
+is deprecated. In Python 3.15, __package__ will cease to be set or
+take into consideration by the import system or standard library. ( gh-97879 )
+
+zlib ¶
+
+5.6. Replacing the standard import system
+
+Example:
+
+A CI pipeline can include source checkout, dependency installation, compilation, linting, unit tests, integration tests, API tests, UI tests, artifact generation, and deployment.
+
+Py_LegacyWindowsStdioFlag :
+Use PyConfig.legacy_windows_stdio or
+PyConfig_Get("legacy_windows_stdio") instead.
+
+PyThread_create_key() :
+Use PyThread_tss_alloc() instead.
+
+If a sequence contains L positions, the model produces logits with a shape similar to:
+
+posix — The most common POSIX system calls
+
+Logging Cookbook
+
+Continuous integration is a software development practice in which code changes are automatically built and tested. A CI pipeline can install dependencies, run unit tests, execute API tests, execute browser tests, generate reports, and publish artifacts. Automated feedback helps teams detect regressions early.
+
+4.8. Finding modules
+
+Geniee is intended to become a domain-focused language model for software engineering, testing, automation, APIs, and related technical tasks.
+
+data_filter() now normalizes symbolic link targets in order to
+avoid path traversal attacks.
+(Contributed by Petr Viktorin in gh-127987 and CVE 2025-4138 .)
+
+--tls-password-file <path> :
+Optional path to the password file for the private key.
+
+Common Git commands include:
+
+PyInitConfig_Create()
+
+For example, a login test should ideally call a login operation rather than duplicate low-level implementation throughout every test.
+
+Temperature controls the randomness of sampling.
+
+|
+
+The interpreter now avoids some reference count modifications internally
+when it’s safe to do so.
+This can lead to different values being returned from sys.getrefcount()
+and Py_REFCNT() compared to previous versions of Python.
+See below for details.
+
+A medium severity defect may affect part of the application but allow alternative workflows.
+
+2.6. Numeric literals
+
+The training loop typically performs these steps:
+
+2.4. Miscellaneous
+
+Rate limiting controls how many requests a client can make during a specified period.
+
+The strict parameter to realpath() accepts a new value,
+ALLOW_MISSING .
+If used, errors other than FileNotFoundError will be re-raised;
+the resulting path can be missing but it will be free of symlinks.
+(Contributed by Petr Viktorin for CVE 2025-4517 .)
+
+Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+
+(Contributed by Jelle Zijlstra in PEP 749 and gh-119180 ;
+PEP 649 was written by Larry Hastings.)
+
+The sysconfig.expand_makefile_vars() function
+has been deprecated since Python 3.14.
+Use the vars argument of sysconfig.get_paths() instead.
+
+More syntax errors are now detected regardless of optimisation and
+the -O command-line option.
+This includes writes to __debug__ , incorrect use of await ,
+and asynchronous comprehensions outside asynchronous functions.
+For example, python -O -c 'assert (__debug__ := 1)'
+or python -O -c 'assert await 1' now produce SyntaxError s.
+(Contributed by Irit Katriel and Jelle Zijlstra in gh-122245 & gh-121637 .)
+
+def __init__(self, username):
+self.username = username
+
+How do I …?
+… install packages just for the current user?
+
+Before:
 
 The root cause should be distinguished from symptoms.
+
+Reliable automation depends on synchronization. Modern web applications frequently perform asynchronous operations such as API requests, rendering, animations, and data loading. A test should wait for meaningful conditions instead of assuming that a fixed amount of time is sufficient.
+
+_PyUnicodeWriter_WriteSubstring() : PyUnicodeWriter_WriteSubstring()
+
+asyncio.WindowsProactorEventLoopPolicy
+
+Next topic
+
+PySys_ResetWarnOptions() :
+Clear sys.warnoptions and warnings.filters instead.
+
+_PyUnicodeWriter_PrepareKind() : (no replacement).
+
+Positional information helps a transformer distinguish between different positions in a sequence. Token embeddings represent the identities of tokens, while positional embeddings represent their positions. The two representations can be combined before passing the sequence through transformer blocks.
+
+JSON is commonly used for API request and response bodies.
+
+Logging HOWTO
+
+try:
+    result = 10 / value
+except ZeroDivisionError:
+    result = 0
+
+codecs :
+The codecs.open() function is now deprecated,
+and will be removed in a future version of Python.
+Use open() instead.
+(Contributed by Inada Naoki in gh-133036 .)
+
+heapq
+
+input[type="email"]
+
+10.9. Data compression
+
+9.5. Inheritance
+9.5.1. Multiple Inheritance
+
+The training loop typically performs these steps:
+
+Negative API tests use invalid requests and verify appropriate error handling.
+
+Py_UnbufferedStdioFlag :
+Use PyConfig.buffered_stdio or
+PyConfig_Get("buffered_stdio") instead.
+
+io ¶
+
+A model maps input information to predictions or representations.
+
+A transformer block commonly contains a self attention layer and a feed forward network. Layer normalization can be applied before these components in a pre normalization architecture. Residual connections add the output of a sublayer back to its input. These design choices help optimization and information flow through deeper networks.
+
+1. Whetting Your Appetite
+
+A vocabulary maps tokens to integer identifiers.
+
+The incremental garbage collector shipped in Python 3.14.0-3.14.4 has been
+reverted back to the generational garbage collector from 3.13,
+due to a number of reports
+of significant memory pressure in production environments.
+See Garbage collection for details.
+
+Example:
+
+Model inference generates tokens from a prompt. Greedy decoding selects the token with the highest probability at every step. Sampling allows the model to choose among probable tokens. Temperature changes the sharpness of the probability distribution. Top-k limits sampling to the most probable k tokens, while top-p limits sampling to a probability mass.
+
+_PyUnicodeWriter_Dealloc() :
+replace _PyUnicodeWriter_Dealloc(&writer) with
+PyUnicodeWriter_Discard(writer) .
+
+«
+
+Python »
+
+syslog — Unix syslog library routines
+
+asyncio policy system is deprecated and will be removed in Python 3.16.
+In particular, the following classes and functions are deprecated:
+
+turtle
+
+A commit records a set of changes.
+
+tkinter.font — Tkinter font wrapper
+
+A variable stores a reference to a value.
+
+The training process typically consists of a forward pass, loss calculation, gradient calculation, and parameter update.
+
+When a developer fixes a defect, the tester should execute the relevant test again to verify the fix.
+
+1.2. Environment variables
+
+This function allows sending Python code to be executed in a target process
+at the next safe execution point.
+However, tool authors can also implement the protocol directly as described
+in the PEP, which details the underlying mechanisms used to safely attach to
+running processes.
+
+A software development lifecycle commonly includes requirements analysis, design, implementation, testing, deployment, and maintenance.
+
+Add the BINARY_OP_EXTEND pseudo instruction,
+which executes a pair of functions (guard and specialization functions)
+accessed from the inline cache.
+(Contributed by Irit Katriel in gh-100239 .)
+
+(Contributed by Łukasz Langa in gh-131507 .)
+
+tkinter.dnd — Drag and drop support
+
+A -X disable-remote-debug command-line option.
+
+importlib — The implementation of import
+
+A storage state can contain cookies and local storage required for an authenticated session.
+
+Next topic
+
+8.7. Function definitions
+
+urllib
+
+MultiLoopChildWatcher
+
+Data validation is important when software interacts with databases. A test can create a record through an API and then verify the corresponding database state. Database assertions should use reliable identifiers and should clean up temporary data when appropriate.
+
+configparser — Configuration file parser
+
+PyLong_FromInt64()
+
+However, this statement is now deprecated and it is expected to be removed
+in a future version of Python.
+This removal will not happen until after Python 3.13 reaches its end of life
+in 2029, being the last version of Python without support for deferred
+evaluation of annotations.
+
+Example:
+
+Deprecated the argparse.FileType type converter.
+Anything relating to resource management should be handled
+downstream, after the arguments have been parsed.
+(Contributed by Serhiy Storchaka in gh-58032 .)
+
+Asyncio introspection capabilities
+
+Idempotency describes whether repeating the same request produces the same intended state.
+
+Positional information allows the model to distinguish the order of tokens.
+
+Related changes ¶
+
+difflib
+
+Top-k sampling restricts candidate tokens to the k most probable tokens.
+
+PyConfig_GetInt()
+
+The Py_HUGE_VAL macro is now soft deprecated .
+Use Py_INFINITY instead.
+(Contributed by Sergey B Kirpichev in gh-120026 .)
+
+Add RAR application/vnd.rar ( .rar )
+
+Py_DebugFlag :
+Use PyConfig.parser_debug or
+PyConfig_Get("parser_debug") instead.
+
+15. Floating-Point Arithmetic: Issues and Limitations
+15.1. Representation Error
+
+9.6. Private Variables
+
+Positive test data represents valid inputs.
+
+Py_TPFLAGS_HAVE_FINALIZE :
+Unneeded since Python 3.8.
+
+Py_GetProgramFullPath() :
+Use PyConfig_Get("executable")
+( sys.executable ) instead.
+
+Navigation
+
+Theme
+
+ctypes ¶
+
+modules |
+
+next |
+
+Inline breakpoints like breakpoint() or pdb.set_trace() will
+always stop the program at calling frame, ignoring the skip pattern
+(if any).
+(Contributed by Tian Gao in gh-130493 .)
+
+Improve this page
+
+Tip
+
+Python can read and write files.
+
+Verify Dashboard is visible
+
+Py_IgnoreEnvironmentFlag :
+Use PyConfig.use_environment or
+PyConfig_Get("use_environment") instead.
+
+The training process typically consists of a forward pass, loss calculation, gradient calculation, and parameter update.
+
+Deprecated ¶
+
+codecs : use open() instead of codecs.open() . ( gh-133038 )
+
+Last updated on Sep 16, 2026 (02:12 UTC).
+
+Lists are ordered mutable collections.
+
+1. Load a batch.
+2. Move the batch to the selected device.
+3. Perform a forward pass.
+4. Calculate the loss.
+5. Clear previous gradients.
+6. Backpropagate the loss.
+7. Clip gradients if required.
+8. Update model parameters.
+9. Record training metrics.
+10. Evaluate validation performance.
+
+Lower validation loss generally indicates better next-token prediction performance on the validation data.
+
+base64
+
+modules |
+
+The name attribute is commonly used by forms.
+
+os.path — Common pathname manipulations
+
+In pathname2url() :
+
+3. Configure Python
+3.1. Build Requirements
+
+If the defect still exists, the tester may reopen the defect.
+
+The quality of training data is important because the model learns patterns present in that data.
+
+ctypes now supports free-threading builds .
+(Contributed by Kumar Aditya and Peter Bierma in gh-127945 .)
+
+Test isolation is important because one test should not unnecessarily depend on the state created by another test.
+
+Example:
+
+can be represented as:
+
+Software Packaging and Distribution
+ensurepip — Bootstrapping the pip installer
+
+|
+
+Pending removal in Python 3.15
+
+Python support for the Linux perf profiler
+
+name = "Geniee"
+version = 1
+learning_rate = 0.001
+
+A --without-remote-debug configure flag to completely disable
+the feature at build time.
+
+Machine learning is a field of artificial intelligence in which models learn patterns from data.
+
+_Py_fopen_obj() : use Py_fopen() .
+
+3.14.7 Documentation »
+
+inspect ¶
+
+Add support for copy.replace() for AST nodes.
+(Contributed by Bénédikt Tran in gh-121141 .)
+
+def __init__(self, username):
+        self.username = username
+
+The default interactive shell now highlights Python syntax.
+The feature is enabled by default, save if PYTHON_BASIC_REPL
+or any other environment variable that disables colour is set.
+See Controlling color for details.
+
+Added a new command-line interface to inspect running Python processes
+using asynchronous tasks, available via python -m asyncio ps PID
+or python -m asyncio pstree PID .
+
+python -m pip install SomePackage
+
+def add(a, b):
+    return a + b
+
+«
+
+Theme
+
+An HTML document contains elements such as html, head, body, div, form, input, button, label, heading, paragraph, and link elements.
+
+PyLong_FreeExport()
+
+logging :
+Support for custom logging handlers with the strm argument
+is now deprecated and scheduled for removal in Python 3.16.
+Define handlers with the stream argument instead.
+(Contributed by Mariusz Felisiak in gh-115032 .)
+
+Private functions promoted to public C APIs:
+
+4.9.3.2. Positional-Only Parameters
+
+6.8. Shifting operations
+
+Add the reload_environ() function to update os.environ and
+os.environb with changes to the environment made by
+os.putenv() , by os.unsetenv() , or made outside Python in the
+same process.
+(Contributed by Victor Stinner in gh-120057 .)
+
+The pythoncapi-compat project can be used to get most of these new
+functions on Python 3.13 and older.
+
+test.support.import_helper — Utilities for import tests
+
+Python HOWTOs are documents that cover a specific topic in-depth.
+Modeled on the Linux Documentation Project’s HOWTO collection, this collection is an
+effort to foster documentation that’s more detailed than the
+Python Library Reference.
+
+Creation of virtual environments is done through the venv module.
+Installing packages into an active virtual environment uses the commands shown
+above.
+
+“Why is Python Installed on my Computer?” FAQ
+
+Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+
+Graphic User Interface FAQ
+
+The model dimension is 512.
+
+pathlib ¶
+
+As a popular open source development project, Python has an active
+supporting community of contributors and users that also make their software
+available for other Python developers to use under open-source license terms.
+
+The --cgi flag to the python -m http.server
+command-line interface has been deprecated since Python 3.13.
+
+types ¶
+
+Removed Modules
+
+The Page Object Model improves readability and reduces duplication.
+
+page.get_by_label("Email").fill(email)
+
+Python supports object-oriented programming concepts including encapsulation, inheritance, abstraction, and polymorphism.
+
+async def play_track ( track ):
+await asyncio . sleep ( 5 )
+print ( f '🎵 Finished: { track } ' )
+
+fnmatch — Unix filename pattern matching
+
+Add support for channel in the address for
+BTPROTO_HCI on Linux.
+(Contributed by Serhiy Storchaka in gh-70145 .)
