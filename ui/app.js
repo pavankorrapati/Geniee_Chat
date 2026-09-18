@@ -1,646 +1,305 @@
-// const messages = document.getElementById("messages");
-
-// const input = document.getElementById("messageInput");
-
-// const sendButton = document.getElementById("sendButton");
-
-// const clearButton = document.getElementById("clearButton");
-
-// const newChatButton = document.getElementById("newChatButton");
-
-// const connectionStatus =
-//     document.getElementById("connectionStatus");
-
-
-// let isGenerating = false;
-
-
-// // ============================================================
-// // HEALTH CHECK
-// // ============================================================
-
-// async function checkConnection() {
-
-//     try {
-
-//         const response =
-//             await fetch("/api/health");
-
-//         if (!response.ok) {
-//             throw new Error("API unavailable");
-//         }
-
-//         connectionStatus.textContent =
-//             "Connected to local Geniee API";
-
-//         connectionStatus.style.color =
-//             "#16a34a";
-
-//     } catch (error) {
-
-//         connectionStatus.textContent =
-//             "Geniee API offline";
-
-//         connectionStatus.style.color =
-//             "#dc2626";
-//     }
-// }
-
-
-// // ============================================================
-// // ADD MESSAGE
-// // ============================================================
-
-
-
-
-// // Locate addMessage function and update avatar creation:
-// function addMessage(role, text, source = null) {
-//     const welcome = document.querySelector(".welcome");
-//     if (welcome) welcome.remove();
-
-//     const wrapper = document.createElement("div");
-//     wrapper.className = `message ${role}`;
-
-//     const avatar = document.createElement("div");
-//     avatar.className = `avatar ${role === "geniee" ? "geniee" : "user"}`;
-    
-//     // Set unique avatars & hover titles for Geniee and Flashman
-//     avatar.textContent = role === "geniee" ? "🧞" : "⚡";
-//     avatar.title = role === "geniee" ? "Geniee" : "Flashman";
-
-//     const content = document.createElement("div");
-//     const bubble = document.createElement("div");
-//     bubble.className = "bubble";
-//     bubble.textContent = text;
-
-//     content.appendChild(bubble);
-
-//     if (role === "geniee" && source) {
-//         const sourceElement = document.createElement("div");
-//         sourceElement.className = "source";
-//         sourceElement.textContent = `Source: ${source}`;
-//         content.appendChild(sourceElement);
-//     }
-
-//     if (role === "geniee") {
-//         wrapper.appendChild(avatar);
-//         wrapper.appendChild(content);
-//     } else {
-//         wrapper.appendChild(content);
-//         wrapper.appendChild(avatar);
-//     }
-
-//     messages.appendChild(wrapper);
-//     messages.scrollTop = messages.scrollHeight;
-// }
-
-// // Locate addLoadingMessage function and update avatar:
-// // function addLoadingMessage() {
-// //     const wrapper = document.createElement("div");
-// //     wrapper.className = "message geniee";
-// //     wrapper.id = "loadingMessage";
-
-// //     const avatar = document.createElement("div");
-// //     avatar.className = "avatar geniee";
-// //     avatar.textContent = "🧞";
-// //     avatar.title = "Geniee";
-
-// //     const bubble = document.createElement("div");
-// //     bubble.className = "bubble loading";
-// //     bubble.textContent = "Geniee is thinking...";
-
-// //     wrapper.appendChild(avatar);
-// //     wrapper.appendChild(bubble);
-
-// //     messages.appendChild(wrapper);
-// //     messages.scrollTop = messages.scrollHeight;
-// // }
-// // ============================================================
-// // ADD LOADING MESSAGE
-// // ============================================================
-
-// function addLoadingMessage() {
-//     const loadingHTML = `
-//       <div class="message geniee" id="loadingMessage">
-//         <div class="avatar geniee" title="Geniee">🧞</div>
-//         <div class="bubble loading">
-//           Geniee is thinking...
-//         </div>
-//       </div>
-//     `;
-
-//     messages.insertAdjacentHTML("beforeend", loadingHTML);
-//     messages.scrollTop = messages.scrollHeight;
-// }
-
-
-// // ============================================================
-// // REMOVE LOADING
-// // ============================================================
-
-// function removeLoadingMessage() {
-
-//     const loading =
-//         document.getElementById(
-//             "loadingMessage"
-//         );
-
-//     if (loading) {
-//         loading.remove();
-//     }
-// }
-
-
-// // ============================================================
-// // SEND MESSAGE
-// // ============================================================
-
-// async function sendMessage(
-//     providedMessage = null
-// ) {
-
-//     if (isGenerating) {
-//         return;
-//     }
-
-
-//     const message =
-//         (
-//             providedMessage ??
-//             input.value
-//         ).trim();
-
-
-//     if (!message) {
-//         return;
-//     }
-
-
-//     addMessage(
-//         "user",
-//         message
-//     );
-
-
-//     input.value = "";
-
-//     input.style.height = "auto";
-
-
-//     isGenerating = true;
-
-//     sendButton.disabled = true;
-
-
-//     addLoadingMessage();
-
-
-//     try {
-
-//         const response =
-//             await fetch(
-//                 "/api/chat",
-//                 {
-//                     method: "POST",
-
-//                     headers: {
-//                         "Content-Type":
-//                             "application/json"
-//                     },
-
-//                     body: JSON.stringify({
-//                         message: message,
-//                         max_new_tokens: 80
-//                     })
-//                 }
-//             );
-
-
-//         const data =
-//             await response.json();
-
-
-//         removeLoadingMessage();
-
-
-//         if (!response.ok) {
-
-//             throw new Error(
-//                 data.detail ||
-//                 "Geniee API error"
-//             );
-//         }
-
-
-//         addMessage(
-//             "geniee",
-//             data.response,
-//             data.source
-//         );
-
-
-//     } catch (error) {
-
-//         removeLoadingMessage();
-
-
-//         addMessage(
-//             "geniee",
-//             `Error: ${error.message}`,
-//             "API error"
-//         );
-
-
-//     } finally {
-
-//         isGenerating = false;
-
-//         sendButton.disabled = false;
-
-//         input.focus();
-//     }
-// }
-
-
-// // ============================================================
-// // CLEAR CHAT
-// // ============================================================
-
-// function clearChat() {
-
-//     messages.innerHTML = `
-
-//         <div class="welcome">
-
-//             <div class="welcome-icon">
-//                 G
-//             </div>
-
-//             <h2>
-//                 Welcome to Geniee
-//             </h2>
-
-//             <p>
-//                 Ask a question to start chatting
-//                 with Geniee.
-//             </p>
-
-//         </div>
-//     `;
-// }
-
-
-// // ============================================================
-// // BUTTON EVENTS
-// // ============================================================
-
-// sendButton.addEventListener(
-//     "click",
-//     () => sendMessage()
-// );
-
-
-// clearButton.addEventListener(
-//     "click",
-//     clearChat
-// );
-
-
-// newChatButton.addEventListener(
-//     "click",
-//     clearChat
-// );
-
-
-// // ============================================================
-// // ENTER KEY
-// // ============================================================
-
-// input.addEventListener(
-//     "keydown",
-//     event => {
-
-//         if (
-//             event.key === "Enter" &&
-//             !event.shiftKey
-//         ) {
-
-//             event.preventDefault();
-
-//             sendMessage();
-//         }
-//     }
-// );
-
-
-// // ============================================================
-// // AUTO RESIZE TEXTAREA
-// // ============================================================
-
-// input.addEventListener(
-//     "input",
-//     () => {
-
-//         input.style.height =
-//             "auto";
-
-//         input.style.height =
-//             `${Math.min(
-//                 input.scrollHeight,
-//                 150
-//             )}px`;
-//     }
-// );
-
-
-// // ============================================================
-// // SUGGESTION BUTTONS
-// // ============================================================
-
-// document.addEventListener(
-//     "click",
-//     event => {
-
-//         const button =
-//             event.target.closest(
-//                 ".suggestion"
-//             );
-
-//         if (!button) {
-//             return;
-//         }
-
-//         const message =
-//             button.dataset.message;
-
-//         sendMessage(message);
-//     }
-// );
-
-
-// // ============================================================
-// // INITIALIZATION
-// // ============================================================
-
-// checkConnection();
-
-// input.focus();
-const messages = document.getElementById("messages");
-const input = document.getElementById("messageInput");
-const sendButton = document.getElementById("sendButton");
-const clearButton = document.getElementById("clearButton");
-const newChatButton = document.getElementById("newChatButton");
-const connectionStatus = document.getElementById("connectionStatus");
-
-let isGenerating = false;
-let chatHistory = []; // Stores the last 20 messages for context
-
-
-// ============================================================
-// HEALTH CHECK
-// ============================================================
-
-async function checkConnection() {
-    try {
-        const response = await fetch("/api/health");
-
-        if (!response.ok) {
-            throw new Error("API unavailable");
-        }
-
-        connectionStatus.textContent = "Connected to local Geniee API";
-        connectionStatus.style.color = "#16a34a";
-    } catch (error) {
-        connectionStatus.textContent = "Geniee API offline";
-        connectionStatus.style.color = "#dc2626";
-    }
+const state = {
+    sessionId: localStorage.getItem("geniee_session_id"),
+    contextLimit: 256,
+    busy: false,
+};
+
+const messagesEl = document.getElementById("messages");
+const welcomeEl = document.getElementById("welcome");
+const inputEl = document.getElementById("messageInput");
+const formEl = document.getElementById("chatForm");
+const sendBtn = document.getElementById("sendBtn");
+const contextTokensEl = document.getElementById("contextTokens");
+const totalTokensEl = document.getElementById("totalTokens");
+const sourceBarEl = document.getElementById("sourceBar");
+const historyListEl = document.getElementById("historyList");
+const webSearchToggleEl = document.getElementById("webSearchToggle");
+
+const savedWebSetting = localStorage.getItem("geniee_web_search");
+if (savedWebSetting !== null && webSearchToggleEl) {
+    webSearchToggleEl.checked = savedWebSetting === "true";
 }
 
+webSearchToggleEl?.addEventListener("change", () => {
+    localStorage.setItem(
+        "geniee_web_search",
+        String(webSearchToggleEl.checked)
+    );
+});
 
-// ============================================================
-// ADD MESSAGE
-// ============================================================
+function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
 
-function addMessage(role, text, source = null) {
-    const welcome = document.querySelector(".welcome");
-    if (welcome) welcome.remove();
+function setSession(id) {
+    state.sessionId = id;
+    localStorage.setItem("geniee_session_id", id);
+}
+
+function scrollToBottom() {
+    const area = document.getElementById("chatArea");
+    area.scrollTop = area.scrollHeight;
+}
+
+function showWelcome(show) {
+    welcomeEl.style.display = show ? "" : "none";
+}
+
+function addMessage(role, text, meta = "") {
+    showWelcome(false);
+
+    const row = document.createElement("div");
+    row.className = `message-row ${role}`;
 
     const wrapper = document.createElement("div");
-    wrapper.className = `message ${role}`;
-
-    const avatar = document.createElement("div");
-    avatar.className = `avatar ${role === "geniee" ? "geniee" : "user"}`;
-    avatar.textContent = role === "geniee" ? "🧞" : "⚡";
-    avatar.title = role === "geniee" ? "Geniee" : "Flashman";
-
-    const content = document.createElement("div");
     const bubble = document.createElement("div");
     bubble.className = "bubble";
-    bubble.textContent = text;
+    bubble.innerHTML = escapeHtml(text).replace(/\n/g, "<br>");
 
-    content.appendChild(bubble);
+    wrapper.appendChild(bubble);
 
-    if (role === "geniee" && source) {
-        const sourceElement = document.createElement("div");
-        sourceElement.className = "source";
-        sourceElement.textContent = `Source: ${source}`;
-        content.appendChild(sourceElement);
+    if (meta) {
+        const metaEl = document.createElement("div");
+        metaEl.className = "message-meta";
+        metaEl.textContent = meta;
+        wrapper.appendChild(metaEl);
     }
 
-    if (role === "geniee") {
-        wrapper.appendChild(avatar);
-        wrapper.appendChild(content);
-    } else {
-        wrapper.appendChild(content);
-        wrapper.appendChild(avatar);
-    }
-
-    messages.appendChild(wrapper);
-    messages.scrollTop = messages.scrollHeight;
+    row.appendChild(wrapper);
+    messagesEl.appendChild(row);
+    scrollToBottom();
 }
 
-
-// ============================================================
-// ADD LOADING MESSAGE
-// ============================================================
-
-function addLoadingMessage() {
-    const loadingHTML = `
-      <div class="message geniee" id="loadingMessage">
-        <div class="avatar geniee" title="Geniee">🧞</div>
-        <div class="bubble loading">
-          Geniee is thinking...
-        </div>
-      </div>
-    `;
-
-    messages.insertAdjacentHTML("beforeend", loadingHTML);
-    messages.scrollTop = messages.scrollHeight;
+function addTyping() {
+    const row = document.createElement("div");
+    row.id = "typingRow";
+    row.className = "message-row assistant";
+    row.innerHTML = `
+        <div class="bubble">
+            <span class="typing"><i></i><i></i><i></i></span>
+        </div>`;
+    messagesEl.appendChild(row);
+    scrollToBottom();
 }
 
+function removeTyping() {
+    document.getElementById("typingRow")?.remove();
+}
 
-// ============================================================
-// REMOVE LOADING
-// ============================================================
+function updateUsage(usage = {}) {
+    const prompt = Number(usage.prompt_tokens || 0);
+    const completion = Number(usage.completion_tokens || 0);
+    const total = Number(usage.total_tokens || 0);
+    state.contextLimit = Number(usage.context_limit || state.contextLimit);
 
-function removeLoadingMessage() {
-    const loading = document.getElementById("loadingMessage");
+    contextTokensEl.textContent = `${prompt} / ${state.contextLimit}`;
+    totalTokensEl.textContent = `${total} tokens`;
+}
 
-    if (loading) {
-        loading.remove();
+function showSource(data) {
+    const source = data.source || "model";
+    const sources = data.sources || [];
+    let text = `Source: ${source.replaceAll("_", " ")}`;
+
+    if (sources.length) {
+        text += ` · ${sources.slice(0, 3).join(", ")}`;
+    }
+
+    sourceBarEl.textContent = text;
+    sourceBarEl.classList.remove("hidden");
+}
+
+async function api(url, options = {}) {
+    const response = await fetch(url, {
+        headers: { "Content-Type": "application/json", ...(options.headers || {}) },
+        ...options,
+    });
+
+    if (!response.ok) {
+        let detail = `HTTP ${response.status}`;
+        try {
+            const body = await response.json();
+            detail = body.detail || detail;
+        } catch (_) {}
+        throw new Error(detail);
+    }
+    return response.json();
+}
+
+async function loadHealth() {
+    try {
+        const data = await api("/api/health");
+        document.getElementById("modelState").textContent =
+            data.status === "ok" ? "Online" : "Unavailable";
+    } catch (_) {
+        document.getElementById("modelState").textContent = "Offline";
     }
 }
 
+async function loadHistoryList() {
+    try {
+        const data = await api("/api/sessions");
+        historyListEl.innerHTML = "";
 
-// ============================================================
-// SEND MESSAGE
-// ============================================================
-
-async function sendMessage(providedMessage = null) {
-    if (isGenerating) {
-        return;
+        for (const session of (data.sessions || []).slice(0, 15)) {
+            const button = document.createElement("button");
+            button.className = "history-item";
+            button.textContent = session.title || "New chat";
+            button.title = session.title || "New chat";
+            button.dataset.sessionId = session.session_id;
+            button.addEventListener("click", () => openSession(session.session_id));
+            historyListEl.appendChild(button);
+        }
+    } catch (_) {
+        historyListEl.innerHTML = "";
     }
+}
 
-    const message = (providedMessage ?? input.value).trim();
-
-    if (!message) {
-        return;
-    }
-
-    addMessage("user", message);
-
-    // Append user query to chat history array
-    chatHistory.push({ role: "user", content: message });
-    if (chatHistory.length > 20) {
-        chatHistory = chatHistory.slice(-20);
-    }
-
-    input.value = "";
-    input.style.height = "auto";
-
-    isGenerating = true;
-    sendButton.disabled = true;
-
-    addLoadingMessage();
+async function openSession(sessionId) {
+    if (state.busy) return;
 
     try {
-        const response = await fetch("/api/chat", {
+        const data = await api(`/api/history/${encodeURIComponent(sessionId)}`);
+        setSession(sessionId);
+        messagesEl.innerHTML = "";
+        sourceBarEl.classList.add("hidden");
+
+        const messages = data.messages || [];
+        showWelcome(messages.length === 0);
+
+        for (const message of messages) {
+            if (message.role === "user") {
+                addMessage("user", message.content);
+            } else if (message.role === "assistant") {
+                const usage = message.usage || {};
+                const meta = usage.total_tokens
+                    ? `${message.source || "model"} · ${usage.total_tokens} tokens`
+                    : "";
+                addMessage("assistant", message.content, meta);
+            }
+        }
+
+        const lastAssistant = [...messages].reverse().find(m => m.role === "assistant");
+        if (lastAssistant?.usage) updateUsage(lastAssistant.usage);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function sendMessage(text) {
+    if (state.busy || !text.trim()) return;
+
+    state.busy = true;
+    sendBtn.disabled = true;
+    inputEl.disabled = true;
+
+    addMessage("user", text.trim());
+    inputEl.value = "";
+    autoResize();
+    addTyping();
+
+    try {
+        const data = await api("/api/chat", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
             body: JSON.stringify({
-                message: message,
-                history: chatHistory, // Sending context history payload
-                max_new_tokens: 80
-            })
+                message: text.trim(),
+                max_new_tokens: 100,
+                session_id: state.sessionId,
+                enable_web_search: webSearchToggleEl
+                    ? webSearchToggleEl.checked
+                    : true,
+            }),
         });
 
-        const data = await response.json();
+        setSession(data.session_id);
+        removeTyping();
+        addMessage(
+            "assistant",
+            data.response,
+            `${data.source || "model"} · ${data.usage?.completion_tokens || 0} output tokens`
+        );
 
-        removeLoadingMessage();
-
-        if (!response.ok) {
-            throw new Error(data.detail || "Geniee API error");
-        }
-
-        addMessage("geniee", data.response, data.source);
-
-        // Append assistant response to chat history array
-        chatHistory.push({ role: "assistant", content: data.response });
-        if (chatHistory.length > 20) {
-            chatHistory = chatHistory.slice(-20);
-        }
-
+        updateUsage(data.usage);
+        showSource(data);
+        await loadHistoryList();
     } catch (error) {
-        removeLoadingMessage();
-
-        // Roll back prompt from memory on failure
-        chatHistory.pop();
-
-        addMessage("geniee", `Error: ${error.message}`, "API error");
+        removeTyping();
+        addMessage("assistant", `I could not complete the request.\n\n${error.message}`);
     } finally {
-        isGenerating = false;
-        sendButton.disabled = false;
-        input.focus();
+        state.busy = false;
+        sendBtn.disabled = false;
+        inputEl.disabled = false;
+        inputEl.focus();
     }
 }
 
+async function newChat() {
+    if (state.busy) return;
 
-// ============================================================
-// CLEAR CHAT
-// ============================================================
-
-function clearChat() {
-    chatHistory = []; // Reset stored conversation memory
-
-    messages.innerHTML = `
-        <div class="welcome">
-            <div class="welcome-icon">
-                G
-            </div>
-            <h2>
-                Welcome to Geniee
-            </h2>
-            <p>
-                Ask a question to start chatting with Geniee.
-            </p>
-        </div>
-    `;
+    state.sessionId = null;
+    localStorage.removeItem("geniee_session_id");
+    messagesEl.innerHTML = "";
+    sourceBarEl.classList.add("hidden");
+    showWelcome(true);
+    updateUsage({ prompt_tokens: 0, completion_tokens: 0, total_tokens: 0, context_limit: state.contextLimit });
+    inputEl.focus();
 }
 
-
-// ============================================================
-// BUTTON EVENTS
-// ============================================================
-
-sendButton.addEventListener("click", () => sendMessage());
-clearButton.addEventListener("click", clearChat);
-newChatButton.addEventListener("click", clearChat);
-
-
-// ============================================================
-// ENTER KEY
-// ============================================================
-
-input.addEventListener("keydown", event => {
-    if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        sendMessage();
-    }
-});
-
-
-// ============================================================
-// AUTO RESIZE TEXTAREA
-// ============================================================
-
-input.addEventListener("input", () => {
-    input.style.height = "auto";
-    input.style.height = `${Math.min(input.scrollHeight, 150)}px`;
-});
-
-
-// ============================================================
-// SUGGESTION BUTTONS
-// ============================================================
-
-document.addEventListener("click", event => {
-    const button = event.target.closest(".suggestion");
-
-    if (!button) {
+async function clearCurrentChat() {
+    if (!state.sessionId || state.busy) {
+        await newChat();
         return;
     }
 
-    const message = button.dataset.message;
-    sendMessage(message);
+    try {
+        await api(`/api/history/${encodeURIComponent(state.sessionId)}`, {
+            method: "DELETE",
+        });
+    } catch (error) {
+        console.error(error);
+    }
+
+    await newChat();
+    await loadHistoryList();
+}
+
+function autoResize() {
+    inputEl.style.height = "auto";
+    inputEl.style.height = Math.min(inputEl.scrollHeight, 150) + "px";
+}
+
+formEl.addEventListener("submit", (event) => {
+    event.preventDefault();
+    sendMessage(inputEl.value);
 });
 
+inputEl.addEventListener("input", autoResize);
 
-// ============================================================
-// INITIALIZATION
-// ============================================================
+inputEl.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        formEl.requestSubmit();
+    }
+});
 
-checkConnection();
-input.focus();
+document.getElementById("newChatBtn").addEventListener("click", newChat);
+document.getElementById("clearBtn").addEventListener("click", clearCurrentChat);
+
+document.querySelectorAll(".suggestions button").forEach(button => {
+    button.addEventListener("click", () => sendMessage(button.dataset.prompt));
+});
+
+(async function init() {
+    await loadHealth();
+    await loadHistoryList();
+
+    if (state.sessionId) {
+        await openSession(state.sessionId);
+    } else {
+        showWelcome(true);
+    }
+
+    inputEl.focus();
+})();

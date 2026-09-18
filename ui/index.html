@@ -1,283 +1,137 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geniee AI</title>
-
-    <link
-        rel="stylesheet"
-        href="/style.css"
-    >
-
+    <link rel="stylesheet" href="/static/style.css">
 </head>
-
-
 <body>
+<div class="app-shell">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-mark">G</div>
+            <div>
+                <div class="brand-name">Geniee</div>
+                <div class="brand-subtitle">Local AI Assistant</div>
+            </div>
+        </div>
 
-    <div class="app">
+        <button id="newChatBtn" class="new-chat">
+            <span>＋</span> New chat
+        </button>
 
-        <!-- ================================================= -->
-        <!-- SIDEBAR -->
-        <!-- ================================================= -->
+        <div class="side-section">
+            <div class="section-label">Workspace</div>
+            <div id="historyList" class="history-list"></div>
+        </div>
 
-        <aside class="sidebar">
+        <div class="sidebar-spacer"></div>
 
-            <div class="brand">
+        <div class="model-card">
+            <div class="model-dot"></div>
+            <div>
+                <strong>Geniee 27M</strong>
+                <span id="modelState">Ready</span>
+            </div>
+        </div>
 
-                <div class="brand-logo">
-                    G
-                </div>
+        <div class="capabilities">
+            <span>Python</span>
+            <span>Testing</span>
+            <span>Playwright</span>
+            <span>Selenium</span>
+            <span>API</span>
+        </div>
+    </aside>
 
-                <div>
-
-                    <h1>Geniee</h1>
-
-                    <span>
-                        Local AI Assistant
-                    </span>
-
-                </div>
-
+    <main class="main">
+        <header class="topbar">
+            <div class="mobile-brand">
+                <div class="brand-mark small">G</div>
+                <strong>Geniee</strong>
             </div>
 
-
-            <button
-                id="newChatButton"
-                class="new-chat-button"
-            >
-
-                + New Chat
-
-            </button>
-
-
-            <div class="sidebar-section">
-
-                <div class="sidebar-title">
-                    MODEL
+            <div class="topbar-center">
+                <div class="model-title">
+                    <span class="online-dot"></span>
+                    Geniee 27M
                 </div>
-
-                <div class="model-card">
-
-                    <div class="status-dot"></div>
-
-                    <div>
-
-                        <strong>
-                            Geniee 27M
-                        </strong>
-
-                        <small>
-                            Local model
-                        </small>
-
-                    </div>
-
-                </div>
-
+                <div class="model-caption">Local inference · FastAPI</div>
             </div>
 
-
-            <div class="sidebar-section">
-
-                <div class="sidebar-title">
-                    CAPABILITIES
+            <div class="header-metrics">
+                <label class="web-toggle" title="Allow Geniee to retrieve live web information when local knowledge is insufficient">
+                    <input id="webSearchToggle" type="checkbox" checked>
+                    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                    <span class="toggle-label">Web</span>
+                </label>
+                <div class="metric">
+                    <span>Context</span>
+                    <strong id="contextTokens">0 / 256</strong>
                 </div>
-
-                <div class="capability">
-                    Python Debugging
+                <div class="metric">
+                    <span>Last total</span>
+                    <strong id="totalTokens">0 tokens</strong>
                 </div>
-
-                <div class="capability">
-                    Software Testing
-                </div>
-
-                <div class="capability">
-                    Selenium
-                </div>
-
-                <div class="capability">
-                    Playwright
-                </div>
-
-                <div class="capability">
-                    API Testing
-                </div>
-
-                <div class="capability">
-                    Security Testing
-                </div>
-
+                <button id="clearBtn" class="icon-btn" title="Clear current chat">⌫</button>
             </div>
+        </header>
 
+        <section id="chatArea" class="chat-area">
+            <div id="welcome" class="welcome">
+                <div class="hero-icon">✦</div>
+                <div class="eyebrow">YOUR LOCAL AI</div>
+                <h1>What can Geniee help you build?</h1>
+                <p>Ask questions, debug Python errors, explore testing concepts, or work with your local knowledge.</p>
 
-            <div class="sidebar-footer">
-
-                <span>
-                    Geniee AI
-                </span>
-
-                <span>
-                    v1.0
-                </span>
-
-            </div>
-
-        </aside>
-
-
-        <!-- ================================================= -->
-        <!-- MAIN CHAT -->
-        <!-- ================================================= -->
-
-        <main class="chat-area">
-
-
-            <!-- HEADER -->
-
-            <header class="chat-header">
-
-                <div>
-
-                    <h2>
-                        Geniee AI Assistant
-                    </h2>
-
-                    <span id="connectionStatus">
-                        Checking connection...
-                    </span>
-
-                </div>
-
-
-                <button
-                    id="clearButton"
-                    class="clear-button"
-                >
-
-                    Clear
-
-                </button>
-
-            </header>
-
-
-            <!-- ================================================= -->
-            <!-- MESSAGES -->
-            <!-- ================================================= -->
-
-            <section
-                id="messages"
-                class="messages"
-            >
-
-                <div class="welcome">
-
-                    <div class="welcome-icon">
-                        G
-                    </div>
-
-                    <h2>
-                        Welcome to Geniee
-                    </h2>
-
-                    <p>
-                        Ask questions about Python,
-                        testing, automation, or your
-                        trained Geniee knowledge.
-                    </p>
-
-
-                    <div class="suggestions">
-
-                        <button
-                            class="suggestion"
-                            data-message="What is Python?"
-                        >
-                            What is Python?
-                        </button>
-
-                        <button
-                            class="suggestion"
-                            data-message="What is Selenium?"
-                        >
-                            What is Selenium?
-                        </button>
-
-                        <button
-                            class="suggestion"
-                            data-message="What is Security Testing?"
-                        >
-                            What is Security Testing?
-                        </button>
-
-                        <button
-                            class="suggestion"
-                            data-message="Explain Python TypeError"
-                        >
-                            Explain Python TypeError
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================================================= -->
-            <!-- INPUT -->
-            <!-- ================================================= -->
-
-            <footer class="input-area">
-
-                <div class="input-container">
-
-                    <textarea
-                        id="messageInput"
-                        placeholder="Message Geniee..."
-                        rows="1"
-                    ></textarea>
-
-
-                    <button
-                        id="sendButton"
-                        class="send-button"
-                    >
-
-                        <span>
-                            Send
-                        </span>
-
+                <div class="suggestions">
+                    <button data-prompt="Explain what pytest is and give a simple example.">
+                        <span>🧪</span>
+                        <div><strong>Testing</strong><small>Explain pytest with an example</small></div>
                     </button>
-
+                    <button data-prompt="I am getting TypeError: unsupported operand type(s) for +: 'int' and 'str'. How do I fix it?">
+                        <span>🐍</span>
+                        <div><strong>Python debugging</strong><small>Diagnose an execution error</small></div>
+                    </button>
+                    <button data-prompt="What is the difference between Selenium and Playwright?">
+                        <span>⚡</span>
+                        <div><strong>Automation</strong><small>Compare Selenium and Playwright</small></div>
+                    </button>
+                    <button data-prompt="What is API testing and what should I validate in an API response?">
+                        <span>🔌</span>
+                        <div><strong>API testing</strong><small>Learn practical API checks</small></div>
+                    </button>
                 </div>
+            </div>
 
+            <div id="messages" class="messages"></div>
+        </section>
 
-                <div class="input-info">
+        <footer class="composer-wrap">
+            <div id="sourceBar" class="source-bar hidden"></div>
 
-                    Geniee runs locally on your machine.
+            <form id="chatForm" class="composer">
+                <textarea
+                    id="messageInput"
+                    rows="1"
+                    maxlength="10000"
+                    placeholder="Message Geniee..."
+                    autocomplete="off"
+                ></textarea>
+                <button id="sendBtn" type="submit" class="send-btn" title="Send">
+                    <span>↑</span>
+                </button>
+            </form>
 
-                </div>
+            <div class="composer-footer">
+                <span>Enter to send · Shift + Enter for new line</span>
+                <span>Local model · No cloud API required</span>
+            </div>
+        </footer>
+    </main>
+</div>
 
-            </footer>
-
-        </main>
-
-    </div>
-
-
-    <script src="/app.js"></script>
-
+<script src="/static/app.js"></script>
 </body>
-
 </html>

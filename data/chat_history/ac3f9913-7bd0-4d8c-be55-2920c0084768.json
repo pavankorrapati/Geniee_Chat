@@ -1,0 +1,74 @@
+{
+  "session_id": "ac3f9913-7bd0-4d8c-be55-2920c0084768",
+  "created_at": "2026-09-18T10:23:11.909479+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi",
+      "timestamp": "2026-09-18T10:23:11.909479+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "HI definition: 1. used as an informal greeting, usually to people who you know: 2. written abbreviation for the…. Learn more. The meaning of HI is —used especially as a greeting. How to use hi in a sentence.",
+      "source": "web",
+      "usage": {
+        "prompt_tokens": 353,
+        "completion_tokens": 84,
+        "total_tokens": 437,
+        "context_limit": 256
+      },
+      "timestamp": "2026-09-18T10:23:11.909479+00:00"
+    },
+    {
+      "role": "user",
+      "content": "How are you",
+      "timestamp": "2026-09-18T10:23:24.886890+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "&quot;How are you?&quot; is a common greeting that is used to ask someone about their well-being or current state. It is usually used as a casual greeting between friends, colleagues, and family members. In this lesson, you will learn a list of 16 sentences you can use instead of &quot;How are you?&quot; in English and how to respond to it. Learn those words to use in your daily life. Discover fresh, friendly other ways to say how are you that add warmth and meaning to conversations. Upgrade your greetings today. Try it!..",
+      "source": "web",
+      "usage": {
+        "prompt_tokens": 154,
+        "completion_tokens": 216,
+        "total_tokens": 370,
+        "context_limit": 256
+      },
+      "timestamp": "2026-09-18T10:23:24.886890+00:00"
+    },
+    {
+      "role": "user",
+      "content": "Who won the yesterday's match which is held in between India versus Afghanisthan?",
+      "timestamp": "2026-09-18T10:23:35.528415+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "The win pulls India A level on four points with Sri Lanka A, who still have one league match remaining against Afghanistan A on June 19. Who won the India A vs. Afghanistan A match today? India A beat Afghanistan A by 101 runs at Rangiri Dambulla International Stadium on Tuesday, claiming a comprehensive victory in Match 5 of the Tri-Nation A ...",
+      "source": "web",
+      "usage": {
+        "prompt_tokens": 409,
+        "completion_tokens": 157,
+        "total_tokens": 566,
+        "context_limit": 256
+      },
+      "timestamp": "2026-09-18T10:23:35.528415+00:00"
+    },
+    {
+      "role": "user",
+      "content": "What is recent nice movie in telugu?",
+      "timestamp": "2026-09-18T10:23:56.563067+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "MAD Full 1080p HD Movie In Telugu | Telugu Best Comedy Movie | 2024 New Comedy Movies In Telugu | MAD 2025 1080p Telugu Full Movie HDRip | Sangeeth Shobhan | Ananthika | Sri Gouri Priya | Gopika ... Get all the Movies News in Telugu, Videos, Trailers, Gossips, New Releases, All celebrities news in Telugu, Live Updates for Movies News, Movie Reviews News, Latest Tollywood News -NTV Telugu",
+      "source": "web",
+      "usage": {
+        "prompt_tokens": 585,
+        "completion_tokens": 229,
+        "total_tokens": 814,
+        "context_limit": 256
+      },
+      "timestamp": "2026-09-18T10:23:56.563067+00:00"
+    }
+  ]
+}
