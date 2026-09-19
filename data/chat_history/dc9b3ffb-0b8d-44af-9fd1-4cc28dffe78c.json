@@ -1,0 +1,23 @@
+{
+  "session_id": "dc9b3ffb-0b8d-44af-9fd1-4cc28dffe78c",
+  "created_at": "2026-09-19T04:58:50.021242+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the today's gold price in Banglore?",
+      "timestamp": "2026-09-19T04:58:50.021242+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Gold Rate in Bangalore Today (19 September 2026): Get 18K, 22 Carat &amp; 24 Karat gold rate in Bengaluru &amp; last 10 days gold price based on rupees per gram from GoodReturns. Today&#x27;s gold rate in Bangalore, KA — live 24K, 22K, 18K gold price per gram. Gold rate calculator with making charges + GST. Previous date lookup.",
+      "source": "web",
+      "usage": {
+        "prompt_tokens": 340,
+        "completion_tokens": 165,
+        "total_tokens": 505,
+        "context_limit": 256
+      },
+      "timestamp": "2026-09-19T04:58:50.021242+00:00"
+    }
+  ]
+}

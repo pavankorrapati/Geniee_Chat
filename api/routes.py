@@ -6,9 +6,11 @@ from uuid import uuid4
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
-
+from enum import Enum
 from chat.history import ChatHistoryStore
 from generation.chat import load_chatbot
+from video.generator import generate_video as create_video
+
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -34,7 +36,20 @@ class ChatResponse(BaseModel):
     sources: list[str]
     usage: dict[str, int]
     web_search_enabled: bool
-
+class VideoResolution(str, Enum):
+    RES_360P = "640x360"
+    RES_480P = "854x480"
+    RES_720P = "1280x720"    
+# class VideoRequest(BaseModel):
+#     prompt: str = Field(min_length=1, max_length=2000)
+#     duration: int | None = Field(default=None, ge=2, le=20)
+#     fps: int | None = Field(default=None, ge=12, le=30)
+#     resolution: str | None = Field(default=None, pattern=r"^(640x360|854x480|1280x720)$")
+class VideoRequest(BaseModel):
+    prompt: str = Field(min_length=1, max_length=2000)
+    duration: int | None = Field(default=None, ge=2, le=20)
+    fps: int | None = Field(default=None, ge=12, le=30)
+    resolution: VideoResolution | None = Field(default=None)
 
 def _get_chatbot_and_id(
     session_id: str | None,
@@ -175,3 +190,21 @@ def chat_completion(
         "sources": result.sources,
         "web_search_enabled": result.web_search_enabled,
     }
+@router.post("/video")
+def generate_video(request: VideoRequest):
+
+    try:
+        result = create_video(
+            prompt=request.prompt,
+            duration=request.duration,
+            fps=request.fps,
+            resolution=request.resolution,
+        )
+
+        return result
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Video generation failed: {exc}",
+        )

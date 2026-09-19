@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -134,4 +134,620 @@
 
 <script src="/static/app.js"></script>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Geniee AI</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+    <!-- ========================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================================================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                G
+            </div>
+
+            <div>
+                <div class="brand-name">
+                    Geniee
+                </div>
+
+                <div class="brand-subtitle">
+                    Local AI Assistant
+                </div>
+            </div>
+
+        </div>
+
+
+        <button
+            id="newChatBtn"
+            class="new-chat"
+        >
+            <span>＋</span>
+            New chat
+        </button>
+
+
+        <div class="side-section">
+
+            <div class="section-label">
+                Workspace
+            </div>
+
+            <div
+                id="historyList"
+                class="history-list"
+            ></div>
+
+        </div>
+
+
+        <div class="sidebar-spacer"></div>
+
+
+        <div class="model-card">
+
+            <div class="model-dot"></div>
+
+            <div>
+                <strong>
+                    Geniee 27M
+                </strong>
+
+                <span id="modelState">
+                    Ready
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="capabilities">
+
+            <span>Python</span>
+            <span>Testing</span>
+            <span>Playwright</span>
+            <span>Selenium</span>
+            <span>API</span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ========================================================= -->
+    <!-- MAIN -->
+    <!-- ========================================================= -->
+
+    <main class="main">
+
+
+        <!-- ===================================================== -->
+        <!-- TOP BAR -->
+        <!-- ===================================================== -->
+
+        <header class="topbar">
+
+            <div class="mobile-brand">
+
+                <div class="brand-mark small">
+                    G
+                </div>
+
+                <strong>
+                    Geniee
+                </strong>
+
+            </div>
+
+
+            <div class="topbar-center">
+
+                <div class="model-title">
+
+                    <span class="online-dot"></span>
+
+                    Geniee 27M
+
+                </div>
+
+                <div class="model-caption">
+                    Local inference · FastAPI
+                </div>
+
+            </div>
+
+
+            <div class="header-metrics">
+
+
+                <!-- WEB SEARCH -->
+
+                <label
+                    class="web-toggle"
+                    title="Allow Geniee to retrieve live web information when local knowledge is insufficient"
+                >
+
+                    <input
+                        id="webSearchToggle"
+                        type="checkbox"
+                        checked
+                    >
+
+                    <span class="toggle-track">
+                        <span class="toggle-thumb"></span>
+                    </span>
+
+                    <span class="toggle-label">
+                        Web
+                    </span>
+
+                </label>
+
+
+                <!-- OUTPUT TOKENS -->
+
+                <label
+                    class="token-selector"
+                    title="Maximum output tokens requested from Geniee"
+                >
+
+                    <span>
+                        Output
+                    </span>
+
+                    <select id="outputTokens">
+
+                        <option value="32">
+                            32
+                        </option>
+
+                        <option value="64">
+                            64
+                        </option>
+
+                        <option
+                            value="100"
+                            selected
+                        >
+                            100
+                        </option>
+
+                        <option value="128">
+                            128
+                        </option>
+
+                        <option value="160">
+                            160
+                        </option>
+
+                        <option value="200">
+                            200
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <!-- CONTEXT -->
+
+                <div class="metric">
+
+                    <span>
+                        Context
+                    </span>
+
+                    <strong id="contextTokens">
+                        0 / 256
+                    </strong>
+
+                </div>
+
+
+                <!-- TOTAL -->
+
+                <div class="metric">
+
+                    <span>
+                        Last total
+                    </span>
+
+                    <strong id="totalTokens">
+                        0 tokens
+                    </strong>
+
+                </div>
+
+
+                <!-- CLEAR -->
+
+                <button
+                    id="clearBtn"
+                    class="icon-btn"
+                    title="Clear current chat"
+                >
+                    ⌫
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ===================================================== -->
+        <!-- CHAT AREA -->
+        <!-- ===================================================== -->
+
+        <section
+            id="chatArea"
+            class="chat-area"
+        >
+
+
+            <!-- ================================================= -->
+            <!-- WELCOME -->
+            <!-- ================================================= -->
+
+            <div
+                id="welcome"
+                class="welcome"
+            >
+
+                <div class="hero-icon">
+                    ✦
+                </div>
+
+                <div class="eyebrow">
+                    YOUR LOCAL AI
+                </div>
+
+                <h1>
+                    What can Geniee help you build?
+                </h1>
+
+                <p>
+                    Ask questions, debug Python errors,
+                    explore testing concepts, or work
+                    with your local knowledge.
+                </p>
+
+
+                <div class="suggestions">
+
+
+                    <button
+                        data-prompt="Explain what pytest is and give a simple example."
+                    >
+
+                        <span>
+                            🧪
+                        </span>
+
+                        <div>
+                            <strong>
+                                Testing
+                            </strong>
+
+                            <small>
+                                Explain pytest with an example
+                            </small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        data-prompt="I am getting TypeError: unsupported operand type(s) for +: 'int' and 'str'. How do I fix it?"
+                    >
+
+                        <span>
+                            🐍
+                        </span>
+
+                        <div>
+                            <strong>
+                                Python debugging
+                            </strong>
+
+                            <small>
+                                Diagnose an execution error
+                            </small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        data-prompt="What is the difference between Selenium and Playwright?"
+                    >
+
+                        <span>
+                            ⚡
+                        </span>
+
+                        <div>
+                            <strong>
+                                Automation
+                            </strong>
+
+                            <small>
+                                Compare Selenium and Playwright
+                            </small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        data-prompt="What is API testing and what should I validate in an API response?"
+                    >
+
+                        <span>
+                            🔌
+                        </span>
+
+                        <div>
+                            <strong>
+                                API testing
+                            </strong>
+
+                            <small>
+                                Learn practical API checks
+                            </small>
+                        </div>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- MESSAGES -->
+            <!-- ================================================= -->
+
+            <div
+                id="messages"
+                class="messages"
+            ></div>
+
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- VIDEO PANEL -->
+        <!-- ===================================================== -->
+
+        <section
+            class="video-panel"
+            id="videoPanel"
+        >
+
+            <div class="video-panel-header">
+
+                <div>
+
+                    <div class="video-title">
+                        🎬 Create Video
+                    </div>
+
+                    <div class="video-subtitle">
+                        Generate a video locally with Geniee
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <textarea
+                id="videoPrompt"
+                class="video-prompt"
+                maxlength="2000"
+                placeholder="Describe the video you want to create..."
+            ></textarea>
+
+
+            <div class="video-controls">
+
+
+                <label>
+
+                    <span>
+                        Duration
+                    </span>
+
+                    <select id="videoDuration">
+
+                        <option value="3">
+                            3 sec
+                        </option>
+
+                        <option
+                            value="5"
+                            selected
+                        >
+                            5 sec
+                        </option>
+
+                        <option value="10">
+                            10 sec
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        FPS
+                    </span>
+
+                    <select id="videoFps">
+
+                        <option
+                            value="24"
+                            selected
+                        >
+                            24
+                        </option>
+
+                        <option value="30">
+                            30
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        Resolution
+                    </span>
+
+                    <select id="videoResolution">
+
+                        <option
+                            value="640x360"
+                            selected
+                        >
+                            640 × 360
+                        </option>
+
+                        <option value="1280x720">
+                            1280 × 720
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+            </div>
+
+
+            <button
+                id="generateVideoBtn"
+                class="generate-video-btn"
+                type="button"
+            >
+                🎬 Generate Video
+            </button>
+
+
+            <div
+                id="videoResult"
+                class="video-result"
+            ></div>
+
+
+            <div class="video-help">
+                Tip: Press Ctrl + Enter inside the video
+                prompt to generate.
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- COMPOSER -->
+        <!-- ===================================================== -->
+
+        <footer class="composer-wrap">
+
+
+            <div
+                id="sourceBar"
+                class="source-bar hidden"
+            ></div>
+
+
+            <form
+                id="chatForm"
+                class="composer"
+            >
+
+                <textarea
+                    id="messageInput"
+                    rows="1"
+                    maxlength="10000"
+                    placeholder="Message Geniee..."
+                    autocomplete="off"
+                ></textarea>
+
+
+                <button
+                    id="sendBtn"
+                    type="submit"
+                    class="send-btn"
+                    title="Send"
+                >
+                    <span>
+                        ↑
+                    </span>
+                </button>
+
+            </form>
+
+
+            <div class="composer-footer">
+
+                <span>
+                    Enter to send · Shift + Enter for new line
+                </span>
+
+                <span>
+                    Local model · No cloud API required
+                </span>
+
+            </div>
+
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<script src="/static/app.js"></script>
+
+</body>
+
 </html>
